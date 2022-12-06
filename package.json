@@ -15,6 +15,9 @@
     "type": "git",
     "url": "git+https://github.com/AwesomeDevin/zustand-vue.git"
   },
+  "files": [
+    "build/"
+  ],
   "keywords": [
     "zustand"
   ],
