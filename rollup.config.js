@@ -1,24 +1,35 @@
-import polyfill from 'rollup-plugin-polyfill'
+// import polyfill from 'rollup-plugin-polyfill'
 import typescript from 'rollup-plugin-typescript2';
 import commonjs from 'rollup-plugin-commonjs'
 import serve from 'rollup-plugin-serve'
 import livereload from 'rollup-plugin-livereload'
+import { terser } from 'rollup-plugin-terser';
+// import resolve from '@rollup/plugin-node-resolve';
 
-let defaults = { compilerOptions: { declaration: true } };
-let override = { compilerOptions: { declaration: false } };
+
+const isDev = process.argv.includes('development')
+
+
+let defaults = {
+  compilerOptions: { declaration: true }
+}
+
 
 const plugins = [
   typescript({
     tsconfigDefaults: defaults,
     tsconfig: "tsconfig.json",
-    tsconfigOverride: override
   }),
   commonjs(),
   // polyfill(['./index.ts']),
-  livereload(),
-  serve({
-    open: true,
-  }),
+  ...isDev ? [
+    livereload(),
+    serve({
+      open: true,
+    })
+  ] : [],
+
+  // resolve({ jsnext: true, preferBuiltins: true, })
 ]
 
 export default {
@@ -26,10 +37,12 @@ export default {
   output: [{
     file: './build/index.es.js',
     format: 'es',
+    plugins: [terser()]
   }, {
     file: './build/index.js',
     format: 'cjs',
-    name: 'example'
+    name: 'example',
+    plugins: [terser()]
   }],
   plugins
 }

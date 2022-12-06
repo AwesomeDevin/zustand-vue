@@ -32,7 +32,7 @@ const defineReactive = <T>(store: T, subscribeCache: ISubscribeCache, api: Store
   });
 };
 
-export default <T extends object>(createState: StateCreator<T, [], [], T>) => {
+function create<T extends object>(createState: StateCreator<T, [], [], T>) {
   const subscribeCache: {
     [key: string]: () => void
   } = {};
@@ -61,5 +61,6 @@ export default <T extends object>(createState: StateCreator<T, [], [], T>) => {
 export {
   createStore,
   StateCreator,
-  StoreApi
+  StoreApi,
+  create
 }

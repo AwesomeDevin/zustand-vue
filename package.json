@@ -2,9 +2,13 @@
   "name": "zustand-vue",
   "version": "0.0.1",
   "description": "State management for vue based on zustand",
-  "main": "src/index.js",
+  "main": "build/index.js",
+  "module": "build/index.es.js",
+  "types": "build/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx rollup -c --bundleConfigAsCjs",
+    "dev": "npx rollup -c -w --development --bundleConfigAsCjs"
   },
   "sideEffects": false,
   "repository": {
@@ -19,7 +23,6 @@
   "bugs": {
     "url": "https://github.com/AwesomeDevin/zustand-vue/issues"
   },
-  "type": "module",
   "homepage": "https://github.com/AwesomeDevin/zustand-vue#readme",
   "dependencies": {
     "vue": "^3.2.45",
@@ -30,6 +33,9 @@
     "zustand": "^4.1.4"
   },
   "devDependencies": {
+    "@rollup/plugin-babel": "^6.0.2",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-typescript": "^9.0.2",
     "@typescript-eslint/eslint-plugin": "^5.45.0",
     "@typescript-eslint/parser": "^5.45.0",
     "eslint": "^8.29.0",
@@ -37,6 +43,7 @@
     "rollup-plugin-livereload": "^2.0.5",
     "rollup-plugin-polyfill": "^4.0.0",
     "rollup-plugin-serve": "^2.0.1",
+    "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.34.1",
     "typescript": "^4.9.3"
   }
