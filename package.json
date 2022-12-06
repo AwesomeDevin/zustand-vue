@@ -1,0 +1,43 @@
+{
+  "name": "zustand-vue",
+  "version": "0.0.1",
+  "description": "State management for vue based on zustand",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AwesomeDevin/zustand-vue.git"
+  },
+  "keywords": [
+    "zustand"
+  ],
+  "author": "AwesomeDevin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AwesomeDevin/zustand-vue/issues"
+  },
+  "type": "module",
+  "homepage": "https://github.com/AwesomeDevin/zustand-vue#readme",
+  "dependencies": {
+    "vue": "^3.2.45",
+    "zustand": "^4.1.4"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.45",
+    "zustand": "^4.1.4"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@typescript-eslint/parser": "^5.45.0",
+    "eslint": "^8.29.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-livereload": "^2.0.5",
+    "rollup-plugin-polyfill": "^4.0.0",
+    "rollup-plugin-serve": "^2.0.1",
+    "rollup-plugin-typescript2": "^0.34.1",
+    "typescript": "^4.9.3"
+  }
+}
