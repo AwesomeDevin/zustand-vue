@@ -4,8 +4,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "zustand-vue": ["../../build/index.es.js"]
+      "@/*": ["./src/*"]
     }
   },
 
