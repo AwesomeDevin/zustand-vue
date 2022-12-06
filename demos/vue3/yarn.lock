@@ -913,6 +913,11 @@ unbox-primitive@^1.0.2:
     has-symbols "^1.0.3"
     which-boxed-primitive "^1.0.2"
 
+use-sync-external-store@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.npmjs.org/use-sync-external-store/-/use-sync-external-store-1.2.0.tgz#7dbefd6ef3fe4e767a0cf5d7287aacfb5846928a"
+  integrity sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==
+
 validate-npm-package-license@^3.0.1:
   version "3.0.4"
   resolved "http://registry.m.jd.com/validate-npm-package-license/download/validate-npm-package-license-3.0.4.tgz#fc91f6b9c7ba15c857f4cb2c5defeec39d4f410a"
@@ -940,7 +945,7 @@ vue-tsc@^0.38.1:
   dependencies:
     "@volar/vue-typescript" "0.38.9"
 
-vue@^3.2.37:
+vue@^3.2.37, vue@^3.2.45:
   version "3.2.45"
   resolved "http://registry.m.jd.com/vue/download/vue-3.2.45.tgz#94a116784447eb7dbd892167784619fef379b3c8"
   integrity sha1-lKEWeERH6329iSFneEYZ/vN5s8g=
@@ -968,3 +973,27 @@ which@^1.2.9:
   integrity sha1-pFBD1U9YBTFtqNYvn1CRjT2nCwo=
   dependencies:
     isexe "^2.0.0"
+
+zustand-vue@1.0.0-beta.0:
+  version "1.0.0-beta.0"
+  resolved "https://registry.npmjs.org/zustand-vue/-/zustand-vue-1.0.0-beta.0.tgz#2ff6d9c555ec90eb8719e33b8fdea9450899ec20"
+  integrity sha512-/nR7fEqPgeCCQ+/6fnzFAzE18w68xldx0NccGdixLN1Bj3IhEhvCzyMnq2xdrXTCxzJ9SRp7T8+Haa+dav2COA==
+  dependencies:
+    vue "^3.2.45"
+    zustand "^4.1.4"
+    zustand-vue "^0.0.1"
+
+zustand-vue@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.npmjs.org/zustand-vue/-/zustand-vue-0.0.1.tgz#c97a085d14f15d2db620333e67bc2f30a5a64e95"
+  integrity sha512-TWSd7Euh2gDisBdr6wCDVVehQ3tjjlZZaJojks1n4aTWi7zL6oUlsbHQ3a+Iuv7AF1V6M4AukyNfQ9c5/T3oNg==
+  dependencies:
+    vue "^3.2.45"
+    zustand "^4.1.4"
+
+zustand@^4.1.4:
+  version "4.1.5"
+  resolved "https://registry.npmjs.org/zustand/-/zustand-4.1.5.tgz#7402b511f5b23ccb0f9ba6d20ae01ec817e16eb6"
+  integrity sha512-PsdRT8Bvq22Yyh1tvpgdHNE7OAeFKqJXUxtJvj1Ixw2B9O2YZ1M34ImQ+xyZah4wZrR4lENMoDUutKPpyXCQ/Q==
+  dependencies:
+    use-sync-external-store "1.2.0"

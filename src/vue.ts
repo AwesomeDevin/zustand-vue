@@ -1,5 +1,6 @@
 import createStore, { StateCreator, StoreApi, StoreMutatorIdentifier } from "zustand/vanilla";
 import { reactive, ref, UnwrapNestedRefs } from "vue";
+import defineProxy from "./proxy";
 
 type Selection<T> = (state: T) => any
 
@@ -17,7 +18,7 @@ type Create = {
 
 type ExtractState<S> = S extends ((state: S) => infer T) ? T : S
 
-interface ISubscribeCache {
+export interface ISubscribeCache {
   [key: string]: () => void
 }
 
@@ -48,6 +49,25 @@ const defineReactive = <T, S>(store: S, subscribeCache: ISubscribeCache, api: St
   });
 };
 
+
+function defineDep<T, S extends object>(store: S, subscribeCache: ISubscribeCache, api: StoreApi<T>, selection: (state: T) => S) {
+  const isObject = store?.constructor === Object;
+  const isFunction = store instanceof Function;
+  if (isObject) {
+    if (typeof Proxy !== 'undefined') {
+      defineReactive<T, typeof store>(store, subscribeCache, api, selection);
+      return reactive(store);
+    }
+    return defineProxy<T, typeof store>(store, subscribeCache, api, selection)
+  } else {
+    const res = ref<S>(store);
+    api.subscribe((state) => {
+      res.value = selection ? selection(state) : state;
+    });
+    return isFunction ? res.value as (UnwrapNestedRefs<T> | UnwrapNestedRefs<ExtractState<T>>) : res;
+  }
+}
+
 const create = (<T extends object>(createState: StateCreator<T, [], [], T>) => {
   const subscribeCache: {
     [key: string]: () => void
@@ -57,18 +77,7 @@ const create = (<T extends object>(createState: StateCreator<T, [], [], T>) => {
   const useStore = (selection?: (state: T) => ExtractState<T>) => {
     const externalState = api.getState();
     const store = selection ? selection(externalState) : externalState;
-    const isObject = store?.constructor === Object;
-    const isFunction = store instanceof Function;
-    if (isObject) {
-      defineReactive<T, typeof store>(store, subscribeCache, api, selection);
-      return reactive(store);
-    } else {
-      const res = ref<T | ExtractState<T>>(store);
-      api.subscribe((state) => {
-        res.value = selection ? selection(state) : state;
-      });
-      return isFunction ? res.value as (UnwrapNestedRefs<T> | UnwrapNestedRefs<ExtractState<T>>) : res;
-    }
+    return defineDep(store, subscribeCache, api, selection)
   };
   const res = Object.assign({ useStore }, api);
   return res;

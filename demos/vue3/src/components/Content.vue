@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h3>Header Component</h3>
+    <h3>Content Component</h3>
     <h3>My Name is {{ name }}</h3>
     <ul>
       <li v-for="item in collection" :key="item">{{ item }}</li>

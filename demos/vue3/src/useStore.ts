@@ -1,4 +1,6 @@
-import create from '../../../build/index';
+import { create } from 'zustand-vue';
+// import { create } from '../../../build/index.es.js';
+
 
 interface IState {
   userInfo: {
@@ -36,5 +38,7 @@ const userStore = (set: any, get: any) => ({
     });
   }
 });
+
+console.log(create)
 
 export default create<IState & IAction>(userStore);
