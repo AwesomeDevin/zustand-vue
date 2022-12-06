@@ -47,8 +47,7 @@ export default {
       // console.log("push", push);
       // this.store.collection.push(this.value);
       push(this.value);
-      // push(this.value);
-      // this.value = "";
+      this.value = "";
     },
   },
 

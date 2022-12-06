@@ -5,7 +5,8 @@
     <ul>
       <li v-for="item in collection" :key="item">{{ item }}</li>
     </ul>
-    {{ store.userInfo }}
+    <div>storeValue: {{ store }}</div>
+    
   </div>
 </template>
 
@@ -29,15 +30,17 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
+.hello {
+  margin: 80px 0 0;
+}
+h3,ul,div{
+  margin-bottom: 15px;
 }
 ul {
   list-style-type: none;
   padding: 0;
 }
 li {
-  display: inline-block;
   margin: 0 10px;
 }
 a {
