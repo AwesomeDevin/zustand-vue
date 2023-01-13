@@ -10,27 +10,26 @@
     <button
       @click="add"
     >
-    添加到城市列表
+      添加到城市列表
     </button>
   </div>
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue'
 import Store from "../useStore";
-export default defineComponent({
-  setup(){
-    const push = Store.useStore((state) => state.push);
-    const value = ref('')
 
-    function add() {
-      push(value.value);
-      value.value = ''
-    }
+const push = Store.useStore((state) => state.push);
+export default {
+  data(){
     return {
-      value, add
+      value: ''
+    }
+  },
+  methods: {
+    add(){
+      push(this.value)
+      this.value = ''
     }
   }
-
-})
+}
 </script>
