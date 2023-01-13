@@ -1,16 +1,17 @@
 <template>
   <div class="hello">
-    <h3>Content Component</h3>
+    <h3>{{ title }}</h3>
     <h3>My Name is {{ name }}</h3>
+    <h3>userInfo： {{ store.userInfo }}</h3>
+    <h3>
     <ul>
+      城市列表：
       <li v-for="item in collection" :key="item">{{ item }}</li>
     </ul>
-    <div>storeValue: {{ store }}</div>
-    
+  </h3>
   </div>
 </template>
-
-<script lang="ts">
+<script>
 import Store from "../useStore";
 
 export default {
@@ -18,9 +19,22 @@ export default {
   data() {
     return {
       name: Store.useStore((state) => state.userInfo.name),
+      userInfo: Store.useStore((state) => state.userInfo),
       collection: Store.useStore((state) => state.collection),
       store: Store.useStore(),
+      title: Store.useStore((state) => state.title),
     };
+  },
+  watch: {
+    name() {
+      console.log("name changed");
+    },
+    userInfo() {
+      console.log("userInfo changed");
+    },
+    collection() {
+      console.log("collection changed");
+    },
   },
   mounted() {
     console.log(this.collection, this.name, this.store.userInfo);
@@ -30,17 +44,17 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.hello {
-  margin: 80px 0 0;
-}
-h3,ul,div{
-  margin-bottom: 15px;
+h3 {
+  margin: 40px 0 0;
+  color : #fff;
 }
 ul {
-  list-style-type: none;
   padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 li {
+  display: inline-block;
   margin: 0 10px;
 }
 a {

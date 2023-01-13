@@ -1,10 +1,25 @@
 
 <script setup lang="ts">
-import Form from './Form.vue'
+import NameForm from './NameForm.vue'
+import ListForm from './ListForm.vue'
+
 import Content from './Content.vue'
 </script>
 
 <template>
- <Form />
- <Content />
+  <Content />
+  <div class="border" />
+  <NameForm />
+  <ListForm />
 </template>
+
+
+<style>
+
+.border {
+  width: 100%;
+  height: 1px;
+  margin: 20px;
+  background-color: #ccc;
+}
+</style>
