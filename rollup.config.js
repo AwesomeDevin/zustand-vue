@@ -1,19 +1,20 @@
 // import polyfill from 'rollup-plugin-polyfill'
 import typescript from 'rollup-plugin-typescript2';
 import commonjs from 'rollup-plugin-commonjs'
-import serve from 'rollup-plugin-serve'
+// import serve from 'rollup-plugin-serve'
 import livereload from 'rollup-plugin-livereload'
 import { terser } from 'rollup-plugin-terser';
 // import resolve from '@rollup/plugin-node-resolve';
 
 
-const isDev = process.argv.includes('development')
+const isDev = process.argv.includes('--development')
 
 
 let defaults = {
   compilerOptions: { declaration: true }
 }
 
+console.log('isDev',isDev, process.argv)
 
 const plugins = [
   typescript({
@@ -24,9 +25,10 @@ const plugins = [
   // polyfill(['./index.ts']),
   ...isDev ? [
     livereload(),
-    serve({
-      open: true,
-    })
+    // serve({
+    //   open: true,
+    //   port: 2000,
+    // })
   ] : [],
 
   // resolve({ jsnext: true, preferBuiltins: true, })

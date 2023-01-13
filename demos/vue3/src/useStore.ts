@@ -5,28 +5,34 @@ import { create } from 'zustand-vue';
 interface IState {
   userInfo: {
     name: string
+    tel: string
   }
   collection: string[]
+  title: string
 }
 
 interface IAction {
   setName: (val: string) => void
   push: (val: string) => void
+  setTitle: (val: string) => void
 }
 
 const state: IState = {
   userInfo: {
-    name: "Devin"
+    name: "Devin",
+    tel: 'xxxxxx'
   },
-  collection: []
+  collection: ['上海'],
+  title: 'Demo'
 };
 
-const userStore = (set: any, get: any) => ({
+const userStore = (set, get) => ({
   ...state,
   setName: (val: string) => {
-    set(() => ({
+    set((origin) => ({
       userInfo: {
-        name: val
+        ...origin.userInfo,
+        name: val,
       }
     }));
   },
@@ -36,6 +42,11 @@ const userStore = (set: any, get: any) => ({
         collection: state.collection.concat([val])
       };
     });
+  },
+  setTitle: (title: string) => {
+    set(() => ({
+      title
+    }));
   }
 });
 
