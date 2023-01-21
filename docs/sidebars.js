@@ -7,7 +7,7 @@
  The sidebars can be generated from the filesystem, or explicitly defined here.
 
  Create as many sidebars as you want.
- */
+ **/
 
 // @ts-check
 
@@ -18,15 +18,15 @@ const sidebars = {
     {
       type: 'category',
       label: '介绍',
-      items: ['introduce/what-is-zustand',{
+      items: ['introduce/what-is-zustand','introduce/compare',{
         type: 'category',
         label: '快速入门',
         items: [
           'introduce/start/zustand',
           'introduce/start/zustand-vue',
-          // 'introduce/start/zustand-pub'
+          'introduce/start/zustand-pub'
         ],
-      },'introduce/compare'],
+      }],
     },
     {
       type: 'category',
