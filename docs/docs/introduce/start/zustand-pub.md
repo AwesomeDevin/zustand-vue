@@ -1,6 +1,7 @@
 ---
 title: zustand-pub
 tags:
-  - 对比
-  - 比较
+  - zustand
+  - 业务组件跨应用共享
+  - 微前端组件状态跨应用共享
 ---
