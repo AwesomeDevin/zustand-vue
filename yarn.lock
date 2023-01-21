@@ -1633,14 +1633,6 @@ yocto-queue@^0.1.0:
   resolved "http://registry.m.jd.com/yocto-queue/download/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha1-ApTrPe4FAo0x7hpfosVWpqrxChs=
 
-zustand-vue@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.npmjs.org/zustand-vue/-/zustand-vue-0.0.1.tgz#c97a085d14f15d2db620333e67bc2f30a5a64e95"
-  integrity sha512-TWSd7Euh2gDisBdr6wCDVVehQ3tjjlZZaJojks1n4aTWi7zL6oUlsbHQ3a+Iuv7AF1V6M4AukyNfQ9c5/T3oNg==
-  dependencies:
-    vue "^3.2.45"
-    zustand "^4.1.4"
-
 zustand@^4.1.4:
   version "4.1.4"
   resolved "http://registry.m.jd.com/zustand/download/zustand-4.1.4.tgz#b0286da4cc9edd35e91c96414fa54bfa4652a54d"

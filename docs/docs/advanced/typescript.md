@@ -1,3 +1,3 @@
 ---
-title: 与 Typescript 一起使用
+title: 与 typescript 一起使用
 ---

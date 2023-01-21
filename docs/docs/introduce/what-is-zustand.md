@@ -1,5 +1,5 @@
 ---
-title: 什么是 Zustand ?
+title: 什么是 zustand ?
 tags:
   - 演示
   - 开始上手
