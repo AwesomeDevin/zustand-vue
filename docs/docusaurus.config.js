@@ -36,6 +36,29 @@ const config = {
     },
   },
 
+  themes: ['@docusaurus/theme-live-codeblock',[
+    require.resolve("@easyops-cn/docusaurus-search-local"),
+    ({
+      // ... Your options.
+      // `hashed` is recommended as long-term-cache of index file is possible.
+      hashed: true,
+      // For Docs using Chinese, The `language` is recommended to set to:
+      // ```
+      language: ["en", "zh"],
+      // ```
+    }),
+  ],],
+
+  // plugins: ['@docusaurus/plugin-content-pages'],
+  // plugins: [
+  //   [
+  //     require.resolve("@cmfcmf/docusaurus-search-local"),
+  //     {
+  //       // Options here
+  //     },
+  //   ],
+  // ],
+
   presets: [
     [
       'classic',
