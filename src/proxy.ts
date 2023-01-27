@@ -5,7 +5,6 @@ import { ExtractState, TSubscribeCache, TObject } from "./vue";
 
 
 export function defineProxy<T, S extends TObject>(store: S, subscribeCache: TSubscribeCache, api: StoreApi<T>, selection: (state: T) => S) {
-  console.log('proxy1234')
   const keys = Object.keys(store)
   const reactiveStore = Vue.reactive(store);
   const val = new Proxy(reactiveStore, {
