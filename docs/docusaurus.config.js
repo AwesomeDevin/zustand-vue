@@ -24,7 +24,10 @@ const config = {
   // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'zh-Hans',
-    locales: ['en', 'zh-Hans'],
+    locales: [
+      // 'en', 
+      'zh-Hans'
+    ],
     localeConfigs: {
       en: {
         htmlLang: 'en-GB',
@@ -44,7 +47,10 @@ const config = {
       hashed: true,
       // For Docs using Chinese, The `language` is recommended to set to:
       // ```
-      language: ["en", "zh"],
+      language: [
+        "en", 
+        "zh"
+      ],
       // ```
     }),
   ],],

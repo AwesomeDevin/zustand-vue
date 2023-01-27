@@ -1,6 +1,6 @@
 {
   "name": "zustand-vue",
-  "version": "1.0.0-beta.0",
+  "version": "1.0.0-beta.2",
   "description": "State management for vue based on zustand",
   "main": "build/index.js",
   "module": "build/index.es.js",
@@ -34,11 +34,10 @@
   },
   "homepage": "https://github.com/AwesomeDevin/zustand-vue#readme",
   "dependencies": {
-    "vue": "^3.2.45",
     "zustand": "^4.1.4"
   },
   "peerDependencies": {
-    "vue": ">=3.2.0",
+    "vue": ">=2.6.0",
     "zustand": ">=4.1.4"
   },
   "devDependencies": {
