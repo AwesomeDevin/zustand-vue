@@ -9,6 +9,9 @@ tags:
 - #### [Vue3](https://codesandbox.io/s/sleepy-feynman-fwqhoe?file=/src/components/Action2.vue)
 - #### [Vue2](https://codesandbox.io/s/strange-agnesi-zzwpzg?file=/src/components/Action.vue)
 
+### Vue Demo Source
+- #### [Vue3](https://github.com/AwesomeDevin/zustand-vue/tree/main/demos/vue3)
+- #### [Vue2](https://github.com/AwesomeDevin/zustand-vue/tree/main/demos/vue2) 
 
 
 ### Step 1: 安装 
@@ -34,7 +37,7 @@ const useBearStore = create((set) => ({
 <details>
 <summary>Vue3</summary>
 
-##### 选择目标状态 bears
+#### 选择目标状态 bears
 ```js
 <template>
   <div>store.bears: {{ bears }}</div>
@@ -51,7 +54,7 @@ export default {
 </script>
 ```
 
-##### 修改目标状态 bears
+#### 修改目标状态 bears
 - 方式一: 基于 `setup` 触发修改
 ```js
 <script setup lang="ts">
@@ -118,7 +121,7 @@ export default {
 <details>
 <summary>Vue2</summary>
 
-##### 选择目标状态 bears
+#### 选择目标状态 bears
 vue2 环境下，由于兼容性问题，不推荐 `选择器`，建议采用 `Store.useStore()` 获取状态
 ```js
 <template>
@@ -157,7 +160,7 @@ export default {
 </script>
 ```
 
-##### 修改目标状态 bears
+#### 修改目标状态 bears
 
 - 方式一: 基于 `store` 初始化 `methods` 触发修改
 ```js
