@@ -19,6 +19,7 @@ export default {
   data() {
     return {
       store: Store.useStore(),
+      name: Store.useStore().userInfo.name,
     };
   },
   computed:{

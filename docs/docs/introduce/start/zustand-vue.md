@@ -5,16 +5,19 @@ tags:
   - vue
 ---
 
-## 安装 
+### Vue Live Demo
+- #### [Vue3](https://codesandbox.io/s/sleepy-feynman-fwqhoe?file=/src/components/Action2.vue)
+- #### [Vue2](https://codesandbox.io/s/strange-agnesi-zzwpzg?file=/src/components/Action.vue)
+
+
+
+### Step 1: 安装 
 ```shell
 npm install zustand-vue # or yarn add zustand-vue
 ```
-## Vue3
 
-### [Vue3 Live Demo](https://codesandbox.io/s/sleepy-feynman-fwqhoe?file=/src/components/Action2.vue)
-
-### store 初始化
-创建的 store 是一个 hook，你可以放任何东西到里面：基础变量，对象、函数，状态必须不可改变地更新，set 函数合并状态以实现该目标。
+### Step 2: store 初始化
+创建的 store 是一个 `hook`，你可以放任何东西到里面：基础变量，对象、函数，状态必须不可改变地更新，`set` 函数合并状态以实现状态更新。
 ```js
 import create from "zustand-vue";
 
@@ -24,8 +27,13 @@ const useBearStore = create((set) => ({
   removeAllBears: () => set({ bears: 0 }),
 }))
 ```
-### 然后绑定组件，就完成了!
-选择您的状态，组件将在状态更改时重新渲染。
+
+### Step 3: store 绑定组件，就完成了!
+基于 `选择器` 获取您的目标状态，组件将在状态更改时重新渲染。  
+状态的应用在 `vue3` 与 `vue2` 中有所不同。
+<details>
+<summary>Vue3</summary>
+
 ##### 选择目标状态 bears
 ```js
 <template>
@@ -105,25 +113,13 @@ export default {
   <button @click="removeAllBears">removeAllBears</button>
 </template>
 ```
+</details>
 
-## Vue2
-
-### [Vue2 Live Demo](https://codesandbox.io/s/strange-agnesi-zzwpzg?file=/src/components/Action.vue)
-
-### store 初始化
-```js
-import create from "zustand-vue";
-
-const useBearStore = create((set) => ({
-  bears: 0,
-  increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
-  removeAllBears: () => set({ bears: 0 }),
-}))
-```
-
-### 然后绑定组件，就完成了!
+<details>
+<summary>Vue2</summary>
 
 ##### 选择目标状态 bears
+vue2 环境下，由于兼容性问题，不推荐 `选择器`，建议采用 `Store.useStore()` 获取状态
 ```js
 <template>
   <div>store.bears: {{ Store.bears }}</div>
@@ -136,6 +132,26 @@ export default {
     return {
       Store: Store.useStore(),
     };
+  },
+};
+</script>
+```
+也可以配合 `computed` 进行使用
+```js
+<template>
+  <div>store.bears: {{ bears }}</div>
+</template>
+
+<script>
+import Store from "./store";
+export default {
+  data() {
+    return {
+      Store: Store.useStore(),
+    };
+  },
+  computed: {
+    bears: this.Store.bears
   },
 };
 </script>
@@ -190,3 +206,4 @@ export default {
   <button @click="removeAllBears">removeAllBears</button>
 </template>
 ```
+</details>
