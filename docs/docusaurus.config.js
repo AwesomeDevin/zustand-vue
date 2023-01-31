@@ -16,11 +16,10 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'awesomedevin.github.io', // Usually your GitHub org/user name.
+  organizationName: 'AwesomeDevin', // Usually your GitHub org/user name.
   projectName: 'zustand-vue', // Usually your repo name.
-  deploymentBranch: 'main',
+  deploymentBranch: 'deploy',
   trailingSlash: false,
-  GIT_USER: 'awesomedevin',
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
