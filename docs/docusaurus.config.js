@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'ZUSTAND',
   tagline: '你习惯了 Redux 或喜欢 React 的自然不可变更新，但期望更加轻量便捷的状态管理方案，那么试试小、快、可拓展的 Zustand 吧~',
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'https://awesomedevin.github.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -18,7 +18,7 @@ const config = {
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'AwesomeDevin', // Usually your GitHub org/user name.
   projectName: 'zustand-vue', // Usually your repo name.
-  deploymentBranch: 'deploy',
+  deploymentBranch: 'deploy-static',
   trailingSlash: false,
 
   // Even if you don't use internalization, you can use this field to set useful
