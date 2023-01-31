@@ -112,17 +112,19 @@
 
 .subtitle{
   width: 50rem;
+  transition: .3s;
   /* color: var(--ifm-color-white); */
 }
 
 .title{
+  transition: .3s;
   /* color: var(--ifm-color-white); */
 }
 
 
 
 .btn:hover{
-  opacity: 0.95;
+  opacity: 0.98;
 }
 
 
