@@ -1,6 +1,6 @@
 import createStore, { StateCreator, StoreApi, StoreMutatorIdentifier } from "zustand/vanilla";
 import * as Vue  from "vue";
-import {defineProxy, defineSet} from "./proxy";
+import { defineProxy, defineSet } from "./proxy";
 
 type Selection<T> = (state: T) => any
 
@@ -23,7 +23,7 @@ export type ExtractState<S> = S extends ((state: S) => infer T) ? T : S
 export type TSubscribeCache = Record<string, () => void>
 
 
-const defineReactive = <T, S>(store: S, subscribeCache: TSubscribeCache, api: StoreApi<T>, selection: (state: T) => S) => {
+const defineReactive = <T, S extends object>(store: S, subscribeCache: TSubscribeCache, api: StoreApi<T>, selection?: (state: T) => S) => {
   const keys = Object.keys(store);
   keys.forEach((key) => {
     let value = store[key as keyof S];
@@ -51,7 +51,7 @@ const defineReactive = <T, S>(store: S, subscribeCache: TSubscribeCache, api: St
 };
 
 
-function defineDep<T extends TObject>( subscribeCache: TSubscribeCache, api: StoreApi<T>, selection: (state: T) => ExtractState<T> ) {
+function defineDep<T extends TObject>( subscribeCache: TSubscribeCache, api: StoreApi<T>, selection?: (state: T) => ExtractState<T> ) {
   const externalState = api.getState();
   const store = selection ? selection(externalState) : externalState;
   const isObject = store?.constructor === Object;
@@ -102,5 +102,7 @@ export {
   createStore,
   StateCreator,
   StoreApi,
-  create
+  create,
+  defineProxy,
+  defineSet,
 }
