@@ -48,11 +48,12 @@ const sidebars = {
         'advanced/react-context',
         'advanced/typescript',
       ],
-    },{
-      type: 'category',
-      label: '其它手册',
-      items: ['other/notice','other/devtools'],
-    }
+    },
+    // {
+    //   type: 'category',
+    //   label: '其它手册',
+    //   items: ['other/notice','other/devtools'],
+    // }
   ],
 
 
