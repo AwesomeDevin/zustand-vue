@@ -14,3 +14,9 @@
 .title{
   color: var(--ifm-color-primary);
 }
+
+
+.features span{
+  margin:0 10px;
+  color: var(--ifm-color-primary);
+}

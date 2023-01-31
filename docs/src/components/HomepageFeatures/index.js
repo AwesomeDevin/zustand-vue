@@ -19,10 +19,10 @@ const FeatureList = [
   },
   {
     title: <span className={styles.title}>支持 React / Vue 跨应用状态共享</span>,
-    Svg: ()=><div style={style}><img src={require('@site/static/img/react.png').default} width="150" /><img src={require('@site/static/img/brands.png').default} width="150" /></div>,
+    Svg: ()=><div style={style}><img src={require('@site/static/img/react-vue.png').default} width="370" /></div>,
     description: (
       <>
-        zustand 自身已支持 react 应用，zustand-vue 支持 Vue 应用，zustand-pub 用于跨应用共享状态管理
+        对模块化、组件化、微前端等业务场景，提供<span>跨应用、跨框架</span>的状态管理能力。
       </>
     ),
   },
@@ -32,7 +32,7 @@ const FeatureList = [
     <img src={require('@site/static/img/scalable.png').default} width="200" /></div>,
     description: (
       <>
-        支持基于 基于 middleware 扩展 store，你可以用任何你喜欢的方式来构建你的 store。
+        支持基于 基于<span>middleware</span>扩展 store，你可以用任何你喜欢的方式来构建你的 store。
       </>
     ),
   },
