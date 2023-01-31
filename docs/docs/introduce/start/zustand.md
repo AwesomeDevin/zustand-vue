@@ -1,9 +1,15 @@
 ---
-title: zustand
+title: React 应用（zustand）
 tags:
   - zustand
   - react
 ---
+
+### [React Live Demo](https://codesandbox.io/s/github/pmndrs/zustand/tree/main/examples/demo?file=/src/App.js)
+### 安装 
+```shell
+npm install zustand # or yarn add zustand
+```
 
 ### store 初始化
 创建的 store 是一个 hook，你可以放任何东西到里面：基础变量，对象、函数，状态必须不可改变地更新，set 函数合并状态以实现该目标。
@@ -32,4 +38,3 @@ function Controls() {
 }
 ```
 
-### Demo

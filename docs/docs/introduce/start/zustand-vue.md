@@ -1,11 +1,18 @@
 ---
-title: zustand-vue
+title: Vue 应用（zustand-vue）
 tags:
   - zustand 
   - vue
 ---
 
+## 安装 
+```shell
+npm install zustand-vue # or yarn add zustand-vue
+```
 ## Vue3
+
+### [Vue3 Live Demo](https://codesandbox.io/s/sleepy-feynman-fwqhoe?file=/src/components/Action2.vue)
+
 ### store 初始化
 创建的 store 是一个 hook，你可以放任何东西到里面：基础变量，对象、函数，状态必须不可改变地更新，set 函数合并状态以实现该目标。
 ```js
@@ -99,10 +106,9 @@ export default {
 </template>
 ```
 
-### [Demo](https://codesandbox.io/s/sleepy-feynman-fwqhoe?file=/src/components/Action2.vue)
-
-
 ## Vue2
+
+### [Vue2 Live Demo](https://codesandbox.io/s/strange-agnesi-zzwpzg?file=/src/components/Action.vue)
 
 ### store 初始化
 ```js
@@ -184,5 +190,3 @@ export default {
   <button @click="removeAllBears">removeAllBears</button>
 </template>
 ```
-
-### [Demo](https://codesandbox.io/s/strange-agnesi-zzwpzg?file=/src/components/Action.vue)

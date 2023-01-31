@@ -9,7 +9,7 @@ const config = {
   title: 'ZUSTAND',
   tagline: '你习惯了 Redux 或喜欢 React 的自然不可变更新，但期望更加轻量便捷的状态管理方案，那么试试小、快、可拓展的 Zustand 吧~',
   url: 'https://awesomedevin.github.io',
-  baseUrl: '/',
+  baseUrl: '/zustand-vue/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
@@ -27,18 +27,18 @@ const config = {
   i18n: {
     defaultLocale: 'zh-Hans',
     locales: [
-      'en',
+      // 'en',
       'zh-Hans'
     ],
-    // localeConfigs: {
-    //   // en: {
-    //   //   htmlLang: 'en-GB',
-    //   // },
-    //   "zh-Hans": {
-    //     htmlLang: 'zh-Hans',
-    //   },
+    localeConfigs: {
+      // en: {
+      //   htmlLang: 'en-GB',
+      // },
+      "zh-Hans": {
+        htmlLang: 'zh-Hans',
+      },
 
-    // },
+    },
   },
 
   themes: [[
@@ -49,7 +49,7 @@ const config = {
       hashed: true,
       // For Docs using Chinese, The `language` is recommended to set to:
       // ```
-      language: ["zh"],
+      language: ["zh","en"],
       // ```
     }),
   ],],
@@ -93,12 +93,20 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      announcementBar: {
+        id: 'introduce',
+        content:
+          '轻量便捷的状态管理方案，小、快、可拓展 ~',
+        backgroundColor: '#fafbfc',
+        textColor: '#091E42',
+      },
       navbar: {
         title: 'ZUSTAND',
         logo: {
-          alt: 'Zustand Logo',
+          alt: 'ZUSTAND',
           src: 'img/bear.png',
         },
+        hideOnScroll: true,
         items: [
           {
             type: 'localeDropdown',
@@ -134,7 +142,7 @@ const config = {
         ],
       },
       footer: {
-        style: 'dark',
+        style: 'light',
         links: [
           {
             title: 'Docs',
@@ -184,7 +192,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} zustand, Inc. Built by AwesomeDevin.`,
       },
       prism: {
         theme: lightCodeTheme,
