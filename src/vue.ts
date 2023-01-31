@@ -58,7 +58,7 @@ function defineDep<T extends TObject>( subscribeCache: TSubscribeCache, api: Sto
   const isFunction = store instanceof Function;
 
   // @ts-ignore
-  if (Vue.set) {
+  if (Vue.set || Vue.default?.set) {
     let observableStore;
     return defineSet.call(
       this,

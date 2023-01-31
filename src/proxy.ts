@@ -31,12 +31,16 @@ export  function defineSet<T extends TObject> (
   selection: (state: T) => ExtractState<T>
 ) {
   const keys = Object.keys(rootState);
+  
   if (!observableStore) {
     observableStore = {} as T;
+    // @ts-ignore
+    // observableStore = new Vue.default({ data: rootState });
+
+
     keys.forEach((key) => {
       let value = rootState[key];
 
-      // console.log(subscribeCache[key],key)
       subscribeCache[key] = api.subscribe((state) => {
         if (state[key] === observableStore[key]) return;
         const isArray = state[key] instanceof Array;
@@ -52,7 +56,12 @@ export  function defineSet<T extends TObject> (
           observableStore[key  as keyof T] = state[key];
         } else {
           // @ts-ignore
-          Vue.set(observableStore, key, state[key]);
+          const set = Vue.set || Vue.default?.set
+          if(set){
+            set(observableStore, key, state[key]);
+          }else{
+            console.error('Vue.set Not Fount', Vue)
+          }
         }
       });
 
