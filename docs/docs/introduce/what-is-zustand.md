@@ -6,11 +6,10 @@ tags:
 ---
 
 ![](/img/bear.jpeg?raw=true)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/pmndrs/zustand/lint-and-type.yml?branch=main)](https://github.com/pmndrs/zustand/actions?query=workflow%3ALint)
+
 [![Build Size](https://img.shields.io/bundlephobia/minzip/zustand?label=bundle%20size)](https://bundlephobia.com/result?p=zustand)
 [![Version](https://img.shields.io/npm/v/zustand?style=flat)](https://www.npmjs.com/package/zustand)
-[![Downloads](https://img.shields.io/npm/dt/zustand.svg?style=flat)](https://www.npmjs.com/package/zustand)
-[![Discord Shield](https://img.shields.io/discord/740090768164651008?style=flat&logo=discord&logoColor=ffffff)](https://discord.gg/poimandres)
+<!-- [![Downloads](https://img.shields.io/npm/dt/zustand.svg?style=flat)](https://www.npmjs.com/package/zustand) -->
 
 
 基于 `Flux` 模型，基于 hooks 的 API，非常地灵活且有趣.
