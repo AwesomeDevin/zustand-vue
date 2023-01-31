@@ -1,5 +1,5 @@
 ---
-title: zustand-pub
+title: React / Vue 状态共享
 tags:
   - zustand
   - 业务组件跨应用状态共享

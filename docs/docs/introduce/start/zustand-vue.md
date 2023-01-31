@@ -1,5 +1,5 @@
 ---
-title: Vue 应用（zustand-vue）
+title: Vue（zustand-vue）
 tags:
   - zustand 
   - vue

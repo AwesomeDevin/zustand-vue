@@ -1,5 +1,5 @@
 ---
-title: React 应用（zustand）
+title: React（zustand）
 tags:
   - zustand
   - react
