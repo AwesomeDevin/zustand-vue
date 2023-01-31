@@ -16,7 +16,7 @@ function HomepageHeader() {
       // style={{backgroundImage: `url(${require('@site/static/img/bear.png').default})`}}
     >
       <div className={clsx('container', styles.con)}>
-        <h1 className="hero__title">{siteConfig.title}</h1>
+        <h1 className={clsx("hero__title", styles.title)}>{siteConfig.title}</h1>
         <p className={clsx('hero__subtitle', styles.subtitle)}>{siteConfig.tagline}</p>
         <div className={styles.buttons}>
         <Link
