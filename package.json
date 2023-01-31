@@ -2,9 +2,9 @@
   "name": "zustand-vue",
   "version": "1.0.0-beta.5",
   "description": "State management for vue based on zustand",
-  "main": "./build/index.js",
-  "module": "./build/index.es.js",
-  "types": "./build/index.d.ts",
+  "main": "build/index.js",
+  "module": "build/index.es.js",
+  "types": "build/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx rollup -c --bundleConfigAsCjs",

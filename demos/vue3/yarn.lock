@@ -869,8 +869,8 @@ which@^1.2.9:
   dependencies:
     isexe "^2.0.0"
 
-"zustand-vue@file:../../../.nvm/versions/node/v16.15.1/lib/node_modules/zustand-vue":
+"zustand-vue@file:../..":
   version "1.0.0-beta.5"
-  resolved "file:../../../.nvm/versions/node/v16.15.1/lib/node_modules/zustand-vue"
+  resolved "file:../.."
   dependencies:
     zustand "^4.1.4"
