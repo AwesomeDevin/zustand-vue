@@ -16,8 +16,11 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'awesomedevin', // Usually your GitHub org/user name.
+  organizationName: 'awesomedevin.github.io', // Usually your GitHub org/user name.
   projectName: 'zustand-vue', // Usually your repo name.
+  deploymentBranch: 'main',
+  trailingSlash: false,
+  GIT_USER: 'awesomedevin',
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
@@ -25,21 +28,21 @@ const config = {
   i18n: {
     defaultLocale: 'zh-Hans',
     locales: [
-      // 'en', 
+      'en',
       'zh-Hans'
     ],
-    localeConfigs: {
-      en: {
-        htmlLang: 'en-GB',
-      },
-      "zh-Hans": {
-        htmlLang: 'zh-Hans',
-      },
+    // localeConfigs: {
+    //   // en: {
+    //   //   htmlLang: 'en-GB',
+    //   // },
+    //   "zh-Hans": {
+    //     htmlLang: 'zh-Hans',
+    //   },
 
-    },
+    // },
   },
 
-  themes: ['@docusaurus/theme-live-codeblock',[
+  themes: [[
     require.resolve("@easyops-cn/docusaurus-search-local"),
     ({
       // ... Your options.
@@ -47,10 +50,7 @@ const config = {
       hashed: true,
       // For Docs using Chinese, The `language` is recommended to set to:
       // ```
-      language: [
-        "en", 
-        "zh"
-      ],
+      language: ["zh"],
       // ```
     }),
   ],],
@@ -142,7 +142,7 @@ const config = {
             items: [
               {
                 label: '教程',
-                to: '/docs/introduce',
+                to: '/docs/introduce/what-is-zustand',
               },
             ],
           },
