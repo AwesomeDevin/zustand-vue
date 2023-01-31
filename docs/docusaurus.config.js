@@ -96,7 +96,7 @@ const config = {
       announcementBar: {
         id: 'introduce',
         content:
-          '轻量便捷的状态管理方案，小、快、可拓展 ~',
+          '轻量、便捷、易用的前端状态管理方案，小、快、可拓展 ~',
         backgroundColor: '#fafbfc',
         textColor: '#091E42',
       },
