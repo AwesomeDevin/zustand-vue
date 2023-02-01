@@ -1,6 +1,6 @@
 {
   "name": "zustand-vue",
-  "version": "1.0.0-beta.5",
+  "version": "1.0.0-beta.6",
   "description": "State management for vue based on zustand",
   "main": "build/index.js",
   "module": "build/index.es.js",
@@ -20,12 +20,10 @@
   ],
   "keywords": [
     "zustand",
-    "state",
-    "manager",
-    "management",
-    "redux",
+    "state management",
+    "state-management",
     "store",
-    "vue"
+    "zustand-vue"
   ],
   "author": "AwesomeDevin",
   "license": "MIT",
@@ -53,6 +51,7 @@
     "rollup-plugin-serve": "^2.0.1",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.34.1",
-    "typescript": "^4.9.3"
+    "typescript": "^4.9.3",
+    "vue": "2.6.0"
   }
 }

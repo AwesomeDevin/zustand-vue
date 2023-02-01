@@ -12,7 +12,6 @@ export function defineProxy<T, S extends TObject>(store: S, subscribeCache: TSub
       if (keys.includes(prop)) {
         if (!subscribeCache[prop]) {
           subscribeCache[prop] = api.subscribe((state) => {
-            console.log('subscribe',reactiveStore, state)
             //@ts-ignore
             reactiveStore[prop as keyof typeof reactiveStore] = selection ? selection(state)[prop as keyof S] : state[prop as keyof T];
           });

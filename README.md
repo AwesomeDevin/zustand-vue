@@ -1,4 +1,4 @@
 # zustand-vue
-State management for vue based on zustand
+State-management for Vue based on zustand
 
-### [DOCS](https://awesomedevin.github.io/zustand-vue/)
+### [MORE DOCS](https://awesomedevin.github.io/zustand-vue/)

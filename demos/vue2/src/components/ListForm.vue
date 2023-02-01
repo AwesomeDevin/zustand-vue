@@ -16,9 +16,9 @@
 </template>
 
 <script>
-import Store from "../useStore";
+import useStore from "../useStore";
 
-const push = Store.useStore((state) => state.push);
+const push = useStore((state) => state.push);
 export default {
   data(){
     return {

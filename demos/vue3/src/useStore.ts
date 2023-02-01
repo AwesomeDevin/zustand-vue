@@ -50,6 +50,4 @@ const userStore = (set, get) => ({
   }
 });
 
-console.log(create)
-
 export default create<IState & IAction>(userStore);

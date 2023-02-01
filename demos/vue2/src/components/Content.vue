@@ -12,13 +12,13 @@
   </div>
 </template>
 <script>
-import Store from "../useStore";
+import useStore from "../useStore";
 
 export default {
   name: "Header",
   data() {
     return {
-      store: Store.useStore(),
+      store: useStore(),
     };
   },
   computed:{

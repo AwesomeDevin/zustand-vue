@@ -12,18 +12,18 @@
 </template>
 
 <script>
-import Store from "../useStore";
+import useStore from "../useStore";
 
-const setName = Store.useStore((state) => state.setName);
+const setName = useStore((state) => state.setName);
 
 export default {
   name: "Form",
   data() {
     return {
-      name: Store.useStore((state) => state.userInfo.name),
-      store: Store.useStore(),
+      name: useStore((state) => state.userInfo.name),
+      store: useStore(),
       value: "",
-      setTitle: Store.useStore((state) => state.setTitle),
+      setTitle: useStore((state) => state.setTitle),
     };
   },
 

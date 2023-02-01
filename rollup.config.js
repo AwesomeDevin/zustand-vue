@@ -14,7 +14,7 @@ let defaults = {
   compilerOptions: { declaration: true }
 }
 
-console.log('isDev',isDev, process.argv)
+// console.log('isDev',isDev, process.argv)
 
 const plugins = [
   typescript({
@@ -39,12 +39,12 @@ export default {
   output: [{
     file: './build/index.es.js',
     format: 'es',
-    // plugins: [terser()]
+    plugins: [terser()]
   }, {
     file: './build/index.js',
     format: 'cjs',
     name: 'example',
-    // plugins: [terser()]
+    plugins: [terser()]
   }],
   plugins
 }

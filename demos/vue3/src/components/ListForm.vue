@@ -17,10 +17,10 @@
 
 <script>
 import { defineComponent, ref } from 'vue'
-import Store from "../useStore";
+import useStore from "../useStore";
 export default defineComponent({
   setup(){
-    const push = Store.useStore((state) => state.push);
+    const push = useStore((state) => state.push);
     const value = ref('')
 
     function add() {

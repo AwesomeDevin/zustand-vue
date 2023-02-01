@@ -34,6 +34,8 @@ const useBearStore = create((set) => ({
   increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
   removeAllBears: () => set({ bears: 0 }),
 }))
+
+export default useBearStore
 ```
 
 ### Step 3: store 绑定组件，就完成了!
@@ -48,11 +50,11 @@ const useBearStore = create((set) => ({
   <div>store.bears: {{ bears }}</div>
 </template>
 <script>
-import Store from "./store";
+import useBearStore from "./store";
 export default {
   data() {
     return {
-      bears: Store.useStore((state) => state.bears),
+      bears: useBearStore((state) => state.bears),
     };
   }
 };
@@ -63,9 +65,9 @@ export default {
 - 方式一: 基于 `setup` 触发修改
 ```js
 <script setup lang="ts">
-import Store from "./store";
-const increasePopulation = Store.useStore((state) => state.increasePopulation);
-const removeAllBears = Store.useStore((state) => state.removeAllBears);
+import useBearStore from "./store";
+const increasePopulation = useBearStore((state) => state.increasePopulation);
+const removeAllBears = useBearStore((state) => state.removeAllBears);
 </script>
 
 <template>
@@ -77,9 +79,9 @@ const removeAllBears = Store.useStore((state) => state.removeAllBears);
 - 方式二: 基于 `store` 初始化 `methods` 触发修改
 ```js
 <script>
-import Store from "./store";
-const increasePopulation = Store.useStore((state) => state.increasePopulation);
-const removeAllBears = Store.useStore((state) => state.removeAllBears);
+import useBearStore from "./store";
+const increasePopulation = useBearStore((state) => state.increasePopulation);
+const removeAllBears = useBearStore((state) => state.removeAllBears);
 
 export default {
   methods: {
@@ -99,10 +101,10 @@ export default {
 - 方式三: 基于 `methdos` 调用函数进行修改
 ```js
 <script>
-import Store from "./store";
+import useBearStore from "./store";
 
-const increase = Store.useStore((state) => state.increasePopulation);
-const remove = Store.useStore((state) => state.removeAllBears);
+const increase = useBearStore((state) => state.increasePopulation);
+const remove = useBearStore((state) => state.removeAllBears);
 
 export default {
   methods: {
@@ -127,18 +129,18 @@ export default {
 <summary>Vue2</summary>
 
 #### 选择目标状态 bears
-vue2 环境下，由于兼容性问题，不推荐 `选择器`，建议采用 `Store.useStore()` 获取状态
+vue2 环境下，由于兼容性问题，不推荐 `选择器`，建议采用 `useBearStore()` 获取状态
 ```js
 <template>
   <div>store.bears: {{ Store.bears }}</div>
 </template>
 
 <script>
-import Store from "./store";
+import useBearStore from "./store";
 export default {
   data() {
     return {
-      Store: Store.useStore(),
+      Store: useBearStore(),
     };
   },
 };
@@ -151,11 +153,11 @@ export default {
 </template>
 
 <script>
-import Store from "./store";
+import useBearStore from "./store";
 export default {
   data() {
     return {
-      Store: Store.useStore(),
+      Store: useBearStore(),
     };
   },
   computed: {
@@ -170,9 +172,9 @@ export default {
 - 方式一: 基于 `store` 初始化 `methods` 触发修改
 ```js
 <script>
-import Store from "./store";
-const increasePopulation = Store.useStore((state) => state.increasePopulation);
-const removeAllBears = Store.useStore((state) => state.removeAllBears);
+import useBearStore from "./store";
+const increasePopulation = useBearStore((state) => state.increasePopulation);
+const removeAllBears = useBearStore((state) => state.removeAllBears);
 
 export default {
   methods: {
@@ -192,10 +194,10 @@ export default {
 - 方式二: 基于 `methdos` 调用函数进行修改
 ```js
 <script>
-import Store from "./store";
+import useBearStore from "./store";
 
-const increase = Store.useStore((state) => state.increasePopulation);
-const remove = Store.useStore((state) => state.removeAllBears);
+const increase = useBearStore((state) => state.increasePopulation);
+const remove = useBearStore((state) => state.removeAllBears);
 
 export default {
   methods: {

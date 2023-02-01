@@ -12,17 +12,18 @@
   </div>
 </template>
 <script>
-import Store from "../useStore";
+import useStore from "../useStore";
+
 
 export default {
   name: "Header",
   data() {
     return {
-      name: Store.useStore((state) => state.userInfo.name),
-      userInfo: Store.useStore((state) => state.userInfo),
-      collection: Store.useStore((state) => state.collection),
-      store: Store.useStore(),
-      title: Store.useStore((state) => state.title),
+      name: useStore((state) => state.userInfo.name),
+      userInfo: useStore((state) => state.userInfo),
+      collection: useStore((state) => state.collection),
+      store: useStore(),
+      title: useStore((state) => state.title),
     };
   },
   watch: {

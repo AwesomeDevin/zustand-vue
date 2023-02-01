@@ -1,24 +1,30 @@
-import createStore, { StateCreator, StoreApi, StoreMutatorIdentifier } from "zustand/vanilla";
+import createStore, { StateCreator, StoreApi, StoreMutatorIdentifier, Mutate } from "zustand/vanilla";
 import * as Vue  from "vue";
 import { defineProxy, defineSet } from "./proxy";
 
-type Selection<T> = (state: T) => any
 
-type Create = {
-  <T, Mos extends [StoreMutatorIdentifier, unknown][] = []>(initializer: StateCreator<T, [], Mos>): {
-    useStore: (selection?: Selection<T>) => ReturnType<Selection<T>>;
-  } & StoreApi<T>;
-  <T>(): <Mos extends [StoreMutatorIdentifier, unknown][] = []>(initializer: StateCreator<T, [], Mos>) => {
-    useStore: (selection?: Selection<T>) => ReturnType<Selection<T>>;
-  } & StoreApi<T>;
-  <T extends StoreApi<unknown>>(store: T): {
-    useStore: (selection?: Selection<T>) => ReturnType<Selection<T>>;
-  } & StoreApi<T>;
+export type ExtractState<S> = S extends ((state: S) => infer T) ? T : S
+
+type WithReact<S extends StoreApi<unknown>> = S & {
+  getServerState?: () => ExtractState<S>;
+};
+
+export type UseBoundStore<S extends WithReact<StoreApi<unknown>>> = {
+  (): ExtractState<S>;
+  <U>(selector: (state: ExtractState<S>) => U, equals?: (a: U, b: U) => boolean): U;
+} & S;
+
+export type Create = {
+  <T, Mos extends [StoreMutatorIdentifier, unknown][] = []>(initializer: StateCreator<T, [], Mos>): UseBoundStore<Mutate<StoreApi<T>, Mos>>;
+  <T>(): <Mos extends [StoreMutatorIdentifier, unknown][] = []>(initializer: StateCreator<T, [], Mos>) => UseBoundStore<Mutate<StoreApi<T>, Mos>>;
+  /**
+   * @deprecated Use `useStore` hook to bind store
+   */
+  <S extends StoreApi<unknown>>(store: S): UseBoundStore<S>;
 };
 
 export type TObject = Record<string, any>
 
-export type ExtractState<S> = S extends ((state: S) => infer T) ? T : S
 
 export type TSubscribeCache = Record<string, () => void>
 
@@ -70,7 +76,10 @@ function defineDep<T extends TObject>( subscribeCache: TSubscribeCache, api: Sto
     );
   }
 
-  if (isObject) {
+  
+  if(typeof store === 'undefined'){
+    return undefined
+  } else if (isObject) {
     if (typeof Proxy !== 'undefined') {
       defineReactive<T, typeof store>(store, subscribeCache, api, selection);
       return Vue.reactive(store);
@@ -94,7 +103,8 @@ const create = (<T extends TObject>(createState: StateCreator<T, [], [], T>) => 
   const useStore = (selection?: (state: T) => ExtractState<T>) => {
     return defineDep<T>(subscribeCache, api, selection)
   };
-  const res = Object.assign({ useStore }, api);
+  // const res = Object.assign({ useStore }, api);
+  const res = useStore
   return res;
 }) as Create
 
