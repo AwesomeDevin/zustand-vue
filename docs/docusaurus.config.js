@@ -93,12 +93,22 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      colorMode: {
+        defaultMode: 'light',
+        disableSwitch: false,
+        respectPrefersColorScheme: true,
+      },
+      docs: {
+        sidebar: {
+          hideable: true,
+          autoCollapseCategories: true,
+        },
+      },
       announcementBar: {
         id: 'introduce',
-        content:
-          '轻量、便捷、易用的前端状态管理方案，小、快、可拓展 ~',
-        backgroundColor: '#fafbfc',
-        textColor: '#091E42',
+        content: `⭐️ 如果你觉得对你有帮助，请给它一个 star 吧 ~ <a target="_blank" rel="noopener noreferrer" href="https://github.com/AwesomeDevin/zustand-vue">GitHub</a>`,
+        // backgroundColor: '#fafbfc',
+        // textColor: '#091E42',
       },
       navbar: {
         title: 'ZUSTAND',
@@ -136,7 +146,13 @@ const config = {
               },
             ],
             position: 'right',
-            label: 'GitHub',
+            label: 'ZUSTAND 生态',
+          },
+          {
+            href: 'https://github.com/AwesomeDevin/zustand-vue',
+            position: 'right',
+            className: 'header-github-link',
+            'aria-label': 'GitHub repository',
           },
           
         ],
