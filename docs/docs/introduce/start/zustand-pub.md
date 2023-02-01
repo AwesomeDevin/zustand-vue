@@ -6,6 +6,10 @@ tags:
   - 微前端组件跨应用状态共享
 ---
 
+
+[![Build Size](https://img.shields.io/bundlephobia/minzip/zustand-pub?label=bundle%20size)](https://bundlephobia.com/result?p=zustand-pub)
+[![Version](https://img.shields.io/npm/v/zustand-pub?style=flat)](https://www.npmjs.com/package/zustand-pub)
+
 ### 应用场景
 适合模块化、组件化、微前端等业务场景，提供跨应用、跨框架的状态管理能力。
 
