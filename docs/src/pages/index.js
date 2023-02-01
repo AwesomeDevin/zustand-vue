@@ -31,6 +31,16 @@ function HomepageHeader() {
           </Link>
           <Link
             className={clsx('button button--secondary button--lg',styles.btn)}
+            to="/docs/introduce/start/zustand-pub">
+              <Translate
+                id="homepage.title.zustand_pub"
+                description="The homepage Button Title"
+              >
+                跨应用、框架状态共享
+            </Translate>
+          </Link>
+          <Link
+            className={clsx('button button--secondary button--lg',styles.btn)}
             to="/docs/introduce/start/zustand-vue">
               <Translate
                 id="homepage.title.zustand_vue"
@@ -39,6 +49,7 @@ function HomepageHeader() {
                 Vue 应用 教程 
             </Translate>
           </Link>
+          
           {/* <Link
             className={clsx('button button--secondary button--lg',styles.btn)}
             to="/docs/introduce/what-is-zustand">
