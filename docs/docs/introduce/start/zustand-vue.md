@@ -169,7 +169,9 @@ export default {
     };
   },
   computed: {
-    bears: this.Store.bears
+    bears() {
+      return this.store.bears;
+    },
   },
 };
 </script>
