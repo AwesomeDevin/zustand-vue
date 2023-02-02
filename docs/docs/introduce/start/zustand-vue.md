@@ -10,6 +10,7 @@ tags:
 [![Version](https://img.shields.io/npm/v/zustand-vue?style=flat)](https://www.npmjs.com/package/zustand-vue)
 <!-- [![Downloads](https://img.shields.io/npm/dt/zustand-vue.svg?style=flat)](https://www.npmjs.com/package/zustand-vue) -->
 
+:::tip
 ### Vue Live Demo
 - #### [Vue3](https://codesandbox.io/s/sleepy-feynman-fwqhoe?file=/src/components/Action2.vue)
 - #### [Vue2](https://codesandbox.io/s/strange-agnesi-zzwpzg?file=/src/components/Action.vue)
@@ -17,8 +18,7 @@ tags:
 ### Vue Demo Source
 - #### [Vue3](https://github.com/AwesomeDevin/zustand-vue/tree/main/demos/vue3)
 - #### [Vue2](https://github.com/AwesomeDevin/zustand-vue/tree/main/demos/vue2) 
-
-
+:::
 ### Step 1: 安装 
 ```shell
 npm install zustand-vue # or yarn add zustand-vue
@@ -39,8 +39,12 @@ export default useBearStore
 ```
 
 ### Step 3: store 绑定组件，就完成了!
-基于 `选择器` 获取您的目标状态，组件将在状态更改时重新渲染。  
+基于 `选择器` 获取您的目标状态，组件将在状态更改时重新渲染。 
+
+:::caution
 状态的应用在 `vue3` 与 `vue2` 中有所不同。
+:::
+
 <details>
 <summary>Vue3</summary>
 
@@ -129,7 +133,11 @@ export default {
 <summary>Vue2</summary>
 
 #### 选择目标状态 bears
+
+:::warning
 vue2 环境下，由于兼容性问题，不推荐 `选择器`，建议采用 `useBearStore()` 获取状态
+:::
+
 ```js
 <template>
   <div>store.bears: {{ Store.bears }}</div>
