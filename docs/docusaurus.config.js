@@ -92,6 +92,10 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      metadata: [{
+        name: 'description', content: "You are used to Redux or like React's natural immutable updates, but expect a more Lightweight and Convenient state management solution, Try  Small, Fast and Scalable  Zustand~"
+      },{name: 'keywords', content: 'zustand, vue, zustand-vue, state management, 状态管理, 跨框架, 跨应用, zustand-pub, 状态分享, state sharing, state-management'}
+      ],
       colorMode: {
         defaultMode: 'light',
         disableSwitch: false,

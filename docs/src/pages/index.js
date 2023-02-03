@@ -4,7 +4,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
-import Translate from '@docusaurus/Translate';
+import Translate, { translate } from '@docusaurus/Translate';
 
 import styles from './index.module.css';
 
@@ -87,7 +87,7 @@ export default function Home() {
   return (
     <Layout
       title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      description={translate({id:'seo-description',message:"你习惯了 Redux 或喜欢 React 的自然不可变更新，但期望 更加轻量、便捷 的状态管理方案那么试试 小、快、可拓展 的 Zustand 吧~"})}>
       <HomepageHeader />
       <main>
         <HomepageFeatures />

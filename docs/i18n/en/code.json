@@ -360,6 +360,9 @@
   },
   "homepage.feature.zustand-vue.desc2":{
     "message":"so you can build your store any way you like."
+  },
+  "seo-description":{
+    "message":"You are used to Redux or like React's natural immutable updates, but expect a more Lightweight and Convenient state management solution, Try  Small, Fast and Scalable  Zustand~"
   }
 
 }
