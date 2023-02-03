@@ -278,9 +278,6 @@
     "message": "Cross-Application/Cross-Framework Tutorial",
     "description": "The homepage Button Title"
   },
-  "homepage.subtitle": {
-    "message": "If you're used to Redux or like the natural, unchangeable nature of React, but want a more lightweight and convenient state management solution, try Zustand, which is small, fast, and scalable"
-  },
   "theme.SearchBar.noResultsText": {
     "message": "No results"
   },
@@ -331,8 +328,8 @@
   "小、快、可拓展":{
     "message":"Small, Fast and Scalable "
   },
-  "的 Zustand 吧~":{
-    "message":"Zustand~"
+  "的 zustand 吧":{
+    "message":"zustand"
   },
   "轻量，使用简单":{
     "message":"Lightweight And Easy To Use"
@@ -362,7 +359,7 @@
     "message":"so you can build your store any way you like."
   },
   "seo-description":{
-    "message":"You are used to Redux or like React's natural immutable updates, but expect a more Lightweight and Convenient state management solution, Try  Small, Fast and Scalable  Zustand~"
+    "message":"You are used to Redux or like React's natural immutable updates, but expect a more Lightweight and Convenient state management solution, Try  Small, Fast and Scalable zustand~"
   }
 
 }

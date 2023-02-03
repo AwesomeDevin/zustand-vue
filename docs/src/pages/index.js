@@ -41,7 +41,7 @@ function HomepageHeader() {
             <p className={styles.subtitle2}>
               <Translate>那么试试</Translate>
               <span>&nbsp;<Translate>小、快、可拓展</Translate>&nbsp;</span> 
-              <Translate>的 Zustand 吧~</Translate>
+              <Translate>的 zustand 吧</Translate>
             </p>
           {/* </Translate> */}
         </p>
