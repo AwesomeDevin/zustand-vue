@@ -32,7 +32,7 @@ const FeatureList = [
     <img src={require('@site/static/img/scalable.png').default} width="200" /></div>,
     description: (
       <>
-        <Translate id="homepage.feature.zustand-vue.desc1">支持基于</Translate><span>middleware</span><Translate id="homepage.feature.zustand-vue.desc2">扩展 store，你可以用任何你喜欢的方式来构建你的 store</Translate>。
+        <Translate id="homepage.feature.zustand-vue.desc1">支持基于</Translate><span>middleware</span><Translate id="homepage.feature.zustand-vue.desc2">扩展 store，你可以用任何你喜欢的方式来构建你的 store。</Translate>
       </>
     ),
   },

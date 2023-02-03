@@ -12,7 +12,7 @@ tags:
 <!-- [![Downloads](https://img.shields.io/npm/dt/zustand.svg?style=flat)](https://www.npmjs.com/package/zustand) -->
 
 
-基于 `Flux` 模型，基于 hooks 的 API，非常地灵活且有趣.
+基于 `Flux` 模型实现的小型、快速和可扩展的状态管理解决方案，拥有基于 `hooks` 的舒适的API，非常地灵活且有趣.
 
 不要因为它很娇小就忽略它，它拥有锋利的爪子，花费了大量时间用来处理常见的陷阱，比如出现在多个复杂渲染器之间的 **[zombie child](https://react-redux.js.org/api/hooks#stale-props-and-zombie-children)**、**[react concurrency](https://github.com/bvaughn/rfcs/blob/useMutableSource/text/0000-use-mutable-source.md)**、以及 **[context loss](https://github.com/facebook/react/issues/13332)** 问题. `Zustand` 可以作为 React 应用中的一个状态管理器来正确处理这些问题。
 

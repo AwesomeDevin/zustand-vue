@@ -17,5 +17,5 @@ tags:
 - 集中式的、基于 actions 的状态管理
 
 
-### 其它
- - [更多的 React 状态管理工具优劣势分析 context / redux / mobx / zustand / jotai / recoil / valtio](https://github.com/AwesomeDevin/blog/issues/81)
+### 更多
+ - [React 状态管理工具优劣势分析 context / redux / mobx / zustand / jotai / recoil / valtio](https://github.com/AwesomeDevin/blog/issues/81)

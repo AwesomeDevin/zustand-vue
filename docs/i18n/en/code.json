@@ -329,7 +329,7 @@
     "message":"Try "
   },
   "小、快、可拓展":{
-    "message":"Small, Fast and Expandable "
+    "message":"Small, Fast and Scalable "
   },
   "的 Zustand 吧~":{
     "message":"Zustand~"
@@ -353,7 +353,7 @@
     "message": "for business scenarios such as modularization, componentization, and micro-front-end."
   },
   "拓展性好":{
-    "message": "Expandable"
+    "message": "Scalable"
   },
   "homepage.feature.zustand-vue.desc1":{
     "message":"Support for an extended store based on"
