@@ -1,9 +1,7 @@
 ---
 title: Cross-Application/Cross-Framework State Management And Sharing（zustand-pub）
 tags:
-  - zustand
-  - 业务组件跨应用状态共享
-  - 微前端组件跨应用状态共享
+  - zustand-pub
 ---
 
 
@@ -117,9 +115,9 @@ const pubStore = new ReactPubStore()
 ### defineStore(key,fn)
 Used to fill data into isolated containers
 
-参数 | 说明 | 类型 
+Parameter | Desc | Type 
 --- | --- | --- 
-key | 数据唯一标识 | string
+key | data unique identifier | string
 fn | callback | (set, get) => Object
 
 

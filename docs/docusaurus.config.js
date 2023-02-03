@@ -73,14 +73,14 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/AwesomeDevin/zustand-vue/tree/main/docs',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/AwesomeDevin/zustand-vue/tree/main/docs',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -140,7 +140,7 @@ const config = {
                 label: 'zustand-vue',
               },
               {
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/AwesomeDevin/zustand-pub',
                 label: 'zustand-pub',
               },
             ],
@@ -201,7 +201,7 @@ const config = {
                 label: 'zustand-vue',
               },
               {
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/AwesomeDevin/zustand-pub',
                 label: 'zustand-pub',
               },
             ],

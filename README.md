@@ -1,12 +1,13 @@
 # zustand-vue
 State-management for Vue based on zustand
 
-### [MORE DETAILS](https://awesomedevin.github.io/zustand-vue/)
 
 
 [![Build Size](https://img.shields.io/bundlephobia/minzip/zustand-vue?label=bundle%20size)](https://bundlephobia.com/result?p=zustand-vue)
 [![Version](https://img.shields.io/npm/v/zustand-vue?style=flat)](https://www.npmjs.com/package/zustand-vue)
 <!-- [![Downloads](https://img.shields.io/npm/dt/zustand-vue.svg?style=flat)](https://www.npmjs.com/package/zustand-vue) -->
+### [MORE DETAILS](https://awesomedevin.github.io/zustand-vue/en/)
+
 
 :::tip
 ### Vue Live Demo

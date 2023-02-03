@@ -1,7 +1,7 @@
 ---
 title: Vue（zustand-vue）
 tags:
-  - zustand 
+  - zustand-vue
   - vue
 ---
 
