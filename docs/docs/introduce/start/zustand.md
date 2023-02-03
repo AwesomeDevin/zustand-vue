@@ -16,7 +16,7 @@ tags:
 npm install zustand # or yarn add zustand
 ```
 
-### Step 2: store 初始化
+### Step 2: Store 初始化
 创建的 store 是一个 `hook`，你可以放任何东西到里面：基础变量，对象、函数，状态必须不可改变地更新，`set` 函数合并状态以实现状态更新。
 ```js
 import { create } from 'zustand'
@@ -27,11 +27,11 @@ const useBearStore = create((set) => ({
   removeAllBears: () => set({ bears: 0 }),
 }))
 ```
-### Step 3: store 绑定组件，就完成了!
-可以在任何地方使用钩子，不需要提供 provider。  
+### Step 3: Store 绑定组件，就完成了!
+可以在任何地方使用钩子，不需要提供 `provider`。  
 基于 `选择器` 获取您的目标状态，组件将在状态更改时重新渲染。
 
-##### 获取目标状态 bears
+##### 选择目标状态：bears
 ```js
 function BearCounter() {
   const bears = useBearStore((state) => state.bears)
@@ -39,7 +39,7 @@ function BearCounter() {
 }
 ```
 
-##### 修改目标状态 bears
+##### 更新目标状态：bears
 ```js
 function Controls() {
   const increasePopulation = useBearStore((state) => state.increasePopulation)

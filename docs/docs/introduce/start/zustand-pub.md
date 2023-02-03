@@ -1,7 +1,7 @@
 ---
-title: React / Vue 状态共享（zustand-pub）
+title: 跨应用/跨框架 状态管理及共享（zustand-pub）
 tags:
-  - zustand
+  - zustand-pub
   - 业务组件跨应用状态共享
   - 微前端组件跨应用状态共享
 ---
@@ -13,7 +13,7 @@ tags:
 
 ### 应用场景
 
-适合模块化、组件化、微前端等业务场景，提供跨应用、跨框架的状态管理能力。
+适合模块化、组件化、微前端等业务场景，提供跨应用、跨框架的状态管理及共享能力。
 
 
 ### 安装 
@@ -59,7 +59,7 @@ const usePlatformStore = pubStore.defineStore<IState & IAction>('platformStore',
   }
 }))
 ```
-`defineStore` 返回值 `usePlatformStore` 为 `hook`，可通过 `状态选择器` 获取对应状态
+`defineStore` 返回值 `usePlatformStore` 为 `hook`，可通过状态 `选择器` 获取对应状态
 ```js
 // react
 function AppA() {
@@ -128,7 +128,7 @@ interface IStore {
   ...
 }
 
-// useStore 为 `hook`，可通过 `状态选择器` 获取对应状态
+// useStore 为 `hook`，可通过状态 `选择器` 获取对应状态
 const useStore = pubStore.defineStore<IStore>('Key', (set, get) => ())
 ```
 

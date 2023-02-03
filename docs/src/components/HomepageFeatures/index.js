@@ -18,7 +18,7 @@ const FeatureList = [
     ),
   },
   {
-    title: <span className={styles.title}><Translate>支持 React / Vue 跨应用状态共享</Translate></span>,
+    title: <span className={styles.title}><Translate>跨应用/跨框架 状态管理及共享</Translate></span>,
     Svg: ()=><div style={style}><img src={require('@site/static/img/react-vue.png').default} width="370" /></div>,
     description: (
       <>

@@ -1,7 +1,7 @@
 ---
 title: Vue（zustand-vue）
 tags:
-  - zustand 
+  - zustand-vue
   - vue
 ---
 
@@ -24,7 +24,7 @@ tags:
 npm install zustand-vue # or yarn add zustand-vue
 ```
 
-### Step 2: store 初始化
+### Step 2: Store 初始化
 创建的 store 是一个 `hook`，你可以放任何东西到里面：基础变量，对象、函数，状态必须不可改变地更新，`set` 函数合并状态以实现状态更新。
 ```js
 import create from "zustand-vue";
@@ -38,17 +38,17 @@ const useBearStore = create((set) => ({
 export default useBearStore
 ```
 
-### Step 3: store 绑定组件，就完成了!
+### Step 3: Store 绑定组件，就完成了!
 基于 `选择器` 获取您的目标状态，组件将在状态更改时重新渲染。 
 
 :::caution
-状态的应用在 `vue3` 与 `vue2` 中有所不同。
+Store 绑定组件在 `vue3` 与 `vue2` 中有所不同。
 :::
 
 <details>
 <summary>Vue3</summary>
 
-#### 选择目标状态 bears
+#### 选择目标状态：bears
 ```js
 <template>
   <div>store.bears: {{ bears }}</div>
@@ -65,8 +65,8 @@ export default {
 </script>
 ```
 
-#### 修改目标状态 bears
-- 方式一: 基于 `setup` 触发修改
+#### 更新目标状态：bears
+- 方式一: 基于 `setup` 触发更新
 ```js
 <script setup lang="ts">
 import useBearStore from "./store";
@@ -80,7 +80,7 @@ const removeAllBears = useBearStore((state) => state.removeAllBears);
 </template>
 ```
 
-- 方式二: 基于 `store` 初始化 `methods` 触发修改
+- 方式二: 基于 `store` 初始化 `methods` 触发更新
 ```js
 <script>
 import useBearStore from "./store";
@@ -102,7 +102,7 @@ export default {
 
 ```
 
-- 方式三: 基于 `methdos` 调用函数进行修改
+- 方式三: 基于 `methdos` 调用函数进行更新
 ```js
 <script>
 import useBearStore from "./store";
@@ -132,7 +132,7 @@ export default {
 <details>
 <summary>Vue2</summary>
 
-#### 选择目标状态 bears
+#### 选择目标状态：bears
 
 :::warning
 vue2 环境下，由于兼容性问题，不推荐 `选择器`，建议采用 `useBearStore()` 获取状态
@@ -177,9 +177,9 @@ export default {
 </script>
 ```
 
-#### 修改目标状态 bears
+#### 更新目标状态：bears
 
-- 方式一: 基于 `store` 初始化 `methods` 触发修改
+- 方式一: 基于 `store` 初始化 `methods` 触发更新
 ```js
 <script>
 import useBearStore from "./store";
@@ -201,7 +201,7 @@ export default {
 ```
 
 
-- 方式二: 基于 `methdos` 调用函数进行修改
+- 方式二: 基于 `methdos` 调用函数进行更新
 ```js
 <script>
 import useBearStore from "./store";

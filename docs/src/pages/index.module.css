@@ -123,11 +123,11 @@
 
 .subtitle1, .subtitle2{
   white-space: nowrap;
-  font-weight: 200;
+  font-weight: 300;
 }
 
 .subtitle1 span, .subtitle2 span{
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .title{

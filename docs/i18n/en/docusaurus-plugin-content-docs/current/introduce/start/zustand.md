@@ -11,13 +11,13 @@ tags:
 :::tip
 ### [React Live Demo](https://codesandbox.io/s/github/pmndrs/zustand/tree/main/examples/demo?file=/src/App.js)
 :::
-### Step 1: 安装 
+### Step 1: Install 
 ```shell
 npm install zustand # or yarn add zustand
 ```
 
-### Step 2: store 初始化
-创建的 store 是一个 `hook`，你可以放任何东西到里面：基础变量，对象、函数，状态必须不可改变地更新，`set` 函数合并状态以实现状态更新。
+### Step 2: Store Initialization
+The created store is a `hook`, you can put anything in it: basic variables, objects, functions, state must be updated immutably, `set` function merges state to achieve state update.
 ```js
 import { create } from 'zustand'
 
@@ -27,11 +27,11 @@ const useBearStore = create((set) => ({
   removeAllBears: () => set({ bears: 0 }),
 }))
 ```
-### Step 3: store 绑定组件，就完成了!
-可以在任何地方使用钩子，不需要提供 provider。  
-基于 `选择器` 获取您的目标状态，组件将在状态更改时重新渲染。
+### Step 3: Store binds the component and it's done!
+Hooks can be used anywhere, no `provider` required。  
+Get your target state based on the `selector` and the component will re-render on state change。
 
-##### 获取目标状态 bears
+##### Get target state：bears
 ```js
 function BearCounter() {
   const bears = useBearStore((state) => state.bears)
@@ -39,7 +39,7 @@ function BearCounter() {
 }
 ```
 
-##### 修改目标状态 bears
+##### Update target state：bears
 ```js
 function Controls() {
   const increasePopulation = useBearStore((state) => state.increasePopulation)

@@ -1,5 +1,5 @@
 ---
-title: React / Vue 状态共享（zustand-pub）
+title: Cross-Application/Cross-Framework State Management And Sharing（zustand-pub）
 tags:
   - zustand
   - 业务组件跨应用状态共享
@@ -11,20 +11,20 @@ tags:
 [![Version](https://img.shields.io/npm/v/zustand-pub?style=flat)](https://www.npmjs.com/package/zustand-pub)
 
 
-### 应用场景
+### Ability
 
-适合模块化、组件化、微前端等业务场景，提供跨应用、跨框架的状态管理能力。
+It is suitable for business scenarios such as modularization, componentization, and micro-front-end, and provides state management and sharing capabilities across applications and frameworks。
 
 
-### 安装 
+### Install
 ```shell
 npm install zustand-pub # or yarn add zustand-pub
 ```
 
 
-## 用法
+## Usage
 
-### Step 1： 初始化状态隔离容器 `pubStore` (App A)
+### Step 1： Initialize state isolation container `pubStore` (App A)
 ```js
 // react
 import ReactPubStore from 'zustand-pub/dist/react.mjs'
@@ -36,7 +36,7 @@ const pubStore = new ReactPubStore('Store')
 // const pubStore = new VuePubStore('Store')
 ```
 
-### Step 2： 往隔离容器 `pubStore` 内填装数据 `platformStore` (App A)
+### Step 2： Fill the isolation container `pubStore` with data `platformStore` (App A)
 ```js
 interface IState {
   appInfo: {
@@ -59,7 +59,7 @@ const usePlatformStore = pubStore.defineStore<IState & IAction>('platformStore',
   }
 }))
 ```
-`defineStore` 返回值 `usePlatformStore` 为 `hook`，可通过 `状态选择器` 获取对应状态
+`defineStore` return value `usePlatformStore` is `hook`, you can get the corresponding state through state `selector`
 ```js
 // react
 function AppA() {
@@ -69,7 +69,7 @@ function AppA() {
 }
 ``` 
 
-### Step 3： 跨应用获取隔离容器 `pubStore` 下的数据 `platformStore` (App B)
+### Step 3： Get data `platformStore` under the isolated container `pubStore` across applications (App B)
 ```js
 interface IState {
   appInfo: {
@@ -107,7 +107,7 @@ function AppB() {
 ## API
 
 ### ReactPubStore(str) / VuePubStore(str)
-用于创建状态隔离容器, 不同隔离容器内部的数据 `key` 可重名且互不影响
+Used to create state isolation containers, the data `key` inside different isolation containers can have the same name and do not affect each other
 ```js
 const pubStore = new ReactPubStore() 
 
@@ -115,7 +115,7 @@ const pubStore = new ReactPubStore()
 ```
 
 ### defineStore(key,fn)
-用于往隔离容器填装数据
+Used to fill data into isolated containers
 
 参数 | 说明 | 类型 
 --- | --- | --- 
@@ -128,22 +128,23 @@ interface IStore {
   ...
 }
 
-// useStore 为 `hook`，可通过 `状态选择器` 获取对应状态
+// useStore is `hook`, and the corresponding state can be obtained through state `selector`
 const useStore = pubStore.defineStore<IStore>('Key', (set, get) => ())
 ```
 
 
 ### getStore(key)
-用于从隔离容器获取数据
 
-参数 | 说明 | 类型 
+Used to fetch data from isolated containers
+
+Parameter | Desc | Type 
 --- | --- | --- 
-key | 数据唯一标识 | string
+key | data unique identifier | string
 
 ```js
 const store = pub.getStore("platformStore");
 ```
-返回值 `store` 可用于构建 `hook`
+Return value `store` can be used to create `hook`
 ```js
 import create from "zustand";
 // import create from "zustand-vue";

@@ -275,7 +275,7 @@
     "description": "The homepage Button Title"
   },
   "homepage.title.zustand-pub": {
-    "message": "State Sharing Across Apps/Frameworks Tutorial",
+    "message": "Cross-Application/Cross-Framework Tutorial",
     "description": "The homepage Button Title"
   },
   "homepage.subtitle": {
@@ -340,14 +340,14 @@
   "homepage.feature.zustand.desc1":{
     "message":"Tiny, 5 minutes to get started."
   },
-  "支持 React / Vue 跨应用状态共享":{
-    "message": "React/Vue cross-application state sharing"
+  "跨应用/跨框架 状态管理及共享":{
+    "message": "Cross-Application/Cross-Framework State Management And Sharing"
   },
   "homepage.feature.zustand-pub.desc1":{
     "message": "Provides"
   },
   "homepage.feature.zustand-pub.desc2":{
-    "message": "cross-application and cross-framework state management capabilities"
+    "message": "cross-application and cross-framework state sharing capabilities"
   },
   "homepage.feature.zustand-pub.desc3":{
     "message": "for business scenarios such as modularization, componentization, and micro-front-end."
