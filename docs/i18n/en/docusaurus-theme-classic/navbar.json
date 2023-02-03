@@ -1,0 +1,26 @@
+{
+  "title": {
+    "message": "ZUSTAND",
+    "description": "The title in the navbar"
+  },
+  "item.label.教程": {
+    "message": "Tutorial",
+    "description": "Navbar item with label Turial"
+  },
+  "item.label.生态": {
+    "message": "Community",
+    "description": "Navbar item with label community"
+  },
+  "item.label.zustand": {
+    "message": "zustand",
+    "description": "Navbar item with label zustand"
+  },
+  "item.label.zustand-vue": {
+    "message": "zustand-vue",
+    "description": "Navbar item with label zustand-vue"
+  },
+  "item.label.zustand-pub": {
+    "message": "zustand-pub",
+    "description": "Navbar item with label zustand-pub"
+  }
+}

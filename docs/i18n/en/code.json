@@ -265,5 +265,101 @@
   "theme.tags.tagsPageTitle": {
     "message": "Tags",
     "description": "The title of the tag list page"
+  },
+  "homepage.title.zustand": {
+    "message": "React Tutorial",
+    "description": "The homepage Button Title"
+  },
+  "homepage.title.zustand-vue": {
+    "message": "Vue Tutorial",
+    "description": "The homepage Button Title"
+  },
+  "homepage.title.zustand-pub": {
+    "message": "State Sharing Across Apps/Frameworks Tutorial",
+    "description": "The homepage Button Title"
+  },
+  "homepage.subtitle": {
+    "message": "If you're used to Redux or like the natural, unchangeable nature of React, but want a more lightweight and convenient state management solution, try Zustand, which is small, fast, and scalable"
+  },
+  "theme.SearchBar.noResultsText": {
+    "message": "No results"
+  },
+  "theme.SearchBar.seeAll": {
+    "message": "See all results"
+  },
+  "theme.SearchBar.label": {
+    "message": "Search",
+    "description": "The ARIA label and placeholder for search button"
+  },
+  "theme.SearchPage.existingResultsTitle": {
+    "message": "Search results for \"{query}\"",
+    "description": "The search page title for non-empty query"
+  },
+  "theme.SearchPage.emptyResultsTitle": {
+    "message": "Search the documentation",
+    "description": "The search page title for empty query"
+  },
+  "theme.SearchPage.documentsFound.plurals": {
+    "message": "1 document found|{count} documents found",
+    "description": "Pluralized label for \"{count} documents found\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "theme.SearchPage.noResultsText": {
+    "message": "No documents were found",
+    "description": "The paragraph for empty search result"
+  },
+  "你习惯了 Redux 或喜欢 React 的自然不可变更新，但期望":{
+    "message": "You are used to Redux or like React's natural immutable updates, "
+  },
+  "更加轻量、便捷":{
+    "message":""
+  },
+  "的状态管理方案":{
+    "message":""
+  },
+  "homepage.subtitle.slot1":{
+    "message":"but expect a more "
+  },
+  "homepage.subtitle.slot2":{
+    "message":"Lightweight and Convenient "
+  },
+  "homepage.subtitle.slot3":{
+    "message":"state management solution"
+  },
+  "那么试试":{
+    "message":"Try "
+  },
+  "小、快、可拓展":{
+    "message":"Small, Fast and Expandable "
+  },
+  "的 Zustand 吧~":{
+    "message":"Zustand~"
+  },
+  "轻量，使用简单":{
+    "message":"Lightweight And Easy To Use"
+  },
+  "homepage.feature.zustand.desc1":{
+    "message":"Tiny, 5 minutes to get started."
+  },
+  "支持 React / Vue 跨应用状态共享":{
+    "message": "React/Vue cross-application state sharing"
+  },
+  "homepage.feature.zustand-pub.desc1":{
+    "message": "Provides"
+  },
+  "homepage.feature.zustand-pub.desc2":{
+    "message": "cross-application and cross-framework state management capabilities"
+  },
+  "homepage.feature.zustand-pub.desc3":{
+    "message": "for business scenarios such as modularization, componentization, and micro-front-end."
+  },
+  "拓展性好":{
+    "message": "Expandable"
+  },
+  "homepage.feature.zustand-vue.desc1":{
+    "message":"Support for an extended store based on"
+  },
+  "homepage.feature.zustand-vue.desc2":{
+    "message":"so you can build your store any way you like."
   }
+
 }

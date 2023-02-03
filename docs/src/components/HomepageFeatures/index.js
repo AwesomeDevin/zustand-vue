@@ -8,31 +8,31 @@ const style={display: 'flex', height: 210, alignItems: 'center', justifyContent:
 
 const FeatureList = [
   {
-    title: <span className={styles.title}><Translate>状态管理方案轻量，使用简单</Translate></span>,
+    title: <span className={styles.title}><Translate>轻量，使用简单</Translate></span>,
     Svg: ()=><div style={style}>
       <img src={require('@site/static/img/easy.png').default} width="200" /></div>,
     description: (
       <>
-       <Translate>体积极轻，5分钟上手</Translate>
+       <Translate id="homepage.feature.zustand.desc1">体积极轻，5分钟上手。</Translate>
       </>
     ),
   },
   {
-    title: <span className={styles.title}>支持 React / Vue 跨应用状态共享</span>,
+    title: <span className={styles.title}><Translate>支持 React / Vue 跨应用状态共享</Translate></span>,
     Svg: ()=><div style={style}><img src={require('@site/static/img/react-vue.png').default} width="370" /></div>,
     description: (
       <>
-        对模块化、组件化、微前端等业务场景，提供<span>跨应用、跨框架</span>的状态管理能力。
+        <Translate id="homepage.feature.zustand-pub.desc1">对模块化、组件化、微前端等业务场景，提供</Translate><span><Translate id="homepage.feature.zustand-pub.desc2">跨应用、跨框架</Translate></span><Translate id="homepage.feature.zustand-pub.desc3">的状态管理能力。</Translate>
       </>
     ),
   },
   {
-    title: <span className={styles.title}>拓展性好</span>,
+    title: <span className={styles.title}><Translate>拓展性好</Translate></span>,
     Svg: ()=><div style={style}>
     <img src={require('@site/static/img/scalable.png').default} width="200" /></div>,
     description: (
       <>
-        支持基于 基于<span>middleware</span>扩展 store，你可以用任何你喜欢的方式来构建你的 store。
+        <Translate id="homepage.feature.zustand-vue.desc1">支持基于</Translate><span>middleware</span><Translate id="homepage.feature.zustand-vue.desc2">扩展 store，你可以用任何你喜欢的方式来构建你的 store</Translate>。
       </>
     ),
   },

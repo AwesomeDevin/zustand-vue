@@ -1,0 +1,22 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.介绍": {
+    "message": "Introduce",
+    "description": "The label for category Introduce in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.快速入门": {
+    "message": "Quick Start",
+    "description": "The label for category Quick Start in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.核心概念": {
+    "message": "Core concept",
+    "description": "The label for category Core concept in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.进阶": {
+    "message": "Advanced",
+    "description": "The label for category Advanced in sidebar tutorialSidebar"
+  }
+}

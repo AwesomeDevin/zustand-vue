@@ -7,7 +7,6 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'ZUSTAND',
-  tagline: '你习惯了 Redux 或喜欢 React 的自然不可变更新，但期望更加轻量便捷的状态管理方案，那么试试小、快、可拓展的 Zustand 吧~',
   url: 'https://awesomedevin.github.io',
   baseUrl: '/zustand-vue/',
   onBrokenLinks: 'throw',
@@ -27,13 +26,13 @@ const config = {
   i18n: {
     defaultLocale: 'zh-Hans',
     locales: [
-      // 'en',
+      'en',
       'zh-Hans'
     ],
     localeConfigs: {
-      // en: {
-      //   htmlLang: 'en-GB',
-      // },
+      en: {
+        htmlLang: 'en-GB',
+      },
       "zh-Hans": {
         htmlLang: 'zh-Hans',
       },
@@ -146,7 +145,7 @@ const config = {
               },
             ],
             position: 'right',
-            label: 'ZUSTAND 生态',
+            label: '生态',
           },
           {
             href: 'https://github.com/AwesomeDevin/zustand-vue',
