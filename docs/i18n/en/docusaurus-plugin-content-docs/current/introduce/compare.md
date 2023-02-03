@@ -18,4 +18,4 @@ tags:
 
 
 ### More
- - [【React State Management VS】React state management tools comparison，react hooks context / redux / mobx / zustand / jotai / valtio vs each other](https://github.com/AwesomeDevin/blog/issues/80)
+ - [React state management tools comparison，react hooks context / redux / mobx / zustand / jotai / valtio vs each other](https://github.com/AwesomeDevin/blog/issues/80)
