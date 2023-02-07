@@ -29,18 +29,19 @@ npm install zustand-pub # or yarn add zustand-pub
 
 ### Step 1： 初始化状态隔离容器 `pubStore` (App A)
 ```js
-// react
-import ReactPubStore from 'zustand-pub/dist/react.mjs'
+import PubStore from 'zustand-pub'
 
-const pubStore = new ReactPubStore('Store')
-
-// vue
-// import VuePubStore from 'zustand-pub/dist/vue.mjs' 
-// const pubStore = new VuePubStore('Store')
+const pubStore = new PubStore('key')
 ```
 
 ### Step 2： 往隔离容器 `pubStore` 内填装数据 `platformStore` (App A)
 ```js
+//react
+import create from "zustand";
+
+// vue
+// import create from "zustand-vue";
+
 interface IState {
   appInfo: {
     name: string
@@ -51,7 +52,7 @@ interface IAction {
   setAppName: (val: string) => void
 }
 
-const usePlatformStore = pubStore.defineStore<IState & IAction>('platformStore', (set) => ({
+const platformStore = pubStore.defineStore<IState & IAction>('platformStore', (set) => ({
   appInfo: { name: '' },
   setAppName(val: string) {
     set({
@@ -61,8 +62,10 @@ const usePlatformStore = pubStore.defineStore<IState & IAction>('platformStore',
     })
   }
 }))
+
+const usePlatformStore = create(platformStore)
 ```
-`defineStore` 返回值 `usePlatformStore` 为 `hook`，可通过状态 `选择器` 获取对应状态
+返回值 `usePlatformStore` 为 `hook`，可通过状态 `selector` 获取对应状态
 ```js
 // react
 function AppA() {
@@ -85,14 +88,14 @@ interface IAction {
 }
 
 // react
-import ReactPubStore from "zustand-pub/dist/react.mjs";
+import PubStore from "zustand-pub";
 import create from "zustand";
-const pubStore = new ReactPubStore('Store')
+const pubStore = new PubStore('key')
 
 // vue
-// import VuePubStore from "zustand-pub/dist/vue.mjs";
+// import PubStore from "zustand-pub";
 // import create from "zustand-vue";
-// const pubStore = new VuePubStore('Store')
+// const pubStore = new PubStore('key')
 
 
 const store = pubStore.getStore<IState & IAction>("platformStore");
@@ -109,16 +112,25 @@ function AppB() {
 
 ## API
 
-### ReactPubStore(str) / VuePubStore(str)
+### PubStore(str) 
 用于创建状态隔离容器, 不同隔离容器内部的数据 `key` 可重名且互不影响
-```js
-const pubStore = new ReactPubStore() 
 
-// const pubStore = new VuePubStore() 
+:::tip
+ 同一应用下，`key` 不变，返回的 `pubStore` 不变
+:::
+
+```js
+const pubStore = new PubStore() 
 ```
 
 ### defineStore(key,fn)
 用于往隔离容器填装数据
+
+:::tip
+ 同一应用下，`key` 不变，被定义的 `store` 会按加载的先后顺序进行合并  
+
+ 即 `defineStore(key,()=>({a:1})) defineStore(key,()=>({b:2}))` 作用类似于 `defineStore(key,()=>({a:1,b:2}))`
+:::
 
 参数 | 说明 | 类型 
 --- | --- | --- 
@@ -131,8 +143,8 @@ interface IStore {
   ...
 }
 
-// useStore 为 `hook`，可通过状态 `选择器` 获取对应状态
-const useStore = pubStore.defineStore<IStore>('Key', (set, get) => ())
+// usePlatformStore 为 `hook`，可通过状态 `selector` 获取对应状态
+const usePlatformStore = pubStore.defineStore<IStore>('platformStore', (set, get) => ({}))
 ```
 
 
@@ -144,13 +156,16 @@ const useStore = pubStore.defineStore<IStore>('Key', (set, get) => ())
 key | 数据唯一标识 | string
 
 ```js
-const store = pub.getStore("platformStore");
+const platformStore = pubStore.getStore("platformStore");
 ```
-返回值 `store` 可用于构建 `hook`
+返回值 `platformStore` 可用于构建 `hook`
 ```js
 import create from "zustand";
+
+//vue
 // import create from "zustand-vue";
-const useStore = create(store || {});
+
+const usePlatformStore = create(platformStore || {});
 ```
 
 

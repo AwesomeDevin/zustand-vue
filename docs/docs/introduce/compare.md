@@ -18,4 +18,5 @@ tags:
 
 
 ### 更多
- - [React 状态管理工具优劣势分析 context / redux / mobx / zustand / jotai / recoil / valtio](https://github.com/AwesomeDevin/blog/issues/81)
+- [React 状态管理工具优劣势分析 context / redux / mobx / zustand / jotai / recoil / valtio](https://github.com/AwesomeDevin/blog/issues/81)
+- [Pmnd 的对比分析](https://docs.pmnd.rs/zustand/getting-started/comparison)

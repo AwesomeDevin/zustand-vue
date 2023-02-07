@@ -24,18 +24,19 @@ npm install zustand-pub # or yarn add zustand-pub
 
 ### Step 1： Initialize state isolation container `pubStore` (App A)
 ```js
-// react
-import ReactPubStore from 'zustand-pub/dist/react.mjs'
+import PubStore from 'zustand-pub'
 
-const pubStore = new ReactPubStore('Store')
-
-// vue
-// import VuePubStore from 'zustand-pub/dist/vue.mjs' 
-// const pubStore = new VuePubStore('Store')
+const pubStore = new PubStore('key')
 ```
 
 ### Step 2： Fill the isolation container `pubStore` with data `platformStore` (App A)
 ```js
+//react
+import create from "zustand";
+
+// vue
+// import create from "zustand-vue";
+
 interface IState {
   appInfo: {
     name: string
@@ -46,7 +47,7 @@ interface IAction {
   setAppName: (val: string) => void
 }
 
-const usePlatformStore = pubStore.defineStore<IState & IAction>('platformStore', (set) => ({
+const platformStore = pubStore.defineStore<IState & IAction>('platformStore', (set) => ({
   appInfo: { name: '' },
   setAppName(val: string) {
     set({
@@ -56,8 +57,10 @@ const usePlatformStore = pubStore.defineStore<IState & IAction>('platformStore',
     })
   }
 }))
+
+const usePlatformStore = create(platformStore)
 ```
-`defineStore` return value `usePlatformStore` is `hook`, you can get the corresponding state through state `selector`
+return value `usePlatformStore` is `hook`, you can get the corresponding state through state `selector`
 ```js
 // react
 function AppA() {
@@ -80,14 +83,14 @@ interface IAction {
 }
 
 // react
-import ReactPubStore from "zustand-pub/dist/react.mjs";
+import PubStore from "zustand-pub";
 import create from "zustand";
-const pubStore = new ReactPubStore('Store')
+const pubStore = new PubStore('key')
 
 // vue
-// import VuePubStore from "zustand-pub/dist/vue.mjs";
+// import PubStore from "zustand-pub";
 // import create from "zustand-vue";
-// const pubStore = new VuePubStore('Store')
+// const pubStore = new PubStore('key')
 
 
 const store = pubStore.getStore<IState & IAction>("platformStore");
@@ -104,16 +107,25 @@ function AppB() {
 
 ## API
 
-### ReactPubStore(str) / VuePubStore(str)
+### PubStore(str) 
 Used to create state isolation containers, the data `key` inside different isolation containers can have the same name and do not affect each other
-```js
-const pubStore = new ReactPubStore() 
 
-// const pubStore = new VuePubStore() 
+:::tip
+ In the same application, `key` is unchanged and the `pubStore` is returned unchanged
+:::
+
+```js
+const pubStore = new PubStore() 
 ```
 
 ### defineStore(key,fn)
 Used to fill data into isolated containers
+
+:::tip
+ In the same application, `key` is unchanged and the defined `store` will be merged in the order of loading
+
+ that is `defineStore(key,()=>({a:1})) defineStore(key,()=>({b:2}))` works like `defineStore(key,()=>({a:1,b:2}))`
+:::
 
 Parameter | Desc | Type 
 --- | --- | --- 
@@ -126,8 +138,8 @@ interface IStore {
   ...
 }
 
-// useStore is `hook`, and the corresponding state can be obtained through state `selector`
-const useStore = pubStore.defineStore<IStore>('Key', (set, get) => ())
+// usePlatformStore is `hook`, and the corresponding state can be obtained through state `selector`
+const usePlatformStore = pubStore.defineStore<IStore>('platformStore', (set, get) => ({}))
 ```
 
 
@@ -140,13 +152,16 @@ Parameter | Desc | Type
 key | data unique identifier | string
 
 ```js
-const store = pub.getStore("platformStore");
+const platformStore = pubStore.getStore("platformStore");
 ```
-Return value `store` can be used to create `hook`
+Return value `platformStore` can be used to create `hook`
 ```js
 import create from "zustand";
+
+//vue
 // import create from "zustand-vue";
-const useStore = create(store || {});
+
+const usePlatformStore = create(platformStore || {});
 ```
 
 

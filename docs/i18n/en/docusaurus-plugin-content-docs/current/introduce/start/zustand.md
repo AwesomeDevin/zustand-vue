@@ -10,7 +10,7 @@ tags:
 [![Version](https://img.shields.io/npm/v/zustand?style=flat)](https://www.npmjs.com/package/zustand)
 :::tip
 ### [React Live Demo](https://codesandbox.io/s/github/pmndrs/zustand/tree/main/examples/demo?file=/src/App.js)
-### [Official Document](https://docs.pmnd.rs/zustand/integrations/persisting-store-data)
+### [Pmnd's Document](https://docs.pmnd.rs/zustand/getting-started/introduction)
 
 :::
 ### Step 1: Install 

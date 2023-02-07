@@ -31,16 +31,16 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: '核心概念',
+      label: '基础概念',
       items: [
-        'core/fetch',
-        'core/overwriting',
-        'core/async',
-        'core/subscribe',
+        'basic/fetch',
+        'basic/overwriting',
+        'basic/async',
+        'basic/subscribe',
       ],
     },{
       type: 'category',
-      label: '进阶',
+      label: '进阶手册',
       items: [
         'advanced/transiend-updates',
         'advanced/using-zustand-without-react',

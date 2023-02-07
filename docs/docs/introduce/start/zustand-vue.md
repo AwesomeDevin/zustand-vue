@@ -39,7 +39,7 @@ export default useBearStore
 ```
 
 ### Step 3: Store 绑定组件，就完成了!
-基于 `选择器` 获取您的目标状态，组件将在状态更改时重新渲染。 
+基于 `selector` 获取您的目标状态，组件将在状态更改时重新渲染。 
 
 :::caution
 Store 绑定组件在 `vue3` 与 `vue2` 中有所不同。
@@ -135,7 +135,7 @@ export default {
 #### 选择目标状态：bears
 
 :::warning
-vue2 环境下，由于兼容性问题，不推荐 `选择器`，建议采用 `useBearStore()` 获取状态
+vue2 环境下，由于兼容性问题，不推荐 `selector`，建议采用 `useBearStore()` 获取状态
 :::
 
 ```js

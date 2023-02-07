@@ -3,6 +3,10 @@
     <h3>{{ title }}</h3>
     <h3>My Name is {{ name }}</h3>
     <h3>userInfo： {{ store.userInfo }}</h3>
+    <h3>bears:{{bears}}</h3>
+    <h3>fishes:{{fishes}}</h3>
+    <div><button>Add Bears</button> &nbsp;&nbsp; <button>Add Bears</button></div>
+
     <h3>
     <ul>
       城市列表：
@@ -13,15 +17,26 @@
 </template>
 <script>
 import useStore from "../useStore";
+import { useBoundStore } from '../combineStore'
+
+const addBear = useBoundStore(state=>state.addBear)
+const addBearAndFish = useBoundStore(state=>state.addBearAndFish)
 
 export default {
   name: "Header",
   data() {
     return {
       store: useStore(),
+      boundStore: useBoundStore()
     };
   },
   computed:{
+    bears(){
+      return this.boundStore.bears
+    },
+    fishes(){
+      return this.boundStore.fishes
+    },
     name(){
       return this.store.userInfo.name
     },
@@ -34,6 +49,10 @@ export default {
     title(){
       return this.store.title
     }
+  },
+  methods:{
+    addBear,
+    addBearAndFish,
   },
   watch: {
     name() {

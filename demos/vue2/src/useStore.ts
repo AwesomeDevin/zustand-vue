@@ -29,7 +29,7 @@ const state: IState = {
 const userStore = (set, get) => ({
   ...state,
   setName: (val: string) => {
-    set((origin) => ({
+    set((origin: IState) => ({
       userInfo: {
         ...origin.userInfo,
         name: val,

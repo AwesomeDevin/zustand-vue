@@ -9,7 +9,7 @@ title: 选择 State
 const state = useBearStore()
 ```
 
-### 基于选择器进行状态选择
+### 基于 `selector` 进行状态选择
 默认情况下，它检测严格相等的变化（`old === new` 即 `新值全等于旧值`）。
 ```js
 const nuts = useBearStore((state) => state.nuts)

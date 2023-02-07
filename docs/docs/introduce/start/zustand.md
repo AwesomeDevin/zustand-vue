@@ -29,7 +29,7 @@ const useBearStore = create((set) => ({
 ```
 ### Step 3: Store 绑定组件，就完成了!
 可以在任何地方使用钩子，不需要提供 `provider`。  
-基于 `选择器` 获取您的目标状态，组件将在状态更改时重新渲染。
+基于 `selector` 获取您的目标状态，组件将在状态更改时重新渲染。
 
 ##### 选择目标状态：bears
 ```js

@@ -19,3 +19,4 @@ tags:
 
 ### More
  - [React state management tools comparison，react hooks context / redux / mobx / zustand / jotai / valtio vs each other](https://github.com/AwesomeDevin/blog/issues/80)
+- [Pmnd's Comparison](https://docs.pmnd.rs/zustand/getting-started/comparison)
