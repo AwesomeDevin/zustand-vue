@@ -70,7 +70,7 @@ function AppA() {
 }
 ``` 
 
-### Step 3： Get data `platformStore` under the isolated container `pubStore` across applications (App B)
+### Step 3： Get the `platformStore` under the isolated container `pubStore` and bind the Component (App B)
 ```js
 interface IState {
   appInfo: {
@@ -104,6 +104,9 @@ function AppB() {
 }
 
 ```
+:::tip
+ [The Usage of Vue to bind Component](https://awesomedevin.github.io/zustand-vue/en/docs/introduce/start/zustand-vue#step-3-store-binds-the-component-and-its-done)
+:::
 
 ## API
 

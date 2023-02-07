@@ -14,12 +14,10 @@ tags:
 ### [Micro-FrontEnd Demo Source](https://github.com/AwesomeDevin/zustand-pub)
 :::
 
-### 应用场景
-
+## 应用场景
 适合模块化、组件化、微前端等业务场景，提供跨应用、跨框架的状态管理及共享能力。
 
-
-### 安装 
+## 安装 
 ```shell
 npm install zustand-pub # or yarn add zustand-pub
 ```
@@ -75,7 +73,7 @@ function AppA() {
 }
 ``` 
 
-### Step 3： 跨应用获取隔离容器 `pubStore` 下的数据 `platformStore` (App B)
+### Step 3： 获取隔离容器 `pubStore` 下的数据 `platformStore` 并绑定组件 (App B)
 ```js
 interface IState {
   appInfo: {
@@ -107,8 +105,10 @@ function AppB() {
   const setAppName = usePlatformStore((state) => state.setAppName);
   return <div>{name}</div>
 }
-
 ```
+:::tip
+ [使用 Vue 绑定组件](https://awesomedevin.github.io/zustand-vue/docs/introduce/start/zustand-vue#step-3-store-%E7%BB%91%E5%AE%9A%E7%BB%84%E4%BB%B6%E5%B0%B1%E5%AE%8C%E6%88%90%E4%BA%86)
+:::
 
 ## API
 
