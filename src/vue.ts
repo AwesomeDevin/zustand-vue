@@ -3,13 +3,15 @@ import * as Vue  from "vue";
 import { defineProxy, defineSet } from "./proxy";
 
 
-export type ExtractState<S> = S extends ((state: S) => infer T) ? T : S
+type ExtractState<S> = S extends {
+  getState: () => infer T;
+} ? T : never;
 
-type WithReact<S extends StoreApi<unknown>> = S & {
+type WithVue<S extends StoreApi<unknown>> = S & {
   getServerState?: () => ExtractState<S>;
 };
 
-export type UseBoundStore<S extends WithReact<StoreApi<unknown>>> = {
+export type UseBoundStore<S extends WithVue<StoreApi<unknown>>> = {
   (): ExtractState<S>;
   <U>(selector: (state: ExtractState<S>) => U, equals?: (a: U, b: U) => boolean): U;
 } & S;
@@ -29,7 +31,7 @@ export type TObject = Record<string, any>
 export type TSubscribeCache = Record<string, () => void>
 
 
-const defineReactive = <T, S extends object>(store: S, subscribeCache: TSubscribeCache, api: StoreApi<T>, selection?: (state: T) => S) => {
+const defineReactive = <T, S>(store: S, subscribeCache: TSubscribeCache, api: StoreApi<T>, selection?: (state: T) => S) => {
   const keys = Object.keys(store);
   keys.forEach((key) => {
     let value = store[key as keyof S];
@@ -57,7 +59,7 @@ const defineReactive = <T, S extends object>(store: S, subscribeCache: TSubscrib
 };
 
 
-function defineDep<T extends TObject>( subscribeCache: TSubscribeCache, api: StoreApi<T>, selection?: (state: T) => ExtractState<T> ) {
+function defineDep<T>( subscribeCache: TSubscribeCache, api: StoreApi<T>, selection?: (state: T) => ExtractState<T> ) {
   const externalState = api.getState();
   const store = selection ? selection(externalState) : externalState;
   const isObject = store?.constructor === Object;
@@ -82,12 +84,13 @@ function defineDep<T extends TObject>( subscribeCache: TSubscribeCache, api: Sto
   } else if (isObject) {
     if (typeof Proxy !== 'undefined') {
       defineReactive<T, typeof store>(store, subscribeCache, api, selection);
-      return Vue.reactive(store);
+      return Vue.reactive(store as object);
     }
     return defineProxy<T, typeof store>(store, subscribeCache, api, selection)
   } else {
     const res = Vue.ref(store);
     api.subscribe((state) => {
+      //@ts-ignore
       res.value = selection ? selection(state) : state;
     });
     return isFunction ? res.value as (Vue.UnwrapNestedRefs<T> | Vue.UnwrapNestedRefs<ExtractState<T>>) : res;
@@ -109,7 +112,7 @@ const create = (<T extends TObject>(createState: StateCreator<T, [], [], T>) => 
 }) as Create
 
 export {
-  createStore,
+  createStore as store,
   StateCreator,
   StoreApi,
   create,
