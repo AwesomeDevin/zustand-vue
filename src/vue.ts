@@ -3,7 +3,7 @@ import * as Vue  from "vue";
 import { defineProxy, defineSet } from "./proxy";
 
 
-type ExtractState<S> = S extends {
+export type ExtractState<S> = S extends {
   getState: () => infer T;
 } ? T : never;
 
