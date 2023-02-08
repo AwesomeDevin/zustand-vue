@@ -32,6 +32,7 @@ import create from "zustand-vue";
 const useBearStore = create((set) => ({
   bears: 0,
   increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
+  setBears: (val)=>set({ bears: value })
   removeAllBears: () => set({ bears: 0 }),
 }))
 
@@ -227,3 +228,95 @@ export default {
 </template>
 ```
 </details>
+
+:::danger
+由于 zustand-vue  的 state 具备`不可变更新`特性，当你绑定表单组件时，`v-model` 语法糖将失效，必须通过 `set` 来更新 `state`，以下根据 vue2、vue3 分别例举不同的方式：
+
+<details>
+<summary>Vue3</summary>
+
+```js
+<template>
+  <input v-model="bears" @input="handleChange" />
+</template>
+<script>
+import useBearStore from "./store";
+
+const setBears = useBearStore((state) => state.setBears);
+
+export default {
+  data() {
+    return {
+      bears: useBearStore((state) => state.bears),
+    };
+  },
+  methods: {
+    handleChange(e){
+      setBears(e.target.value)
+    }
+  }
+};
+</script>
+```
+</details>
+
+
+<details>
+<summary>Vue2</summary>
+
+- 方式1
+```js
+<template>
+  <input v-model="bears" />
+</template>
+<script>
+import useBearStore from "./store";
+
+const setBears = useBearStore((state) => state.setBears);
+
+export default {
+  data() {
+    return {
+      store: useBearStore(),
+    };
+  },
+  computed:{
+    bears:{
+      get(){
+        return this.store.bears
+      },
+      set(val){
+        setBears(val)
+      }
+    }
+  }
+};
+</script>
+```
+
+- 方式2
+```js
+<template>
+  <input v-model="store.bears" @input="handleChange" />
+</template>
+<script>
+import useBearStore from "./store";
+
+const setBears = useBearStore((state) => state.setBears);
+
+export default {
+  data() {
+    return {
+      store: useBearStore(),
+    };
+  },
+  methods:{
+    handleChange(e){
+      setBears(e.target.value)
+    }
+  }
+};
+</script>
+```
+</details>
+:::

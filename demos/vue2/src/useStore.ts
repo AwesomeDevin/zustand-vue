@@ -23,7 +23,7 @@ const state: IState = {
     tel: 'xxxxxx'
   },
   collection: ['上海'],
-  title: 'Demo'
+  title: ''
 };
 
 const userStore = (set, get) => ({

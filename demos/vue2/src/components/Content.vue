@@ -5,7 +5,7 @@
     <h3>userInfo： {{ store.userInfo }}</h3>
     <h3>bears:{{bears}}</h3>
     <h3>fishes:{{fishes}}</h3>
-    <div><button>Add Bears</button> &nbsp;&nbsp; <button>Add Bears</button></div>
+    <div><button @click="addBear">Add Bears</button> &nbsp;&nbsp; <button @click="addBearAndFish">addBearAndFish</button></div>
 
     <h3>
     <ul>
@@ -19,8 +19,11 @@
 import useStore from "../useStore";
 import { useBoundStore } from '../combineStore'
 
+
+
 const addBear = useBoundStore(state=>state.addBear)
 const addBearAndFish = useBoundStore(state=>state.addBearAndFish)
+
 
 export default {
   name: "Header",

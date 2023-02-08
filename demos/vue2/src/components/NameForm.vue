@@ -15,22 +15,24 @@
 import useStore from "../useStore";
 
 const setName = useStore((state) => state.setName);
+const setTitle = useStore((state) => state.setTitle)
 
 export default {
   name: "Form",
   data() {
     return {
-      name: useStore((state) => state.userInfo.name),
       store: useStore(),
       value: "",
-      setTitle: useStore((state) => state.setTitle),
     };
   },
-
+  computed:{
+    name(){
+      return this.store.userInfo.name
+    },
+  },
   methods: {
     handleChange1(e) {
-      // this.name = e.target.value; // not working
-      this.store.setName(e.target.value);
+      setName(e.target.value);
     },
     handleChange2(e) {
       this.value = e.target.value;
@@ -38,7 +40,7 @@ export default {
   },
 
   mounted() {
-    this.setTitle("Demo");
+    setTitle("Demo");
   },
 };
 </script>
