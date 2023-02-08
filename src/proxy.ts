@@ -31,7 +31,6 @@ export  function defineSet<T extends TObject> (
   selection: (state: T) => ExtractState<T>
 ) {
   const keys = Object.keys(rootState);
-  
   if (!observableStore) {
     observableStore = {} as T;
     // @ts-ignore
@@ -39,11 +38,15 @@ export  function defineSet<T extends TObject> (
 
 
     keys.forEach((key) => {
+      if(subscribeCache[key]) return 
+      
       let value = rootState[key];
-
       subscribeCache[key] = api.subscribe((state) => {
         if (state[key] === observableStore[key]) return;
         const isArray = state[key] instanceof Array;
+        const isObject = state[key] instanceof Object
+        // @ts-ignore
+        // const set = Vue.set || Vue.default?.set
         if (isArray) {
           // @ts-ignore
           if (!observableStore[key]) observableStore[key] = [];
@@ -52,16 +55,16 @@ export  function defineSet<T extends TObject> (
             observableStore[key].length,
             ...state[key]
           );
-        } else if (!(state[key] instanceof Object)) {
+        } else if (!isObject) {
+          // set(observableStore, key, state[key])
           observableStore[key  as keyof T] = state[key];
         } else {
-          // @ts-ignore
-          const set = Vue.set || Vue.default?.set
-          if(set){
-            set(observableStore, key, state[key]);
-          }else{
-            console.error('Vue.set Not Fount', Vue)
-          }
+          observableStore[key  as keyof T] = state[key]
+          // if(set){
+          //   set(observableStore, key, state[key]);
+          // }else{
+          //   console.error('Vue.set Not Fount', Vue)
+          // }
         }
       });
 
@@ -82,4 +85,32 @@ export  function defineSet<T extends TObject> (
 
   const value = selection ? selection(observableStore) : observableStore;
   return value;
+};
+
+
+export const defineReactive = <T, S>(store: S, subscribeCache: TSubscribeCache, api: StoreApi<T>, selection?: (state: T) => S) => {
+  const keys = Object.keys(store);
+  keys.forEach((key) => {
+    let value = store[key as keyof S];
+    Object.defineProperty(store, key, {
+      enumerable: true,
+      configurable: true,
+      get: () => {
+        if (keys.includes(key)) {
+          if (!subscribeCache[key]) {
+            subscribeCache[key] = api.subscribe((state) => {
+              // @ts-ignore
+              store[key as keyof S] = selection ? selection(state)[key as keyof S] : state[key as keyof S];
+            });
+          }
+        }
+        return value;
+      },
+      set: (newVal) => {
+        if (newVal !== value) {
+          value = newVal;
+        }
+      }
+    });
+  });
 };
