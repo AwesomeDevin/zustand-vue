@@ -32,6 +32,7 @@ import create from "zustand-vue";
 const useBearStore = create((set) => ({
   bears: 0,
   increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
+  setBears: (val)=>set({ bears: value })
   removeAllBears: () => set({ bears: 0 }),
 }))
 

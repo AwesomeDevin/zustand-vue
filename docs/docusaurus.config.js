@@ -149,7 +149,7 @@ const config = {
               },
             ],
             position: 'right',
-            label: '生态',
+            label: '社区',
           },
           {
             href: 'https://github.com/AwesomeDevin/zustand-vue',

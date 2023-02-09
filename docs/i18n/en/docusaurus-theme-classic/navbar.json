@@ -7,7 +7,7 @@
     "message": "Tutorial",
     "description": "Navbar item with label Turial"
   },
-  "item.label.生态": {
+  "item.label.社区": {
     "message": "Community",
     "description": "Navbar item with label community"
   },
