@@ -1,5 +1,5 @@
 ---
-title: What Is Zustand ?
+title: What Is Zustand/Zustand-Vue/Zustand-Pub ?
 ---
 
 ![](/img/bear.jpeg?raw=true)
