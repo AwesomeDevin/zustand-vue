@@ -20,9 +20,8 @@
   ],
   "keywords": [
     "zustand",
-    "state management",
     "state-management",
-    "store",
+    "external store",
     "zustand-vue"
   ],
   "author": "AwesomeDevin",
