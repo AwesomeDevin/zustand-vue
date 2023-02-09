@@ -142,7 +142,7 @@
 
 @media screen and (max-width: 996px) {
   .heroBanner {
-    padding: 2.5rem;
+    padding: 2.5rem 0;
   }
 
   .buttons{
@@ -151,6 +151,8 @@
   }
 
   .buttons .btn{
+    max-width: 95vw;
+    white-space: break-spaces;
     margin-top: 0;
     margin-bottom: 10px;
 	  -webkit-box-reflect:below 5px linear-gradient(transparent, rgba(0, 0, 0, 0));
