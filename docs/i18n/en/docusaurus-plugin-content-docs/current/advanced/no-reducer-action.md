@@ -1,5 +1,5 @@
 ---
-title: Want Reducers And Action Types like redux ？
+title: Want Reducers And ActionTypes Like Redux？
 ---
 
 Want to use reducers and action types like redux ?

@@ -1,5 +1,5 @@
 ---
-title: 想要 redux 一样的 reducers 以及 action types ?
+title: 需要像 Redux 一样的 Reducers 以及 ActionTypes?
 ---
 
 想添加像 redux 一样的 reducers 以及 action types ?

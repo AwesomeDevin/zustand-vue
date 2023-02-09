@@ -1,8 +1,8 @@
 ---
-title: 与 typescript 一起使用
+title: 与 Typescript 一起使用
 ---
 
-基础的 typescript 用法不需要任何特殊的东西，除了写 `create<State>()(…)` 而不是 `create(…)`
+基础的 Typescript 用法不需要任何特殊的东西，除了写 `create<State>()(…)` 而不是 `create(…)`
 ```js
 import { create } from 'zustand-vue'
 

@@ -35,4 +35,4 @@ tags:
 
 `zustand-pub` 做为 zustand 或 zustand-vue 的第三方库存在，目的是为 **模块化、组件化、微前端** 等业务场景，提供 **跨应用、跨框架** 的 **状态管理** 及 **状态共享** 能力。
 
-这里有一个微前端的 [Demo](https://github.com/AwesomeDevin/zustand-pub).
+这里有一个微前端的 [Demo](https://github.com/AwesomeDevin/zustand-pub/tree/main/demo/micro-frontend).
