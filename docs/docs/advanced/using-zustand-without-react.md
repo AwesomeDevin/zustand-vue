@@ -1,5 +1,5 @@
 ---
-title: 脱离 react/vue 上下文的情况下使用 zustand/zustand-vue
+title: 脱离 React/Vue 情况下使用 Zustand/Zustand-vue
 ---
 
 `zustand/zustand-vue`核心可以在没有`React / Vue`依赖的情况下导入和使用。唯一的区别是 `create` 函数不再返回钩子，而是返回 `API`。

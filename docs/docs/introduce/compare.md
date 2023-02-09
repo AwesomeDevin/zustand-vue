@@ -11,7 +11,7 @@ tags:
 - 不需要使用 `context provider` 包裹你的应用程序
 <!-- - [可以临时通知组件(不引起渲染)]() -->
 
-### 为什么是 zustand 而不是 context？
+### 为什么是 zustand 而不是 react Context？
 - 不依赖 `react` 上下文，引用更加灵活
 - 当状态发生变化时重新渲染的组件更少
 - 集中式的、基于 actions 的状态管理

@@ -1,6 +1,8 @@
 ---
-title: 想添加像 redux 一样的 reducers 以及 action types ?
+title: 想要 redux 一样的 reducers 以及 action types ?
 ---
+
+想添加像 redux 一样的 reducers 以及 action types ?
 
 ```js
 const types = { increase: 'INCREASE', decrease: 'DECREASE' }

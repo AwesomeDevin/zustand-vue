@@ -12,7 +12,7 @@ tags:
 
 :::tip
 ### Vue Live Demo
-- #### [Vue3](https://codesandbox.io/s/sleepy-feynman-fwqhoe?file=/src/components/Action2.vue)
+- #### [Vue3](https://codesandbox.io/s/sleepy-feynman-fwqhoe?file=/src/components/Action.vue)
 - #### [Vue2](https://codesandbox.io/s/strange-agnesi-zzwpzg?file=/src/components/Action.vue)
 
 ### Vue Demo Source

@@ -1,6 +1,8 @@
 ---
-title: Want Reducers And Action Types Like Redux ?
+title: Want Reducers And Action Types like redux ？
 ---
+
+Want to use reducers and action types like redux ?
 ```js
 const types = { increase: 'INCREASE', decrease: 'DECREASE' }
 
