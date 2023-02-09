@@ -18,7 +18,7 @@ module.exports = {
   "rules": {
     '@typescript-eslint/ban-ts-comment': 1,
     '@typescript-eslint/no-extra-semi': 0,
-    '@typescript-eslint/no-empty-function': 1,
+    '@typescript-eslint/no-empty-function': 0,
     '@typescript-eslint/no-unused-vars': 2,
     '@typescript-eslint/no-var-requires': 0,
     '@typescript-eslint/no-non-null-assertion': 0,

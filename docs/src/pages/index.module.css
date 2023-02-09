@@ -14,12 +14,6 @@
   background-position: center;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 5rem;
-  }
-}
-
 .buttons {
   display: flex;
   width: 100%;
@@ -60,8 +54,6 @@
   color: var(--ifm-color-primary);
   box-shadow: 0 0 5px var(--ifm-hero-text-color),
     0 0 25px var(--ifm-hero-text-color);
-  
-  
 }
 
 .buttons   .btn:hover::after,
@@ -122,7 +114,6 @@
 }
 
 .subtitle1, .subtitle2{
-  white-space: nowrap;
   font-weight: 400;
 }
 
@@ -146,4 +137,27 @@
 	100% {
 		transform: translate(-50%, -50%) rotate(1turn);
 	}
+}
+
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 2.5rem;
+  }
+
+  .buttons{
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .buttons .btn{
+    margin-top: 0;
+    margin-bottom: 10px;
+	  -webkit-box-reflect:below 5px linear-gradient(transparent, rgba(0, 0, 0, 0));
+  }
+
+
+  .buttons .btn:nth-child(2):before,.buttons .btn:nth-child(3):before{
+    animation-delay: 0s;
+  }
 }

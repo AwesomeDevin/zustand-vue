@@ -190,7 +190,7 @@ const config = {
           //   ],
           // },
           {
-            title: 'More',
+            title: '社区',
             items: [
               // {
               //   label: 'Blog',
