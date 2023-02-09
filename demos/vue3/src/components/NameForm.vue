@@ -5,43 +5,32 @@
       <input
         @input="handleChange1"
         placeholder="请输入您的名称"
-        :value="name"
+        v-model="name"
       />
     </div>
   </div>
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue'
 import useStore from "../useStore";
 
 
 const setName = useStore((state) => state.setName);
+const name = useStore((state) => state.userInfo.name)
+const setTitle = useStore(state=>state.setTitle)
+const store = useStore()
+const value= ref('')
 
-export default {
-  name: "Form",
-  data() {
-    return {
-      name: useStore((state) => state.userInfo.name),
-      store: useStore(),
-      value: "",
-      setTitle: useStore((state) => state.setTitle),
-    };
-  },
+const handleChange1 = (e) => {
+  setName(e.target.value);
+}
 
-  methods: {
-    handleChange1(e) {
-      // this.name = e.target.value; // not working
-      this.store.setName(e.target.value);
-    },
-    handleChange2(e) {
-      this.value = e.target.value;
-    },
-  },
+const handleChange2 = (e) => {
+  value = e.target.value
+}
 
-  mounted() {
-    this.setTitle("Demo");
-  },
-};
+setTitle('Demo')
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

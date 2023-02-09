@@ -1,7 +1,7 @@
 # zustand-vue
-State-management for Vue based on zustand
+State-management for Vue based on zustand  
 
-
+A small, fast and scalable bearbones state-management solution using simplified `flux` principles. Has a comfy API based on `hooks`, isn't boilerplatey or opinionated.
 
 [![Build Size](https://img.shields.io/bundlephobia/minzip/zustand-vue?label=bundle%20size)](https://bundlephobia.com/result?p=zustand-vue)
 [![Version](https://img.shields.io/npm/v/zustand-vue?style=flat)](https://www.npmjs.com/package/zustand-vue)
@@ -48,6 +48,18 @@ Store binds components are different in `vue3` vs `vue2`。
 <summary>Vue3</summary>
 
 #### Get target state：bears
+- Method 1： Select the state in `setup`
+```js
+<template>
+  <div>store.bears: {{ bears }}</div>
+</template>
+<script setip>
+import useBearStore from "./store";
+const bears = useBearStore((state) => state.bears)
+</script>
+``` 
+
+- Method 2：Initialize data based on `useBearStore`
 ```js
 <template>
   <div>store.bears: {{ bears }}</div>
@@ -65,7 +77,7 @@ export default {
 ```
 
 #### Update target state：bears
-- Method 1: Trigger change based on `setup`
+- Method 1: Triggers changes in `setup`
 ```js
 <script setup lang="ts">
 import useBearStore from "./store";
@@ -101,7 +113,7 @@ export default {
 
 ```
 
-- Method 3: Changes based on `methdos` call function
+- Method 3: Changes based on `methods` call function
 ```js
 <script>
 import useBearStore from "./store";
@@ -200,7 +212,7 @@ export default {
 ```
 
 
-- Method 2: Trigger change based on `setup`
+- Method 2: Changes based on `methods` call function
 ```js
 <script>
 import useBearStore from "./store";
@@ -226,3 +238,113 @@ export default {
 </template>
 ```
 </details>
+
+:::caution
+Since zustand-vue follows the `flux` model, its state has the feature of `immutable update`, when you bind Input(Form) components, `v-model` syntactic sugar will be invalid, `set` must be used to update `state`, as follows Examples of different methods according to vue2 and vue3：
+
+<details>
+<summary>Vue3</summary>
+
+- Method 1
+```js
+<template>
+  <input v-model="bears" @input="handleChange" />
+  {/* or <input :bind="bears" @input="handleChange" /> */}
+</template>
+
+<script setup>
+  import useBearStore from "./store";
+  const setBears = useBearStore((state) => state.setBears);
+  const handleChange = (e) => { setBears(e.target.value) }
+</script>
+```
+
+- Method 2
+```js
+<template>
+  <input v-model="bears" @input="handleChange" />
+  {/* or <input :bind="bears" @input="handleChange" /> */}
+</template>
+<script>
+import useBearStore from "./store";
+
+const setBears = useBearStore((state) => state.setBears);
+
+export default {
+  data() {
+    return {
+      bears: useBearStore((state) => state.bears),
+    };
+  },
+  methods: {
+    handleChange(e){
+      setBears(e.target.value)
+    }
+  }
+};
+</script>
+```
+</details>
+
+
+
+<details>
+<summary>Vue2</summary>
+
+- Method1 1
+```js
+<template>
+  <input v-model="bears" />
+</template>
+<script>
+import useBearStore from "./store";
+
+const setBears = useBearStore((state) => state.setBears);
+
+export default {
+  data() {
+    return {
+      store: useBearStore(),
+    };
+  },
+  computed:{
+    bears:{
+      get(){
+        return this.store.bears
+      },
+      set(val){
+        setBears(val)
+      }
+    }
+  }
+};
+</script>
+```
+
+- Method 2
+```js
+<template>
+  <input v-model="store.bears" @input="handleChange" />
+  {/* or <input :bind="bears" @input="handleChange" /> */}
+</template>
+<script>
+import useBearStore from "./store";
+
+const setBears = useBearStore((state) => state.setBears);
+
+export default {
+  data() {
+    return {
+      store: useBearStore(),
+    };
+  },
+  methods:{
+    handleChange(e){
+      setBears(e.target.value)
+    }
+  }
+};
+</script>
+```
+</details>
+:::

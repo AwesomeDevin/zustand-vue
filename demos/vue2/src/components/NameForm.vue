@@ -5,7 +5,7 @@
       <input
         @input="handleChange1"
         placeholder="请输入您的名称"
-        :value="name"
+        v-model="name"
       />
     </div>
   </div>

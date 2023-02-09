@@ -50,6 +50,18 @@ Store 绑定组件在 `vue3` 与 `vue2` 中有所不同。
 <summary>Vue3</summary>
 
 #### 选择目标状态：bears
+方式1：在 `setup` 中选择状态
+```js
+<template>
+  <div>store.bears: {{ bears }}</div>
+</template>
+<script setip>
+import useBearStore from "./store";
+const bears = useBearStore((state) => state.bears)
+</script>
+```
+
+方式2: 基于 `useBearStore` 初始化 data
 ```js
 <template>
   <div>store.bears: {{ bears }}</div>
@@ -59,6 +71,7 @@ import useBearStore from "./store";
 export default {
   data() {
     return {
+      store: useBearStore(),
       bears: useBearStore((state) => state.bears),
     };
   }
@@ -67,7 +80,7 @@ export default {
 ```
 
 #### 更新目标状态：bears
-- 方式一: 基于 `setup` 触发更新
+- 方式1: 在 `setup` 中触发更新
 ```js
 <script setup lang="ts">
 import useBearStore from "./store";
@@ -81,7 +94,7 @@ const removeAllBears = useBearStore((state) => state.removeAllBears);
 </template>
 ```
 
-- 方式二: 基于 `store` 初始化 `methods` 触发更新
+- 方式2: 基于 `store` 初始化 `methods` 触发更新
 ```js
 <script>
 import useBearStore from "./store";
@@ -103,7 +116,7 @@ export default {
 
 ```
 
-- 方式三: 基于 `methdos` 调用函数进行更新
+- 方式3: 基于 `methods` 调用函数进行更新
 ```js
 <script>
 import useBearStore from "./store";
@@ -180,7 +193,7 @@ export default {
 
 #### 更新目标状态：bears
 
-- 方式一: 基于 `store` 初始化 `methods` 触发更新
+- 方式1: 基于 `store` 初始化 `methods` 触发更新
 ```js
 <script>
 import useBearStore from "./store";
@@ -202,7 +215,7 @@ export default {
 ```
 
 
-- 方式二: 基于 `methdos` 调用函数进行更新
+- 方式2: 基于 `methods` 调用函数进行更新
 ```js
 <script>
 import useBearStore from "./store";
@@ -229,15 +242,31 @@ export default {
 ```
 </details>
 
-:::danger
-由于 zustand-vue  的 state 具备`不可变更新`特性，当你绑定表单组件时，`v-model` 语法糖将失效，必须通过 `set` 来更新 `state`，以下根据 vue2、vue3 分别例举不同的方式：
+:::caution
+由于 zustand-vue 遵循 `flux` 模型，其 state 具备`不可变更新`特性，当你绑定 Input(表单) 组件时，`v-model` 语法糖将失效，必须用 `set` 来更新 `state`，以下根据 vue2、vue3 分别例举不同的方式：
 
 <details>
 <summary>Vue3</summary>
 
+- 方式1
 ```js
 <template>
   <input v-model="bears" @input="handleChange" />
+  {/* or <input :bind="bears" @input="handleChange" /> */}
+</template>
+
+<script setup>
+  import useBearStore from "./store";
+  const setBears = useBearStore((state) => state.setBears);
+  const handleChange = (e) => { setBears(e.target.value) }
+</script>
+```
+
+- 方式2
+```js
+<template>
+  <input v-model="bears" @input="handleChange" />
+  {/* or <input :bind="bears" @input="handleChange" /> */}
 </template>
 <script>
 import useBearStore from "./store";
@@ -259,6 +288,7 @@ export default {
 </script>
 ```
 </details>
+
 
 
 <details>
@@ -298,6 +328,7 @@ export default {
 ```js
 <template>
   <input v-model="store.bears" @input="handleChange" />
+  {/* or <input :bind="bears" @input="handleChange" /> */}
 </template>
 <script>
 import useBearStore from "./store";
