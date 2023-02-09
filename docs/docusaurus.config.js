@@ -147,6 +147,10 @@ const config = {
                 href: 'https://github.com/AwesomeDevin/zustand-pub',
                 label: 'zustand-pub',
               },
+              {
+                href: 'https://github.com/pmndrs/zustand/blob/main/docs/integrations/third-party-libraries.md',
+                label: 'more'
+              }
             ],
             position: 'right',
             label: '社区',
@@ -208,6 +212,10 @@ const config = {
                 href: 'https://github.com/AwesomeDevin/zustand-pub',
                 label: 'zustand-pub',
               },
+              {
+                href: 'https://github.com/pmndrs/zustand/blob/main/docs/integrations/third-party-libraries.md',
+                label: 'more'
+              }
             ],
           },
         ],

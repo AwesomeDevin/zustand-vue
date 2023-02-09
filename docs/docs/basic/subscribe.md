@@ -1,3 +1,3 @@
 ---
-title: Subscribe
+title: 订阅
 ---

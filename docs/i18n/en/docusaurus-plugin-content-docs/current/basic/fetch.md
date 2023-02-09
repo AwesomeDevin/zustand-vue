@@ -2,7 +2,7 @@
 title: Select State
 ---
 
-### Basic Usage
+### Fetching everything
 You can do this, but keep in mind that this will cause the component to update on every state change!
 ```js
 ...

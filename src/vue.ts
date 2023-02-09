@@ -76,11 +76,11 @@ function defineDep<T>( api: StoreApi<T>, selection?: (state: T) => ExtractState<
 const create = (<T extends TObject>(createState: StateCreator<T, [], [], T>) => {
   const api =
     typeof createState === "function" ? createStore(createState) : createState;
-  const useStore = (selection?: (state: T) => ExtractState<T>) => {
+  const useStore = (selection?: (state: T) => ExtractState<T>, ) => {
     return defineDep<T>(api, selection)
   };
-  // const res = Object.assign({ useStore }, api);
-  const res = useStore
+  const res = Object.assign(useStore, api);
+  console.log('res',res)
   return res;
 }) as Create
 

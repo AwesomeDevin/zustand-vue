@@ -1,10 +1,10 @@
 ---
-title: 中间件
+title: Middleware
 ---
 
-你可以用任何你喜欢的方式来构建你的 `store`。
+You can functionally compose your `store` any way you like.。
 ```js
-// state 每次发生变化都将输出日志
+// Log every time state is changed
 const log = (config) => (set, get, api) =>
   config(
     (...args) => {
@@ -25,9 +25,8 @@ const useBeeStore = create(
 ```
 
 ### Persist middleware
-你可以基于你能想到的任何方式(localStorage/cookie/数据库等)将 `store` 中的 `state` 进行持久化存储。
+You can persist your store's data using any kind of storage. (localStorage/cookie/database, etc.)。
 ```js
-
 import { create } from 'zustand-vue'
 
 // import { create } from 'zustand'
@@ -48,11 +47,11 @@ const useFishStore = create(
   )
 )
 ```
-查看这个中间件的[完整文档](https://github.com/pmndrs/zustand/blob/main/docs/integrations/persisting-store-data.md)
+
 
 ### Immer middleware
 
-`Immer` 也可以作为中间件使用。
+`Immer` is available as middleware too.
 ```js
 import { create } from 'zustand-vue'
 
@@ -70,3 +69,4 @@ const useBeeStore = create(
   }))
 )
 ```
+[See the full documentation for this middleware.](https://github.com/pmndrs/zustand/blob/main/docs/integrations/persisting-store-data.md)

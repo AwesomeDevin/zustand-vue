@@ -18,6 +18,7 @@
 <script>
 import useStore from "../useStore";
 
+console.log('useStore.getState',useStore.getState)
 const push = useStore((state) => state.push);
 export default {
   data(){

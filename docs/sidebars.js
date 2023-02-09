@@ -36,6 +36,7 @@ const sidebars = {
         'basic/fetch',
         'basic/overwriting',
         'basic/async',
+        'basic/middleware',
         'basic/subscribe',
       ],
     },{

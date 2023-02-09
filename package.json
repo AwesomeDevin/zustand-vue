@@ -1,6 +1,6 @@
 {
   "name": "zustand-vue",
-  "version": "1.0.0-beta.14",
+  "version": "1.0.0-beta.15",
   "description": "State management for vue based on zustand",
   "main": "build/index.js",
   "module": "build/index.es.js",
