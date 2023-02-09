@@ -1,3 +1,15 @@
 ---
-title: 脱离 react 上下文的情况下使用 zustand
+title: 脱离 react/vue 上下文的情况下使用 zustand/zustand-vue
 ---
+
+`zustand/zustand-vue`核心可以在没有`React / Vue`依赖的情况下导入和使用。唯一的区别是 `create` 函数不再返回钩子，而是返回 `API`。
+```js
+import { createStore } from 'zustand-vue'
+
+// import { createStore } from 'zustand/vanilla'
+
+const store = createStore(() => ({ ... }))
+const { getState, setState, subscribe } = store
+
+export default store
+```

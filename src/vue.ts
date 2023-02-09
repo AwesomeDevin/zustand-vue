@@ -80,12 +80,11 @@ const create = (<T extends TObject>(createState: StateCreator<T, [], [], T>) => 
     return defineDep<T>(api, selection)
   };
   const res = Object.assign(useStore, api);
-  console.log('res',res)
   return res;
 }) as Create
 
 export {
-  createStore as store,
+  createStore,
   StateCreator,
   StoreApi,
   create,
