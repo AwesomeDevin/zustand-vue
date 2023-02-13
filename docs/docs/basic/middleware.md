@@ -75,6 +75,8 @@ const useBeeStore = create(
 ## Redux Middleware
 让你像写 `redux` 一样，来写 `zustand`
 ```js
+import { redux } from 'zustand/middleware'
+
 const types = { increase: 'INCREASE', decrease: 'DECREASE' }
 
 const reducer = (state, { type, by = 1 }) => {
@@ -93,3 +95,5 @@ const initialState = {
 
 const useReduxStore = create(redux(reducer, initialState))
 ```
+
+[完整的中间件相关文档](https://github.com/pmndrs/zustand/blob/main/docs/integrations/persisting-store-data.md)

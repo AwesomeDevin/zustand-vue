@@ -2,14 +2,14 @@
 title: Select State
 ---
 
-### Fetching everything
+## Do not use 'selector' data Fetching everything
 You can do this, but keep in mind that this will cause the component to update on every state change!
 ```js
 ...
 const state = useBearStore()
 ```
 
-### Select state based on selector
+## Select state based on `selector`
 By default, it detects strict equality changes (`old === new` i.e. `new value is exactly equal to old value`)。
 ```js
 const nuts = useBearStore((state) => state.nuts)

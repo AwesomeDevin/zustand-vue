@@ -24,7 +24,7 @@ const useBeeStore = create(
 )
 ```
 
-### Persist middleware
+## Persist middleware
 You can persist your store's data using any kind of storage. (localStorage/cookie/database, etc.)。
 ```js
 import { create } from 'zustand-vue'
@@ -49,7 +49,7 @@ const useFishStore = create(
 ```
 
 
-### Immer middleware
+## Immer middleware
 
 `Immer` is available as middleware too.
 ```js
@@ -69,4 +69,29 @@ const useBeeStore = create(
   }))
 )
 ```
+
+## Redux Middleware
+Let you write `zustand` like `redux`
+```js
+import { redux } from 'zustand/middleware'
+
+const types = { increase: 'INCREASE', decrease: 'DECREASE' }
+
+const reducer = (state, { type, by = 1 }) => {
+  switch (type) {
+    case types.increase:
+      return { grumpiness: state.grumpiness + by }
+    case types.decrease:
+      return { grumpiness: state.grumpiness - by }
+  }
+}
+
+const initialState = {
+  grumpiness: 0,
+  dispatch: (args) => set((state) => reducer(state, args)),
+}
+
+const useReduxStore = create(redux(reducer, initialState))
+```
+
 [See the full documentation for this middleware.](https://github.com/pmndrs/zustand/blob/main/docs/integrations/persisting-store-data.md)

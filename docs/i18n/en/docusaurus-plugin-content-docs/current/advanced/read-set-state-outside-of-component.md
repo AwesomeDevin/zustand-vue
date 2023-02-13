@@ -1,5 +1,5 @@
 ---
-title: Component Reading/Writing State Externally And Responds
+title: React/Vue Component Reading/Writing State Externally And Responds
 ---
 Sometimes you need to access state in a non-reactive way, or act upon the store. For these cases the resulting hook has utility functions attached to its prototype.
 

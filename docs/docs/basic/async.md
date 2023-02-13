@@ -16,7 +16,7 @@ const useFishStore = create((set) => ({
 
 异步操作中获取 `state`，有两种方式：
 
-方式1：基于 `set(state => result)` 更新函数
+- 方式1：基于 `set(state => result)` 更新函数
 ```js
 const useFishStore = create((set) => ({
   fishies: {},
@@ -29,7 +29,7 @@ const useFishStore = create((set) => ({
 }))
 ```
 
-方式2: 基于 `get` 函数
+- 方式2: 基于 `get` 函数
 ```js
 const useFishStore = create((set, get) => ({
   fishies: {},
