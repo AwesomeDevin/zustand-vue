@@ -1,15 +1,15 @@
 ---
-title: 获取状态
+title: Selector
 ---
 
-### 获取所有数据
+## 不使用 `selector` 获取所有数据
 您可以这样做，但是请记住，这会导致组件在每次状态更改时都进行更新!
 ```js
 ...
 const state = useBearStore()
 ```
 
-### 基于 `selector` 进行状态选择
+## 基于 `selector` 进行状态选择
 默认情况下，它检测严格相等的变化（`old === new` 即 `新值全等于旧值`）。
 ```js
 const nuts = useBearStore((state) => state.nuts)

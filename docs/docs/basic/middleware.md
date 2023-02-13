@@ -24,7 +24,7 @@ const useBeeStore = create(
 )
 ```
 
-### Persist middleware
+## Persist middleware
 你可以基于你能想到的任何方式(localStorage/cookie/数据库等)将 `store` 中的 `state` 进行持久化存储。
 ```js
 
@@ -50,7 +50,7 @@ const useFishStore = create(
 ```
 查看这个中间件的[完整文档](https://github.com/pmndrs/zustand/blob/main/docs/integrations/persisting-store-data.md)
 
-### Immer middleware
+## Immer middleware
 
 `Immer` 也可以作为中间件使用。
 ```js
@@ -69,4 +69,27 @@ const useBeeStore = create(
       }),
   }))
 )
+```
+
+
+## Redux Middleware
+让你像写 `redux` 一样，来写 `zustand`
+```js
+const types = { increase: 'INCREASE', decrease: 'DECREASE' }
+
+const reducer = (state, { type, by = 1 }) => {
+  switch (type) {
+    case types.increase:
+      return { grumpiness: state.grumpiness + by }
+    case types.decrease:
+      return { grumpiness: state.grumpiness - by }
+  }
+}
+
+const initialState = {
+  grumpiness: 0,
+  dispatch: (args) => set((state) => reducer(state, args)),
+}
+
+const useReduxStore = create(redux(reducer, initialState))
 ```
