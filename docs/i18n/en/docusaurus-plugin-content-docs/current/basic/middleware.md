@@ -70,7 +70,7 @@ const useBeeStore = create(
 )
 ```
 
-## Redux Middleware
+## Redux middleware
 Let you write `zustand` like `redux`
 ```js
 import { redux } from 'zustand/middleware'

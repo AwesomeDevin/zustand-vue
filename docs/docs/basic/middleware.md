@@ -72,7 +72,7 @@ const useBeeStore = create(
 ```
 
 
-## Redux Middleware
+## Redux middleware
 让你像写 `redux` 一样，来写 `zustand`
 ```js
 import { redux } from 'zustand/middleware'
