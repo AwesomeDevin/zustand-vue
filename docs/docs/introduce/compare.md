@@ -9,7 +9,7 @@ tags:
 - 轻巧灵活
 - 将 `hooks` 作为消费状态的主要手段
 - 不需要使用 `context provider` 包裹你的应用程序
-<!-- - [可以临时通知组件(不引起渲染)]() -->
+- [可以做到瞬时更新(不引起组件渲染完成更新过程)](https://awesomedevin.github.io/zustand-vue/docs/advanced/transiend-updates)
 
 ### 为什么是 zustand 而不是 react Context？
 - 不依赖 `react` 上下文，引用更加灵活

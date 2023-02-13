@@ -2,7 +2,7 @@
 title: Select State
 ---
 
-## Do not use 'selector' data Fetching everything
+## Do not use `selector`s data Fetching everything
 You can do this, but keep in mind that this will cause the component to update on every state change!
 ```js
 ...
