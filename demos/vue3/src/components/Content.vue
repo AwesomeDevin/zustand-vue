@@ -11,7 +11,7 @@
   </h3>
   </div>
 </template>
-<script>
+<script lang="ts">
 import useStore from "../useStore";
 
 
