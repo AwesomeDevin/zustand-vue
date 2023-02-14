@@ -1,18 +1,34 @@
 import { StoreApi } from "zustand/vanilla";
 // @ts-ignore
 import * as Vue from "vue";
-import { ExtractState, TSubscribeCache, TObject } from "./vue";
+import { TSubscribeCache, TObject } from "./vue";
+
+export const executeEqualityFn = <T, S>(nextState: T, previousState: T, selection?: (state: T) => S, equalityFn?: (a: S, b: S) => boolean) => {
+  if(!selection || !equalityFn) return true
+  const prevStateSlice = selection(previousState)
+  const nextStateSlice = selection(nextState)
+  if (equalityFn !== undefined && !equalityFn(prevStateSlice, nextStateSlice)) {
+    return true
+  }
+  return false
+}
 
 
-export function defineProxy<T, S extends TObject>(store: S, subscribeCache: TSubscribeCache, api: StoreApi<T>, selection?: (state: T) => S) {
+export function defineProxy<T, S>(
+  store: S,
+  subscribeCache: TSubscribeCache, 
+  api: StoreApi<T>, 
+  selection?: (state: T) => S, equalityFn?: (a: S, b: S) => boolean) {
   const keys = Object.keys(store)
+  // @ts-ignore
   const reactiveStore = Vue.reactive(store);
   const val = new Proxy(reactiveStore, {
     get: (obj, prop: string) => {
       if (keys.includes(prop)) {
         if (!subscribeCache[prop]) {
-          subscribeCache[prop] = api.subscribe((state) => {
-            //@ts-ignore
+          subscribeCache[prop] = api.subscribe((state, prevState) => {
+            if(!executeEqualityFn(state, prevState, selection, equalityFn)) return
+            // @ts-ignore
             reactiveStore[prop as keyof typeof reactiveStore] = selection ? selection(state)[prop as keyof S] : state[prop as keyof T];
           });
         }
@@ -23,12 +39,13 @@ export function defineProxy<T, S extends TObject>(store: S, subscribeCache: TSub
   return val;
 };
 
-export  function defineSet<T extends TObject> (
+export  function defineSet<T extends TObject, S> (
   rootState: T, 
   observableStore: T,
   subscribeCache: TSubscribeCache,
   api:  StoreApi<T>,
-  selection: (state: T) => ExtractState<T>
+  selection: (state: T) => S,
+  equalityFn?: (a: S, b: S) => boolean
 ) {
   const keys = Object.keys(rootState);
   if (!observableStore) {
@@ -41,7 +58,8 @@ export  function defineSet<T extends TObject> (
       if(subscribeCache[key]) return 
       
       let value = rootState[key];
-      subscribeCache[key] = api.subscribe((state) => {
+      subscribeCache[key] = api.subscribe((state, prevState) => {
+        if(!executeEqualityFn(state, prevState, selection, equalityFn)) return
         if (state[key] === observableStore[key]) return;
         const isArray = state[key] instanceof Array;
         const isObject = state[key] instanceof Object
@@ -88,7 +106,7 @@ export  function defineSet<T extends TObject> (
 };
 
 
-export const defineReactive = <T, S>(store: S, subscribeCache: TSubscribeCache, api: StoreApi<T>, selection?: (state: T) => S) => {
+export const defineReactive = <T, S>(store: S, subscribeCache: TSubscribeCache, api: StoreApi<T>, selection?: (state: T) => S, equalityFn?: (a: S, b: S) => boolean) => {
   const keys = Object.keys(store);
   keys.forEach((key) => {
     let value = store[key as keyof S];
@@ -98,9 +116,10 @@ export const defineReactive = <T, S>(store: S, subscribeCache: TSubscribeCache, 
       get: () => {
         if (keys.includes(key)) {
           if (!subscribeCache[key]) {
-            subscribeCache[key] = api.subscribe((state) => {
-              // @ts-ignore
-              store[key as keyof S] = selection ? selection(state)[key as keyof S] : state[key as keyof S];
+            subscribeCache[key] = api.subscribe((state, prevState) => {
+              if(!executeEqualityFn(state, prevState, selection, equalityFn)) return
+              //@ts-ignore
+              store[key as (keyof S)] = selection ? selection(state)[key as keyof S] : state[key as keyof T];
             });
           }
         }

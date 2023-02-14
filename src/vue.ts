@@ -1,6 +1,6 @@
 import createStore, { StateCreator, StoreApi, StoreMutatorIdentifier, Mutate } from "zustand/vanilla";
 import * as Vue  from "vue";
-import { defineProxy, defineSet, defineReactive } from "./proxy";
+import { defineProxy, defineSet, defineReactive, executeEqualityFn } from "./proxy";
 
 
 export type ExtractState<S> = S extends {
@@ -34,7 +34,7 @@ export type TSubscribeCache = Record<string, () => void>
 
 
 
-function defineDep<T>( api: StoreApi<T>, selection?: (state: T) => ExtractState<T> ) {
+function defineDep<T, S>( api: WithVue<StoreApi<T>>, selection?:(state: T) => S, equalityFn?: (a: S, b: S) => boolean ) {
   const externalState = api.getState();
   const store = selection ? selection(externalState) : externalState;
   const isObject = store?.constructor === Object;
@@ -44,13 +44,13 @@ function defineDep<T>( api: StoreApi<T>, selection?: (state: T) => ExtractState<
   // @ts-ignore
   if (Vue.set || Vue.default?.set) {
     let observableStore;
-    return defineSet.call(
-      this,
+    return defineSet<T, S>(
       externalState,
       observableStore,
       subscribeCache,
       api,
-      selection
+      selection,
+      equalityFn
     );
   }
 
@@ -59,25 +59,25 @@ function defineDep<T>( api: StoreApi<T>, selection?: (state: T) => ExtractState<
     return undefined
   } else if (isObject) {
     if (typeof Proxy !== 'undefined') {
-      defineReactive<T, typeof store>(store, subscribeCache, api, selection);
+      defineReactive<T, typeof store>(store, subscribeCache, api, selection, equalityFn);
       return Vue.reactive(store as object);
     }
-    return defineProxy<T, typeof store>(store, subscribeCache, api, selection)
+    return defineProxy<T, typeof store>(store, subscribeCache, api, selection, equalityFn)
   } else {
     const res = Vue.ref(store);
-    api.subscribe((state) => {
-      //@ts-ignore
-      res.value = selection ? selection(state) : state;
+    api.subscribe((state, prevState) => {
+      if(!executeEqualityFn(state, prevState, selection, equalityFn)) return
+      res.value = (selection ? selection(state) : state) as Vue.UnwrapRef<S>
     });
-    return isFunction ? res.value as (Vue.UnwrapNestedRefs<T> | Vue.UnwrapNestedRefs<ExtractState<T>>) : res;
+    return isFunction ? res.value as (Vue.UnwrapNestedRefs<S>) : res;
   }
 }
 
 const create = (<T extends TObject>(createState: StateCreator<T, [], [], T>) => {
   const api =
     typeof createState === "function" ? createStore(createState) : createState;
-  const useStore = (selection?: (state: T) => ExtractState<T>, ) => {
-    return defineDep<T>(api, selection)
+  const useStore = <S>(selection?: (state: T) => S, equalityFn?: (a: S, b: S) => boolean ) => {
+    return defineDep<T, S>(api, selection, equalityFn)
   };
   const res = Object.assign(useStore, api);
   return res;
