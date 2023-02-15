@@ -13,7 +13,7 @@ tags:
 
 ### Ability
 
-It is suitable for business scenarios such as modularization, componentization, and micro-front-end, and provides state management and sharing capabilities across applications and frameworks。
+It is suitable for business scenarios such as modularization, componentization, micro-frontend, multiple technology stacks exist at the same time, and gradual migration of project frameworks, `zustand-pub` can provides cross-application and cross-framework state management and sharing capabilities for these scenarios.
 
 
 ### Install
@@ -24,20 +24,20 @@ npm install zustand-pub # or yarn add zustand-pub
 
 ## Usage
 
-### Step 1： Initialize state isolation container `pubStore` (App A)
+### Step 1： Initialize state isolation container `pubStore` (Scene A)
 ```js
 import PubStore from 'zustand-pub'
 
 const pubStore = new PubStore('key')
 ```
 
-### Step 2： Fill the isolation container `pubStore` with data `platformStore` (App A)
+### Step 2： Fill the isolation container `pubStore` with data `platformStore` (Scene A)
 ```js
-//react
-import create from "zustand";
-
 // vue
-// import create from "zustand-vue";
+import create from "zustand-vue";
+
+//react
+// import create from "zustand";
 
 interface IState {
   appInfo: {
@@ -62,18 +62,48 @@ const platformStore = pubStore.defineStore<IState & IAction>('platformStore', (s
 
 const usePlatformStore = create(platformStore)
 ```
-return value `usePlatformStore` is `hook`, you can get the corresponding state through state `selector`
+return value `usePlatformStore` is `hook`,in scenario A, you can get the corresponding state through state `selector`
 ```js
-// react
-function AppA() {
-  const name = usePlatformStore((state) => state.appInfo.name);
-  const setAppName = usePlatformStore((state) => state.setAppName);
-  return <div>{name}</div>
+// vue3
+<template>
+  <div>{name}</div>
+</template>
+
+<script>
+const name = usePlatformStore((state) => state.appInfo.name);
+const setAppName = usePlatformStore((state) => state.setAppName);
+
+export default {
+  name: "AppA",
+  data(){
+    return {
+      name
+    }
+  },
+  methods:{
+    setAppName
+  }
 }
+</script>
+
+
+// react
+// function AppA() {
+//   const name = usePlatformStore((state) => state.appInfo.name);
+//   const setAppName = usePlatformStore((state) => state.setAppName);
+//   return <div>{name}</div>
+// }
 ``` 
 
-### Step 3： Get the `platformStore` under the isolated container `pubStore` and bind the Component (App B)
+### Step 3： Get the `platformStore` under the isolated container `pubStore` and bind the Component (Scene B)
 ```js
+// vue
+<template>
+  <div>{name}</div>
+</template>
+
+<script setup lang="ts">
+
 interface IState {
   appInfo: {
     name: string
@@ -84,29 +114,34 @@ interface IAction {
   setAppName: (val: string) => void
 }
 
-// react
 import PubStore from "zustand-pub";
-import create from "zustand";
+import create from "zustand-vue";
+
 const pubStore = new PubStore('key')
-
-// vue
-// import PubStore from "zustand-pub";
-// import create from "zustand-vue";
-// const pubStore = new PubStore('key')
-
-
 const store = pubStore.getStore<IState & IAction>("platformStore");
 const usePlatformStore = create(store || {});
 
-// react
-function AppB() {
-  const name = usePlatformStore((state) => state.appInfo.name);
-  const setAppName = usePlatformStore((state) => state.setAppName);
-  return <div>{name}</div>
-}
+const name = usePlatformStore((state) => state.appInfo.name);
+const setAppName = usePlatformStore((state) => state.setAppName);
 
+</script>
+
+// react
+// import PubStore from "zustand-pub";
+// import create from "zustand";
+
+// const pubStore = new PubStore('key')
+// const store = pubStore.getStore<IState & IAction>("platformStore");
+// const usePlatformStore = create(store || {});
+
+// function AppB() {
+//  const name = usePlatformStore((state) => state.appInfo.name);
+//  const setAppName = usePlatformStore((state) => state.setAppName);
+//  return <div>{name}</div>
+// }
 ```
 :::tip
+ [The Usage of React to bind Component](https://awesomedevin.github.io/zustand-vue/en/docs/introduce/start/zustand#step-3-store-binds-the-component-and-its-done)
  [The Usage of Vue to bind Component](https://awesomedevin.github.io/zustand-vue/en/docs/introduce/start/zustand-vue#step-3-store-binds-the-component-and-its-done)
 :::
 

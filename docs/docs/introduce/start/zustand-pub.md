@@ -15,7 +15,7 @@ tags:
 :::
 
 ## 应用场景
-为模块化、组件化、微前端等业务场景，提供跨应用、跨框架的状态管理及共享能力。
+适用于模块化、组件化、微前端、多技术栈共存、项目框架渐进式迁移等业务场景，`zustand-pub` 可以为这些场景提供跨应用、跨框架的状态管理及共享能力。
 
 ## 安装 
 ```shell
@@ -25,20 +25,20 @@ npm install zustand-pub # or yarn add zustand-pub
 
 ## 用法
 
-### Step 1： 初始化状态隔离容器 `pubStore` (App A)
+### Step 1： 初始化状态隔离容器 `pubStore` (场景 A)
 ```js
 import PubStore from 'zustand-pub'
 
 const pubStore = new PubStore('key')
 ```
 
-### Step 2： 往隔离容器 `pubStore` 内填装数据 `platformStore` (App A)
+### Step 2： 往隔离容器 `pubStore` 内填装数据 `platformStore` (场景 A)
 ```js
-//react
-import create from "zustand";
-
 // vue
-// import create from "zustand-vue";
+import create from "zustand-vue";
+
+//react
+// import create from "zustand";
 
 interface IState {
   appInfo: {
@@ -63,18 +63,48 @@ const platformStore = pubStore.defineStore<IState & IAction>('platformStore', (s
 
 const usePlatformStore = create(platformStore)
 ```
-返回值 `usePlatformStore` 为 `hook`，可通过状态 `selector` 获取对应状态
+返回值 `usePlatformStore` 为 `hook`，场景 A 下，可通过状态 `selector` 获取对应状态
 ```js
-// react
-function AppA() {
-  const name = usePlatformStore((state) => state.appInfo.name);
-  const setAppName = usePlatformStore((state) => state.setAppName);
-  return <div>{name}</div>
+// vue3
+<template>
+  <div>{name}</div>
+</template>
+
+<script>
+const name = usePlatformStore((state) => state.appInfo.name);
+const setAppName = usePlatformStore((state) => state.setAppName);
+
+export default {
+  name: "AppA",
+  data(){
+    return {
+      name
+    }
+  },
+  methods:{
+    setAppName
+  }
 }
+</script>
+
+
+// react
+// function AppA() {
+//   const name = usePlatformStore((state) => state.appInfo.name);
+//   const setAppName = usePlatformStore((state) => state.setAppName);
+//   return <div>{name}</div>
+// }
 ``` 
 
-### Step 3： 获取隔离容器 `pubStore` 下的数据 `platformStore` 并绑定组件 (App B)
+### Step 3： 获取隔离容器 `pubStore` 下的数据 `platformStore` 并绑定组件 (场景 B)
 ```js
+// vue
+<template>
+  <div>{name}</div>
+</template>
+
+<script setup lang="ts">
+
 interface IState {
   appInfo: {
     name: string
@@ -85,29 +115,36 @@ interface IAction {
   setAppName: (val: string) => void
 }
 
-// react
 import PubStore from "zustand-pub";
-import create from "zustand";
+import create from "zustand-vue";
+
 const pubStore = new PubStore('key')
-
-// vue
-// import PubStore from "zustand-pub";
-// import create from "zustand-vue";
-// const pubStore = new PubStore('key')
-
-
 const store = pubStore.getStore<IState & IAction>("platformStore");
 const usePlatformStore = create(store || {});
 
+const name = usePlatformStore((state) => state.appInfo.name);
+const setAppName = usePlatformStore((state) => state.setAppName);
+
+</script>
+
 // react
-function AppB() {
-  const name = usePlatformStore((state) => state.appInfo.name);
-  const setAppName = usePlatformStore((state) => state.setAppName);
-  return <div>{name}</div>
-}
+// import PubStore from "zustand-pub";
+// import create from "zustand";
+
+// const pubStore = new PubStore('key')
+// const store = pubStore.getStore<IState & IAction>("platformStore");
+// const usePlatformStore = create(store || {});
+
+// function AppB() {
+//  const name = usePlatformStore((state) => state.appInfo.name);
+//  const setAppName = usePlatformStore((state) => state.setAppName);
+//  return <div>{name}</div>
+// }
 ```
 :::tip
- [使用 Vue 绑定组件](https://awesomedevin.github.io/zustand-vue/docs/introduce/start/zustand-vue#step-3-store-%E7%BB%91%E5%AE%9A%E7%BB%84%E4%BB%B6%E5%B0%B1%E5%AE%8C%E6%88%90%E4%BA%86)
+ [使用 React 绑定组件教程](https://awesomedevin.github.io/zustand-vue/docs/introduce/start/zustand#step-3-store-%E7%BB%91%E5%AE%9A%E7%BB%84%E4%BB%B6%E5%B0%B1%E5%AE%8C%E6%88%90%E4%BA%86) 
+
+ [使用 Vue 绑定组件教程](https://awesomedevin.github.io/zustand-vue/docs/introduce/start/zustand-vue#step-3-store-%E7%BB%91%E5%AE%9A%E7%BB%84%E4%BB%B6%E5%B0%B1%E5%AE%8C%E6%88%90%E4%BA%86)
 :::
 
 ## API
@@ -163,7 +200,6 @@ const platformStore = pubStore.getStore("platformStore");
 import create from "zustand";
 
 //vue
-// import create from "zustand-vue";
 
 const usePlatformStore = create(platformStore || {});
 ```
