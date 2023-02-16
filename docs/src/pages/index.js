@@ -86,8 +86,8 @@ export default function Home() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`HELLO FROM ${siteConfig.title}`}
-      description={translate({id:'seo-description',message:"你习惯了 Redux 或喜欢 React 的自然不可变更新，但期望 更加轻量、便捷 的状态管理方案那么试试 小、快、可拓展 的 Zustand 吧~"})}>
+      title={`${siteConfig.title} ${translate({id:'seo-title',message:"中文文档"})}`}
+      description={translate({id:'seo-description', message:"zustand / zustand-vue / zustand-pub 教程， 如果你习惯了 Redux 或喜欢 React 的自然不可变更新，但期望 更加轻量、便捷 的状态管理方案那么试试它吧~"})}>
       <HomepageHeader />
       <main>
         <HomepageFeatures />

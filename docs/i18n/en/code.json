@@ -359,7 +359,10 @@
     "message":"so you can build your store any way you like."
   },
   "seo-description":{
-    "message":"You are used to Redux or like React's natural immutable updates, but expect a more Lightweight and Convenient state management solution, Try  Small, Fast and Scalable zustand~"
+    "message":"zustand/zustand-vue/zustand-pub Tutorial，If You are used to Redux or like React's natural immutable updates, but expect a more Lightweight and Convenient state management solution, Try it~"
+  },
+  "seo-title": {
+    "message": "English Document"
   }
 
 }
