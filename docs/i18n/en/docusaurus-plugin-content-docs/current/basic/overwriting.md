@@ -14,7 +14,7 @@ const useStore = create((set) => ({
 }))
 ```
 
-## Delete And Overwrite Status
+## Delete And Overwrite State
 The `set` function has a second parameter, which defaults to false. If true, it will replace (overwrite) the state model, not merge. Be careful not to wipe out parts you rely on, such as `actions`。
 
 ```js
