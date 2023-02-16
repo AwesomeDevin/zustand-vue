@@ -1,5 +1,6 @@
 ---
 title: 修改层级很深的内部状态 ？
+description: zustand-vue、zustand 更新状态、更新对象
 ---
 object 层级过深，厌倦了手动进行状态不可变更新(immutably)来修改内部状态？
 

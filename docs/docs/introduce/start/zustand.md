@@ -1,5 +1,7 @@
 ---
 title: React（zustand）
+description: 轻量，易上手，扩展性强的兼容 react 的前端状态管理方案 zustand
+keywords: [zustand,zustand-vue,zustand-pub,react,vue,components,ts,typescript,跨框架,前端状态管理,share state,share data, js, javascript]
 tags:
   - zustand
   - react

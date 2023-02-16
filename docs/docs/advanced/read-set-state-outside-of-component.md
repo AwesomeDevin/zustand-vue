@@ -1,5 +1,6 @@
 ---
 title: React/Vue 组件外部读取/写入状态并做出响应
+description: React/Vue组件外部如何使用 zustand-vue、zustand
 ---
 有时需要以非响应式的方式访问状态，或者对存储进行操作。对于这些情况，生成的 `hook` 具有附加在其原型上的实用函数。
 

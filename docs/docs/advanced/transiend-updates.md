@@ -1,5 +1,6 @@
 ---
 title: 瞬时更新
+description: React 组件性能优化
 ---
 
 瞬时更新经常发生在状态变化时

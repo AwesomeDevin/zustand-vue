@@ -1,5 +1,6 @@
 ---
 title: 完备的 Typescript 支持
+description: zustand-vue、zustand、zustand-pub 的 typescript支持、ts支持
 ---
 
 ## zustand / zustand-vue

@@ -1,5 +1,6 @@
 ---
 title: 将 Store 与 React Context 绑定
+description: zustand 与 React Context
 ---
 
 在 react 环境中，您想将 store 与 react Context 绑定。

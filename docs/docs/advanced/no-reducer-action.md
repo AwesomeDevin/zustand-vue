@@ -1,5 +1,6 @@
 ---
 title: 需要像 Redux 一样的 Reducers 以及 ActionTypes?
+description: zustand / zustand-vue 与 Reducers、ActionTypes
 ---
 
 想添加像 redux 一样的 reducers 以及 action types ?

@@ -1,5 +1,7 @@
 ---
 title: 跨应用/跨框架 状态管理及共享（zustand-pub）
+description: 跨应用/跨框架 状态管理及共享（zustand-pub），用于应用状态共享及管理
+keywords: [zustand,zustand-vue,zustand-pub,react,vue,components,ts,typescript,跨框架,前端状态管理,状态分享, share data, js, javascript]
 tags:
   - zustand-pub
   - 业务组件跨应用状态共享

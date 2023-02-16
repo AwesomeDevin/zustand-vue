@@ -1,5 +1,7 @@
 ---
 title: React（zustand）
+description: Lightweight, easy to use, strong scalability compatible with vue front-end state management solution - zustand
+keywords: [zustand,zustand-vue,zustand-pub,react,vue,components,ts,typescript,Cross-Application,Cross-Framework,share state,share data,js, javascript]
 tags:
   - zustand
   - react

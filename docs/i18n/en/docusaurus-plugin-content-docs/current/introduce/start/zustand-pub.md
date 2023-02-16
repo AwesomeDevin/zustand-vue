@@ -1,5 +1,7 @@
 ---
 title: Cross-Application/Cross-Framework State Management And Sharing（zustand-pub）
+description: Cross-Application/Cross-Framework State Management And Sharing（zustand-pub）
+keywords: [zustand、zustand-vue、zustand-pub、react、vue、components、ts、typescript、Cross-Application、Cross-Framework、share state、share data,js, javascript]
 tags:
   - zustand-pub
 ---
