@@ -27,7 +27,7 @@ const handleChange1 = (e) => {
 }
 
 const handleChange2 = (e) => {
-  value = e.target.value
+  value.value = e.target.value
 }
 
 console.log(setTitle)

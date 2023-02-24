@@ -7,13 +7,16 @@ export type ExtractState<S> = S extends {
   getState: () => infer T;
 } ? T: never;
 
+type TIsFunction<T> = T extends Function ?  T : Vue.Ref<T>
+
+
 type WithVue<S extends StoreApi<unknown>> = S & {
   getServerState?: () => ExtractState<S>;
 };
 
 export type UseBoundStore<S extends WithVue<StoreApi<unknown>>> = {
-  (): ExtractState<S>;
-  <U>(selector: (state: ExtractState<S>) => U, equals?: (a: U, b: U) => boolean): U extends Function ? U : Vue.Ref<Vue.UnwrapRef<U>>;
+  (): TIsFunction<ExtractState<S>>;
+  <U>(selector: (state: ExtractState<S>) => U, equals?: (a: U, b: U) => boolean): TIsFunction<U>;
 } & S;
 
 export type Create = {
@@ -29,7 +32,6 @@ export type TObject = Record<string, any>
 
 
 export type TSubscribeCache = Record<string, () => void>
-
 
 
 

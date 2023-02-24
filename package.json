@@ -1,6 +1,6 @@
 {
   "name": "zustand-vue",
-  "version": "1.0.0-beta.17",
+  "version": "1.0.0-beta.18",
   "description": "State management for vue based on zustand",
   "main": "build/index.js",
   "module": "build/index.es.js",
@@ -22,7 +22,9 @@
     "zustand",
     "state-management",
     "external store",
-    "zustand-vue"
+    "zustand-vue",
+    "vue",
+    "store"
   ],
   "author": "AwesomeDevin",
   "license": "MIT",

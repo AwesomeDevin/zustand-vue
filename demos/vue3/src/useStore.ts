@@ -26,7 +26,9 @@ const state: IState = {
   title: 'Demo'
 };
 
-const userStore = (set, get) => ({
+
+
+export default create<IState & IAction>((set, get) => ({
   ...state,
   setName: (val: string) => {
     set((origin) => ({
@@ -48,6 +50,4 @@ const userStore = (set, get) => ({
       title
     }));
   }
-});
-
-export default create<IState & IAction>(userStore);
+}));
