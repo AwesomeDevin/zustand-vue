@@ -40,7 +40,9 @@ function defineDep<T, S>( api: WithVue<StoreApi<T>>, selection?:(state: T) => S,
   const externalState = api.getState();
   const store = selection ? selection(externalState) : externalState;
   const isObject = store?.constructor === Object;
-  const isFunction = store instanceof Function;
+  // const isFunction = Object.prototype.toString.call(store) === '[object Function]'
+  const isFunction = typeof store === 'function'
+
   const subscribeCache:TSubscribeCache = {}
 
   // @ts-ignore
@@ -58,7 +60,7 @@ function defineDep<T, S>( api: WithVue<StoreApi<T>>, selection?:(state: T) => S,
 
   
   if(typeof store === 'undefined'){
-    return undefined
+    return Vue.ref(undefined)
   } else if (isObject) {
     if (typeof Proxy !== 'undefined') {
       defineReactive<T, typeof store>(store, subscribeCache, api, selection, equalityFn);
