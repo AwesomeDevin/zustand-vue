@@ -5,7 +5,7 @@ import { defineProxy, defineSet, defineReactive, executeEqualityFn } from "./pro
 
 export type ExtractState<S> = S extends {
   getState: () => infer T;
-} ? T : never;
+} ? T: never;
 
 type WithVue<S extends StoreApi<unknown>> = S & {
   getServerState?: () => ExtractState<S>;
@@ -13,7 +13,7 @@ type WithVue<S extends StoreApi<unknown>> = S & {
 
 export type UseBoundStore<S extends WithVue<StoreApi<unknown>>> = {
   (): ExtractState<S>;
-  <U>(selector: (state: ExtractState<S>) => U, equals?: (a: U, b: U) => boolean): U;
+  <U>(selector: (state: ExtractState<S>) => U, equals?: (a: U, b: U) => boolean): U extends Function ? U : Vue.Ref<Vue.UnwrapRef<U>>;
 } & S;
 
 export type Create = {
@@ -69,7 +69,7 @@ function defineDep<T, S>( api: WithVue<StoreApi<T>>, selection?:(state: T) => S,
       if(!executeEqualityFn(state, prevState, selection, equalityFn)) return
       res.value = (selection ? selection(state) : state) as Vue.UnwrapRef<S>
     });
-    return isFunction ? res.value as (Vue.UnwrapNestedRefs<S>) : res;
+    return isFunction ? res.value : res;
   }
 }
 

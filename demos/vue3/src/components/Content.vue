@@ -23,8 +23,12 @@ export default {
       userInfo: useStore((state) => state.userInfo),
       collection: useStore((state) => state.collection),
       store: useStore(),
-      title: useStore((state) => state.title),
     };
+  },
+  computed:{
+    title(){
+      return useStore((state) => state.title)
+    }
   },
   watch: {
     name() {

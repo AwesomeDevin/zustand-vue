@@ -11,7 +11,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 import useStore from "../useStore";
 
@@ -30,7 +30,8 @@ const handleChange2 = (e) => {
   value = e.target.value
 }
 
-setTitle('Demo')
+console.log(setTitle)
+setTitle('Demo1')
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
