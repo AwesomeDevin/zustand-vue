@@ -13,9 +13,23 @@ tags:
 [![Version](https://img.shields.io/npm/v/zustand-pub?style=flat)](https://www.npmjs.com/package/zustand-pub)
 
 :::tip
-### [Micro-FrontEnd Demo Source](https://github.com/AwesomeDevin/zustand-pub/tree/main/demo/micro-frontend)
-:::
+<details open>
+<summary>Iframe.gif</summary>
 
+![](https://raw.githubusercontent.com/AwesomeDevin/zustand-pub/main/public/zustand-pub-iframe.gif)
+</details>
+
+### [Iframe Demo Source](https://github.com/AwesomeDevin/zustand-pub/tree/main/demo/iframe)
+
+<details>
+<summary>Micro-Frontend.gif</summary>
+
+![](https://raw.githubusercontent.com/AwesomeDevin/zustand-pub/main/public/zustand-pub-micro-app.gif)
+</details>
+
+### [Micro-FrontEnd Demo Source](https://github.com/AwesomeDevin/zustand-pub/tree/main/demo/micro-frontend)
+
+:::
 ## 应用场景
 `zustand-pub` 可以为这些场景提供`跨应用、跨框架的状态管理及共享`能力，例如`Iframe`、`微前端`、`模块化`、`组件化`、`多技术栈共存`、`项目框架渐进式迁移`等业务场景。
 
