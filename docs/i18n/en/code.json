@@ -347,7 +347,7 @@
     "message": "cross-application and cross-framework state sharing capabilities"
   },
   "homepage.feature.zustand-pub.desc3":{
-    "message": "for business scenarios such as modularization, componentization, and micro-front-end."
+    "message": "for business scenarios such as Iframe, Modularization, Componentization, and Micro-Frontend."
   },
   "拓展性好":{
     "message": "Scalable"

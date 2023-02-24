@@ -22,7 +22,7 @@ const FeatureList = [
     Svg: ()=><div style={style}><img src={require('@site/static/img/react-vue.png').default} width="370" /></div>,
     description: (
       <>
-        <Translate id="homepage.feature.zustand-pub.desc1">对模块化、组件化、微前端等业务场景，提供</Translate><span><Translate id="homepage.feature.zustand-pub.desc2">跨应用、跨框架</Translate></span><Translate id="homepage.feature.zustand-pub.desc3">的状态管理能力。</Translate>
+        <Translate id="homepage.feature.zustand-pub.desc1">对Iframe、微前端、模块化、组件化等业务场景，提供</Translate><span><Translate id="homepage.feature.zustand-pub.desc2">跨应用、跨框架</Translate></span><Translate id="homepage.feature.zustand-pub.desc3">的状态管理能力。</Translate>
       </>
     ),
   },
