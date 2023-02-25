@@ -1,5 +1,5 @@
 ---
-title: Vue（zustand-vue）
+title: zustand-vue(Vue)
 description: 轻量，易上手，扩展性强的兼容 vue 的前端状态管理方案 zustand-vue
 keywords: [zustand,zustand-vue,zustand-pub,react,vue,components,ts,typescript,跨框架,前端状态管理,share state,share data, js, javascript]
 tags:
