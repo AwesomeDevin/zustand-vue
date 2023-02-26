@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[2914],{9677:a=>{a.exports=JSON.parse('{"label":"facebook","permalink":"/zustand-vue/blog/tags/facebook","allTagsPath":"/zustand-vue/blog/tags","count":1}')}}]);
