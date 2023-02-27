@@ -27,8 +27,21 @@ const state: IState = {
 };
 
 
+// Log every time state is changed
+const log = (config) => (set, get, api) =>
+  config(
+    (...args) => {
+      console.log('  applying', args)
+      set(...args)
+      console.log('  new state', get())
+    },
+    get,
+    api
+  )
 
-export default create<IState & IAction>((set, get) => ({
+
+
+export default create<IState & IAction>(log((set, get) => ({
   ...state,
   setName: (val: string) => {
     set((origin) => ({
@@ -50,4 +63,4 @@ export default create<IState & IAction>((set, get) => ({
       title
     }));
   }
-}));
+})));

@@ -114,7 +114,7 @@ export default {
 
 ### Step 3： 获取隔离容器 `pubStore` 下的数据 `platformStore` 并绑定组件 (场景 B)
 ```js
-// vue
+// vue3
 <template>
   <div>{name}</div>
 </template>

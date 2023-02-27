@@ -114,7 +114,7 @@ export default {
 
 ### Step 3： Get the `platformStore` under the isolated container `pubStore` and bind the Component (Scene B)
 ```js
-// vue
+// vue3
 <template>
   <div>{name}</div>
 </template>
@@ -158,7 +158,8 @@ const setAppName = usePlatformStore((state) => state.setAppName);
 // }
 ```
 :::tip
- [The Usage of React to bind Component](https://awesomedevin.github.io/zustand-vue/en/docs/introduce/start/zustand#step-3-store-binds-the-component-and-its-done)
+ [The Usage of React to bind Component](https://awesomedevin.github.io/zustand-vue/en/docs/introduce/start/zustand#step-3-store-binds-the-component-and-its-done) 
+    
  [The Usage of Vue to bind Component](https://awesomedevin.github.io/zustand-vue/en/docs/introduce/start/zustand-vue#step-3-store-binds-the-component-and-its-done)
 :::
 
