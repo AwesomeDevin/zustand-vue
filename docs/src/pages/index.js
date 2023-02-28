@@ -17,7 +17,7 @@ function HomepageHeader() {
     >
       <div className={clsx('container', styles.con)}>
         <h1 className={clsx("hero__title", styles.title)}>{siteConfig.title}</h1>
-        <p className={clsx('hero__subtitle', styles.subtitle)}>
+        <h2 className={clsx('hero__subtitle', styles.subtitle)}>
           
           {/* <Translate
             id="homepage.subtitle"
@@ -44,7 +44,7 @@ function HomepageHeader() {
               <Translate>的 zustand 吧</Translate>
             </p>
           {/* </Translate> */}
-        </p>
+        </h2>
         <div className={styles.buttons}>
         <Link
             className={clsx('button button--secondary button--lg',styles.btn)}
