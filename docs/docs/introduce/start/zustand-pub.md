@@ -12,7 +12,7 @@ tags:
 [![Build Size](https://img.shields.io/bundlephobia/minzip/zustand-pub?label=bundle%20size)](https://bundlephobia.com/result?p=zustand-pub)
 [![Version](https://img.shields.io/npm/v/zustand-pub?style=flat)](https://www.npmjs.com/package/zustand-pub)
 
-:::info
+:::note
 <details>
 <summary>Iframe.gif</summary>
 

@@ -12,7 +12,7 @@ tags:
 [![Version](https://img.shields.io/npm/v/zustand-vue?style=flat)](https://www.npmjs.com/package/zustand-vue)
 <!-- [![Downloads](https://img.shields.io/npm/dt/zustand-vue.svg?style=flat)](https://www.npmjs.com/package/zustand-vue) -->
 
-:::tip
+:::note
 ### Vue Live Demo
 - #### [Vue3](https://codesandbox.io/s/sleepy-feynman-fwqhoe?file=/src/components/Action2.vue)
 - #### [Vue2](https://codesandbox.io/s/strange-agnesi-zzwpzg?file=/src/components/Action.vue)
@@ -44,7 +44,7 @@ export default useBearStore
 ### Step 3: Store binds the component and it's done!
 Get your target state based on the `selector` and the component will re-render on state change。
 
-:::caution
+:::info
 Store binds components are different in `vue3` vs `vue2`。
 :::
 
@@ -149,7 +149,7 @@ export default {
 
 #### Get target state：bears
 
-:::warning
+:::danger
 In the vue2 environment, due to compatibility issues, `selector` is not recommended. It is recommended to use `useBearStore()` to get the state
 :::
 
@@ -243,7 +243,7 @@ export default {
 ```
 </details>
 
-:::caution
+:::info
 Since zustand-vue follows the `flux` model, its state has the feature of `immutable update`, when you bind Input(Form) components, `v-model` syntactic sugar will be invalid, `set` must be used to update `state`, as follows Examples of different methods according to vue2 and vue3：
 
 <details>

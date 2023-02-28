@@ -9,7 +9,7 @@ tags:
 [![Build Size](https://img.shields.io/bundlephobia/minzip/zustand-pub?label=bundle%20size)](https://bundlephobia.com/result?p=zustand-pub)
 [![Version](https://img.shields.io/npm/v/zustand-pub?style=flat)](https://www.npmjs.com/package/zustand-pub)
 
-:::tip
+:::note
 <details>
 <summary>Iframe.gif</summary>
 
@@ -157,7 +157,7 @@ const setAppName = usePlatformStore((state) => state.setAppName);
 //  return <div>{name}</div>
 // }
 ```
-:::tip
+:::info
  [The Usage of React to bind Component](https://awesomedevin.github.io/zustand-vue/en/docs/introduce/start/zustand#step-3-store-binds-the-component-and-its-done) 
     
  [The Usage of Vue to bind Component](https://awesomedevin.github.io/zustand-vue/en/docs/introduce/start/zustand-vue#step-3-store-binds-the-component-and-its-done)
@@ -168,7 +168,7 @@ const setAppName = usePlatformStore((state) => state.setAppName);
 ### PubStore(str) 
 Used to create state isolation containers, the data `key` inside different isolation containers can have the same name and do not affect each other
 
-:::tip
+:::info
  In the same application, `key` is unchanged and the `pubStore` is returned unchanged
 :::
 
@@ -179,7 +179,7 @@ const pubStore = new PubStore()
 ### defineStore(key,fn)
 Used to fill data into isolated containers
 
-:::tip
+:::info
  In the same application, `key` is unchanged and the defined `store` will be merged in the order of loading
 
  that is `defineStore(key,()=>({a:1})) defineStore(key,()=>({b:2}))` works like `defineStore(key,()=>({a:1,b:2}))`

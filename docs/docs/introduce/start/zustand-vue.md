@@ -12,7 +12,7 @@ tags:
 [![Version](https://img.shields.io/npm/v/zustand-vue?style=flat)](https://www.npmjs.com/package/zustand-vue)
 <!-- [![Downloads](https://img.shields.io/npm/dt/zustand-vue.svg?style=flat)](https://www.npmjs.com/package/zustand-vue) -->
 
-:::info
+:::note
 ### Vue Live Demo
 - #### [Vue3](https://codesandbox.io/s/sleepy-feynman-fwqhoe?file=/src/components/Action.vue)
 - #### [Vue2](https://codesandbox.io/s/strange-agnesi-zzwpzg?file=/src/components/Action.vue)
@@ -150,7 +150,7 @@ export default {
 
 #### 选择目标状态：bears
 
-:::info
+:::warning
 vue2 环境下，由于兼容性问题，不推荐 `selector`，建议采用 `useBearStore()` 获取状态
 :::
 
