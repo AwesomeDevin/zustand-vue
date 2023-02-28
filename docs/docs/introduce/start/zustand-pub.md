@@ -12,7 +12,7 @@ tags:
 [![Build Size](https://img.shields.io/bundlephobia/minzip/zustand-pub?label=bundle%20size)](https://bundlephobia.com/result?p=zustand-pub)
 [![Version](https://img.shields.io/npm/v/zustand-pub?style=flat)](https://www.npmjs.com/package/zustand-pub)
 
-:::tip
+:::info
 <details>
 <summary>Iframe.gif</summary>
 
@@ -157,7 +157,7 @@ const setAppName = usePlatformStore((state) => state.setAppName);
 //  return <div>{name}</div>
 // }
 ```
-:::tip
+:::info
  [使用 React 绑定组件教程](https://awesomedevin.github.io/zustand-vue/docs/introduce/start/zustand#step-3-store-%E7%BB%91%E5%AE%9A%E7%BB%84%E4%BB%B6%E5%B0%B1%E5%AE%8C%E6%88%90%E4%BA%86) 
 
  [使用 Vue 绑定组件教程](https://awesomedevin.github.io/zustand-vue/docs/introduce/start/zustand-vue#step-3-store-%E7%BB%91%E5%AE%9A%E7%BB%84%E4%BB%B6%E5%B0%B1%E5%AE%8C%E6%88%90%E4%BA%86)
@@ -168,7 +168,7 @@ const setAppName = usePlatformStore((state) => state.setAppName);
 ### PubStore(str) 
 用于创建状态隔离容器, 不同隔离容器内部的数据 `key` 可重名且互不影响
 
-:::tip
+:::info
  同一应用下，`key` 不变，返回的 `pubStore` 不变
 :::
 
@@ -179,7 +179,7 @@ const pubStore = new PubStore()
 ### defineStore(key,fn)
 用于往隔离容器填装数据
 
-:::tip
+:::info
  同一应用下，`key` 不变，被定义的 `store` 会按加载的先后顺序进行合并  
 
  即 `defineStore(key,()=>({a:1})) defineStore(key,()=>({b:2}))` 作用类似于 `defineStore(key,()=>({a:1,b:2}))`

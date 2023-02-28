@@ -12,7 +12,7 @@ tags:
 [![Version](https://img.shields.io/npm/v/zustand-vue?style=flat)](https://www.npmjs.com/package/zustand-vue)
 <!-- [![Downloads](https://img.shields.io/npm/dt/zustand-vue.svg?style=flat)](https://www.npmjs.com/package/zustand-vue) -->
 
-:::tip
+:::info
 ### Vue Live Demo
 - #### [Vue3](https://codesandbox.io/s/sleepy-feynman-fwqhoe?file=/src/components/Action.vue)
 - #### [Vue2](https://codesandbox.io/s/strange-agnesi-zzwpzg?file=/src/components/Action.vue)
@@ -44,7 +44,7 @@ export default useBearStore
 ### Step 3: Store 绑定组件，就完成了!
 基于 `selector` 获取您的目标状态，组件将在状态更改时重新渲染。 
 
-:::caution
+:::info
 Store 绑定组件在 `vue3` 与 `vue2` 中有所不同。
 :::
 
@@ -150,7 +150,7 @@ export default {
 
 #### 选择目标状态：bears
 
-:::warning
+:::info
 vue2 环境下，由于兼容性问题，不推荐 `selector`，建议采用 `useBearStore()` 获取状态
 :::
 
@@ -244,7 +244,7 @@ export default {
 ```
 </details>
 
-:::caution
+:::info
 由于 zustand-vue 遵循 `flux` 模型，其 state 具备`不可变更新`特性，当你绑定 Input(表单) 组件时，`v-model` 语法糖将失效，必须用 `set` 来更新 `state`，以下根据 vue2、vue3 分别例举不同的方式：
 
 <details>
