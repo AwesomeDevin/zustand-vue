@@ -33,6 +33,6 @@ tags:
 [![Build Size](https://img.shields.io/bundlephobia/minzip/zustand-pub?label=bundle%20size)](https://bundlephobia.com/result?p=zustand-pub)
 [![Version](https://img.shields.io/npm/v/zustand-pub?style=flat)](https://www.npmjs.com/package/zustand-pub)
 
-`zustand-pub` 做为 zustand 或 zustand-vue 的第三方库存在，目的是为 **模块化、组件化、微前端** 等业务场景，提供 **跨应用、跨框架** 的 **状态管理** 及 **状态共享** 能力。
+`zustand-pub` 做为 zustand 或 zustand-vue 的第三方库存在，目的是为 **Iframe、微前端、模块化、组件化** 等业务场景，提供 **跨应用、跨框架** 的 **状态管理** 及 **状态共享** 能力。
 
 这里有一个微前端的 [Demo](https://github.com/AwesomeDevin/zustand-pub/tree/main/demo/micro-frontend).

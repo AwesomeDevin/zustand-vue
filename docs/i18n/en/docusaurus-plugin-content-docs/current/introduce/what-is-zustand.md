@@ -30,7 +30,7 @@ You can try a [live demo](https://codesandbox.io/s/sleepy-feynman-fwqhoe?file=/s
 [![Build Size](https://img.shields.io/bundlephobia/minzip/zustand-pub?label=bundle%20size)](https://bundlephobia.com/result?p=zustand-pub)
 [![Version](https://img.shields.io/npm/v/zustand-pub?style=flat)](https://www.npmjs.com/package/zustand-pub)
 
-As the third party library of zustand or zustand vue, `zustand-pub` aims to provide the best cross-application and cross-framework state management and state sharing capabilities for the modularization, componentization, micro-front-end and other business scenarios.
+As the third party library of zustand or zustand vue, `zustand-pub` aims to provide the best cross-application and cross-framework state management and state sharing capabilities for **Iframe、 Modularization、 Componentization、 Micro-Frontend** and other business scenarios.
 
 This is a micro-frontend [Demo](https://github.com/AwesomeDevin/zustand-pub).
 
