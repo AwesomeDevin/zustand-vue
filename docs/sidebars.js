@@ -15,11 +15,13 @@
 const sidebars = {
   // By default, Docusaurus generates a sidebar from the docs folder structure
   tutorialSidebar: [
-    {
-      type: 'category',
-      label: '介绍',
-      items: ['introduce/what-is-zustand','introduce/compare'],
-    },
+    'introduce/what-is-zustand',
+    'introduce/compare',
+    //     {
+    //   type: 'category',
+    //   label: '介绍',
+    //   items: ['introduce/what-is-zustand','introduce/compare'],
+    // },
     {
       type: 'category',
       label: '快速入门',
@@ -50,7 +52,11 @@ const sidebars = {
         'advanced/transiend-updates',
         'advanced/typescript',
       ],
-    },
+    },{
+      type: 'link',
+      label: 'Devtools',
+      href: '/docs/basic/middleware#devtools-middle'
+    }
     // {
     //   type: 'category',
     //   label: '其它手册',

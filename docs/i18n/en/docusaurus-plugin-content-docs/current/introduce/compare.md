@@ -15,6 +15,9 @@ tags:
 - Renders components only on changes
 - Centralized, action-based state management
 
+### Why zustand-vue over pinia?
+- Update based on immutable state, `store update operation is relatively more controlled`
+- Use `composition api` as the primary means of consuming state rather than `Vue.use` global injection
 
 
 ### More

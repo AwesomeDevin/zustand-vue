@@ -1,7 +1,7 @@
 ---
 title: zustand-pub (Cross-Application/Cross-Framework State Management And Sharing)
 description: Cross-Application/Cross-Framework State Management And Sharing（zustand-pub）
-keywords: [zustand、zustand-vue、zustand-pub、react、vue、components、ts、typescript、Cross-Application、Cross-Framework、share state、share data,js, javascript]
+keywords: [zustand, zustand-vue, zustand-pub, react, vue, components, ts, typescript, Cross-Application, module federation, mf, Cross-Framework, share state, share data, js, javascript]
 tags:
   - zustand-pub
 ---
@@ -10,7 +10,7 @@ tags:
 [![Version](https://img.shields.io/npm/v/zustand-pub?style=flat)](https://www.npmjs.com/package/zustand-pub)
 
 :::note
-<details>
+<details open>
 <summary>Iframe.gif</summary>
 
 ![](https://raw.githubusercontent.com/AwesomeDevin/zustand-pub/main/public/zustand-pub-iframe.gif)
@@ -28,12 +28,16 @@ tags:
 
 :::
 
-### Introduce
+## Introduce
 
 `zustand-pub` can provides cross-application and cross-framework `state management and sharing` capabilities for these scenarios, such as `iframe`, `micro-frontend`, `modularization`, `componentization`, `multiple technology stacks exist at the same time`, and `gradual migration of project frameworks`.
 
+## Why do you need zustand-pub ？
+1. Applications/components can `mutually call/modify state` and `trigger component rendering`, no need for postMessage or other event communication mechanisms。
+2. `State can be cached` between applications/components, including iframes, micro frontends, etc.
+3. Based on devtools, you can `debug/trace stores between multiple applications at the same time`, which can greatly reduce the difficulty of debugging when communicating between applications.
 
-### Install
+## Install
 ```shell
 npm install zustand-pub # or yarn add zustand-pub
 ```
@@ -158,9 +162,9 @@ const setAppName = usePlatformStore((state) => state.setAppName);
 // }
 ```
 :::info
- [The Usage of React to bind Component](https://awesomedevin.github.io/zustand-vue/en/docs/introduce/start/zustand#step-3-store-binds-the-component-and-its-done) 
+ [The Usage of React to bind Component](/docs/introduce/start/zustand#step-3-store-binds-the-component-and-its-done) 
     
- [The Usage of Vue to bind Component](https://awesomedevin.github.io/zustand-vue/en/docs/introduce/start/zustand-vue#step-3-store-binds-the-component-and-its-done)
+ [The Usage of Vue to bind Component](/docs/introduce/start/zustand-vue#step-3-store-binds-the-component-and-its-done)
 :::
 
 ## API
@@ -182,7 +186,7 @@ Used to fill data into isolated containers
 :::info
  In the same application, `key` is unchanged and the defined `store` will be merged in the order of loading
 
- that is `defineStore(key,()=>({a:1})) defineStore(key,()=>({b:2}))` works like `defineStore(key,()=>({a:1,b:2}))`
+ that is `defineStore(key,()=>({a:1,c:1})) defineStore(key,()=>({b:2,c:2}))` works like `defineStore(key,()=>({a:1,b:2,c:1}))`
 :::
 
 Parameter | Desc | Type 

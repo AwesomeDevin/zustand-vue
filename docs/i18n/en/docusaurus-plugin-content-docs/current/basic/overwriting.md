@@ -4,7 +4,7 @@ title: Set
 
 
 ## Update And Merge State
-The `state` in `zustand` / `zustand-vue` needs to trigger the `set` function to implement the update, which will do a shallow merge with the existing state in the store. Note: About [Nested State](https://awesomedevin.github.io/zustand-vue/docs/advanced/sickof-changing-nested-state)
+The `state` in `zustand` / `zustand-vue` needs to trigger the `set` function to implement the update, which will do a shallow merge with the existing state in the store. Note: About [Nested State](/docs/advanced/sickof-changing-nested-state)
 
 ```js
 const useStore = create((set) => ({

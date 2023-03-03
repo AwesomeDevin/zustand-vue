@@ -13,7 +13,7 @@ tags:
 [![Version](https://img.shields.io/npm/v/zustand-pub?style=flat)](https://www.npmjs.com/package/zustand-pub)
 
 :::note
-<details>
+<details open>
 <summary>Iframe.gif</summary>
 
 ![](https://raw.githubusercontent.com/AwesomeDevin/zustand-pub/main/public/zustand-pub-iframe.gif)
@@ -30,8 +30,15 @@ tags:
 ### [Micro-FrontEnd Demo Source](https://github.com/AwesomeDevin/zustand-pub/tree/main/demo/micro-frontend)
 
 :::
+
 ## 介绍
-`zustand-pub` 可以为这些场景提供`跨应用、跨框架的状态管理及共享`能力，例如`Iframe`、`微前端`、`模块化`、`组件化`、`多技术栈共存`、`项目框架渐进式迁移`等业务场景。
+`zustand-pub` 为 **Iframe、微前端、Module Fedetation、模块化、组件化** 等业务场景，提供 **跨应用、跨框架** 的 **状态管理** 及 **状态共享** 能力。
+
+## 为什么你需要 zustand-pub ？
+1. 应用/组件 间可以 `相互调用/修改 state`，并 `触发组件渲染`, 不再需要 postMessage 或其它事件通信机制。
+2. 应用/组件 间 `状态可以被缓存`，包括 iframe、微前端等。
+3. 基于 devtools 可以 `同时调试/追踪多个应用间的 store`，能够极大地降低应用间通信时的调试难度。
+
 
 ## 安装 
 ```shell
@@ -158,9 +165,9 @@ const setAppName = usePlatformStore((state) => state.setAppName);
 // }
 ```
 :::info
- [使用 React 绑定组件教程](https://awesomedevin.github.io/zustand-vue/docs/introduce/start/zustand#step-3-store-%E7%BB%91%E5%AE%9A%E7%BB%84%E4%BB%B6%E5%B0%B1%E5%AE%8C%E6%88%90%E4%BA%86) 
+ [使用 React 绑定组件教程](/docs/introduce/start/zustand#step-3-store-%E7%BB%91%E5%AE%9A%E7%BB%84%E4%BB%B6%E5%B0%B1%E5%AE%8C%E6%88%90%E4%BA%86) 
 
- [使用 Vue 绑定组件教程](https://awesomedevin.github.io/zustand-vue/docs/introduce/start/zustand-vue#step-3-store-%E7%BB%91%E5%AE%9A%E7%BB%84%E4%BB%B6%E5%B0%B1%E5%AE%8C%E6%88%90%E4%BA%86)
+ [使用 Vue 绑定组件教程](/docs/introduce/start/zustand-vue#step-3-store-%E7%BB%91%E5%AE%9A%E7%BB%84%E4%BB%B6%E5%B0%B1%E5%AE%8C%E6%88%90%E4%BA%86)
 :::
 
 ## API
@@ -180,9 +187,9 @@ const pubStore = new PubStore()
 用于往隔离容器填装数据
 
 :::info
- 同一应用下，`key` 不变，被定义的 `store` 会按加载的先后顺序进行合并  
+ 同一应用下，`key` 不变，被定义的 `store` 会按加载的先后顺序进行合并，先定义的 store，优先级更高  
 
- 即 `defineStore(key,()=>({a:1})) defineStore(key,()=>({b:2}))` 作用类似于 `defineStore(key,()=>({a:1,b:2}))`
+ 即 `defineStore(key,()=>({a:1,c:1})) defineStore(key,()=>({b:2,c:2}))` 作用类似于 `defineStore(key,()=>({a:1,b:2,c:1}))`
 :::
 
 参数 | 说明 | 类型 

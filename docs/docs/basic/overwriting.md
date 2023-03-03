@@ -3,7 +3,7 @@ title: Set
 ---
 
 ## 更新与合并状态
-`zustand` / `zustand-vue` 中的 `state` 都需要触发 `set` 函数实现更新 ，它将与存储中的现有状态进行浅合并。需要注意的是：关于[嵌套状态](https://awesomedevin.github.io/zustand-vue/docs/advanced/sickof-changing-nested-state)。
+`zustand` / `zustand-vue` 中的 `state` 都需要触发 `set` 函数实现更新 ，它将与存储中的现有状态进行浅合并。需要注意的是：关于[嵌套状态](/docs/advanced/sickof-changing-nested-state)。
 ```js
 const useStore = create((set) => ({
   salmon: 1,

@@ -1,4 +1,5 @@
 import { create } from 'zustand-vue';
+import { devtools, persist } from 'zustand/middleware'
 // import { create } from '../../../build/index.es.js';
 
 
@@ -41,26 +42,35 @@ const log = (config) => (set, get, api) =>
 
 
 
-export default create<IState & IAction>(log((set, get) => ({
-  ...state,
-  setName: (val: string) => {
-    set((origin) => ({
-      userInfo: {
-        ...origin.userInfo,
-        name: val,
-      }
-    }));
-  },
-  push: (val: string) => {
-    set((state: IState) => {
-      return {
-        collection: state.collection.concat([val])
-      };
-    });
-  },
-  setTitle: (title: string) => {
-    set(() => ({
-      title
-    }));
-  }
-})));
+export default create<IState & IAction,[
+  ['zustand/devtools', IState & IAction]
+]>(
+  devtools((set) => ({
+    ...state,
+    setName: (val: string) => {
+      set((origin) => ({
+        userInfo: {
+          ...origin.userInfo,
+          name: val,
+        }
+      }));
+    },
+    push: (val: string) => {
+      set((state: IState) => {
+        return {
+          collection: state.collection.concat([val])
+        };
+      });
+    },
+    setTitle: (title: string) => {
+      set(() => ({
+        title
+      }));
+    }
+  }),{
+    name: "MyStore"
+  })
+);
+
+
+

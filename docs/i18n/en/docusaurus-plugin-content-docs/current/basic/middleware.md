@@ -16,7 +16,17 @@ const log = (config) => (set, get, api) =>
     api
   )
 
+// zustand / zustand-vue
 const useBeeStore = create(
+  log((set) => ({
+    bees: false,
+    setBees: (input) => set({ bees: input }),
+  }))
+)
+
+// zustand-pub
+const Pub = new PubStore('yourPub')
+const pubStore = Pub.defineStore('yourPubStore', 
   log((set) => ({
     bees: false,
     setBees: (input) => set({ bees: input }),
@@ -92,6 +102,22 @@ const initialState = {
 }
 
 const useReduxStore = create(redux(reducer, initialState))
+```
+
+## Devtools middle
+Use the developer tool `Debug/Trace` Store
+
+```js
+import { devtools, persist } from 'zustand/middleware'
+
+const useFishStore = create(
+  devtools(persist(
+    (set, get) => ({
+      fishes: 0,
+      addAFish: () => set({ fishes: get().fishes + 1 }),
+    }),
+  ))
+)
 ```
 
 [See the full documentation for this middleware.](https://github.com/pmndrs/zustand/blob/main/docs/integrations/persisting-store-data.md)
