@@ -109,7 +109,7 @@ const config = {
       },
       announcementBar: {
         id: 'introduce',
-        content: `⭐️ If it helps you, please give it a star on  <a target="_blank" rel="noopener noreferrer" href="https://github.com/AwesomeDevin/zustand-vue"> GitHub </a> ~ ⭐️`,
+        content: `⭐️ If you have some questions,welcome to describe <a target="_blank" rel="noopener noreferrer" href="https://github.com/AwesomeDevin/zustand-vue/issues">issues、suggestions</a>; Thank you for your Star  ~ ⭐️`,
         // backgroundColor: '#fafbfc',
         // textColor: '#091E42',
       },
