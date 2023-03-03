@@ -33,7 +33,7 @@ tags:
 `zustand-pub` can provides cross-application and cross-framework `state management and sharing` capabilities for these scenarios, such as `iframe`, `micro-frontend`, `modularization`, `componentization`, `multiple technology stacks exist at the same time`, and `gradual migration of project frameworks`.
 
 ## Why do you need zustand-pub ？
-1. Applications/components can `mutually call/modify state` and `trigger component rendering`, no need for postMessage or other event communication mechanisms。
+1. Applications/components can mutually call/modify state and trigger component rendering each other, no need for postMessage or other event communication mechanisms。。
 2. `State can be cached` between applications/components, including iframes, micro frontends, etc.
 3. Based on devtools, you can `debug/trace stores between multiple applications at the same time`, which can greatly reduce the difficulty of debugging when communicating between applications.
 
