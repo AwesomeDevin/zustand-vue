@@ -57,7 +57,7 @@ Store 绑定组件在 `vue3` 与 `vue2` 中有所不同。
 <template>
   <div>store.bears: {{ bears }}</div>
 </template>
-<script setip>
+<script setup>
 import useBearStore from "./store";
 const bears = useBearStore((state) => state.bears)
 </script>
