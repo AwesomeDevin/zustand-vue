@@ -36,11 +36,21 @@ const FeatureList = [
       </>
     ),
   },
+  {
+    title: <span className={styles.title}><Translate>TS</Translate></span>,
+    Svg: ()=><div style={style}>
+    <img src={require('@site/static/img/ts.png').default} width="200" /></div>,
+    description: (
+      <>
+        <Translate id="homepage.feature.ts.desc1">完备的</Translate> <span>typescript</span> <Translate id="homepage.feature.ts.desc2">类型推导 </Translate>
+      </>
+    ),
+  },
 ];
 
 function Feature({Svg, title, description}) {
   return (
-    <div className={clsx('col col--4')}>
+    <div className={clsx('col col--3')}>
       <div className="text--center">
         <Svg className={styles.featureSvg} role="img" />
       </div>
@@ -55,7 +65,7 @@ function Feature({Svg, title, description}) {
 export default function HomepageFeatures() {
   return (
     <section className={styles.features}>
-      <div className="container">
+      <div className={clsx(styles.container, 'container')}>
         <div className="row">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />

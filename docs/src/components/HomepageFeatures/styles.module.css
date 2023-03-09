@@ -5,6 +5,14 @@
   width: 100%;
 }
 
+
+
+@media (min-width: 1440px){
+  .container{
+    max-width: 85vw !important;
+  }
+}
+
 .featureSvg {
   height: 200px;
   width: 200px;

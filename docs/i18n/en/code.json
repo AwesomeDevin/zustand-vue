@@ -363,6 +363,15 @@
   },
   "seo-title": {
     "message": "English Document"
+  },
+  "TS":{
+    "message": "TS"
+  },
+  "homepage.feature.ts.desc1":{
+    "message":"Support for"
+  },
+  "homepage.feature.ts.desc2":{
+    "message":""
   }
 
 }
