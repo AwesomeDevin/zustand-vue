@@ -22,7 +22,7 @@ const FeatureList = [
     Svg: ()=><div style={style}><img src={require('@site/static/img/react-vue.png').default} width="370" /></div>,
     description: (
       <>
-        <Translate id="homepage.feature.zustand-pub.desc1">对Iframe、微前端、模块化、组件化等业务场景，提供</Translate><span><Translate id="homepage.feature.zustand-pub.desc2">跨应用、跨框架</Translate></span><Translate id="homepage.feature.zustand-pub.desc3">的状态管理能力。</Translate>
+        <Translate id="homepage.feature.zustand-pub.desc1">对 Iframe、微前端、模块化、组件化等业务场景，提供</Translate><span><Translate id="homepage.feature.zustand-pub.desc2">跨应用、跨框架</Translate></span><Translate id="homepage.feature.zustand-pub.desc3">的状态管理能力。</Translate>
       </>
     ),
   },
@@ -42,7 +42,7 @@ const FeatureList = [
     <img src={require('@site/static/img/ts.png').default} width="200" /></div>,
     description: (
       <>
-        <Translate id="homepage.feature.ts.desc1">完备的</Translate> <span>typescript</span> <Translate id="homepage.feature.ts.desc2">类型推导 </Translate>
+        <Translate id="homepage.feature.ts.desc1">完备的</Translate><span>typescript</span><Translate id="homepage.feature.ts.desc2">类型推导</Translate>
       </>
     ),
   },
