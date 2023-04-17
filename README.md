@@ -9,7 +9,7 @@ A small, fast and scalable bearbones state-management solution using simplified 
 
 If you have good ideas, Welcome to build together ! 👏👏👏
 
-##### [Official Document](https://awesomedevin.github.io/zustand-vue/en/)   [Chinese Document](https://awesomedevin.github.io/zustand-vue/docs/introduce/start/zustand-vue)
+##### [Official Document](https://awesomedevin.github.io/zustand-vue/en/)   [中文文档](https://awesomedevin.github.io/zustand-vue/docs/introduce/start/zustand-vue)
 
 
 :::tip
