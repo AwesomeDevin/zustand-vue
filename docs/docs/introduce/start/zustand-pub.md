@@ -35,9 +35,9 @@ tags:
 `zustand-pub` 为 **Iframe、微前端、Module Fedetation、模块化、组件化** 等业务场景，提供 **跨应用、跨框架** 的 **状态管理** 及 **状态共享** 能力。
 
 ## 为什么你需要 zustand-pub ？
-1. 应用/组件 间可以 `相互调用/修改 state`，并 `触发组件渲染`, 不再需要 postMessage 或其它事件通信机制。
+1. 应用/组件 间可以 `相互调用/修改 state`，并 `触发组件渲染`, 如果你是iframe，则可以抛弃掉难维护的`postMessage + addeventlistener + action`了，如果你是微前端，也不在需要`eventCenter + action`了，直接调用 `action` 修改 state 即可 。
 2. 应用/组件 间 `状态可以被缓存`，包括 iframe、微前端等。
-3. 解决业务组件引用全局 `store` 时会导致夸应用无法复用的问题。
+3. 平时我们在业务组件引用全局 `store` 时会导致夸应用无法复用的问题，降低了组件的可复用性，而基于`zustand-pub`则不会再存在此类问题，复用性与开发效率并存。
 4. 基于 devtools 可以 `同时调试/追踪多个应用间的 store`，能够极大地降低应用间通信时的调试难度。
 
 
