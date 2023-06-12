@@ -37,6 +37,7 @@ tags:
 2. `State can be cached` between applications/components, including iframes, micro frontends, etc.
 3. Usually, when we refer to the global `store` in business components, it will lead to the problem that the anthor application cannot be reused, which reduces the reusability of the component. However, based on `zustand-pub`, such problems will no longer exist, reusability and development efficiency exist at the same time.
 4. Based on devtools, you can `debug/trace stores between multiple applications at the same time`, which can greatly reduce the difficulty of debugging when communicating between applications.
+5. If you are using zustand or zustand-vue, it will be very convenient to use zustand-pub.
 
 ## Install
 ```shell
