@@ -352,3 +352,7 @@ export default {
 ```
 </details>
 :::
+
+
+### State-Sharing
+if you want cross-application and cross-framework(react/vue) state management and sharing capabilities, maybe you can try [zustand-pub](https://github.com/AwesomeDevin/zustand-pub).
