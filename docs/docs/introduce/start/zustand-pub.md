@@ -36,9 +36,9 @@ tags:
 
 ## 为什么你需要 zustand-pub ？
 1. 应用/组件 间可以 `相互调用/修改 state`，并 `触发组件渲染`, 如果你是iframe，则可以抛弃掉难维护的`postMessage + addeventlistener + action`了，如果你是微前端，也不在需要`eventCenter + action`了，直接调用 `action` 修改 state 即可。
-2. 应用/组件 间 `状态可以被缓存`，包括 iframe、微前端等。
+2. 基于外部状态存储的 `数据持久化缓存方案`，应用/组件/iframe/微前端等 `状态可以被缓存`。
 3. 平时我们在业务组件引用全局 `store` 时会导致夸应用无法复用的问题，降低了组件的可复用性，而基于`zustand-pub`则不会再存在此类问题，复用性与开发效率并存。
-4. 基于 devtools 可以 `同时调试/追踪多个应用间的 store`，能够极大地降低应用间通信时的调试难度。
+4. 基于 [devtools](https://github.com/AwesomeDevin/zustand-pub/blob/main/demo/iframe/main-app/vue-app/src/platformStore.ts) 可以 `同时调试/追踪多个应用间的 store`，能够极大地降低应用间通信时的调试难度。
 5. 如果你正在使用 zustand 或 zustand-vue，那么使用 zustand-pub 将很简单。
 
 
