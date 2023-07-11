@@ -36,8 +36,10 @@ tags:
 1. Applications/Components can `mutually call/modify state` and `trigger component rendering`, if in iframe, you can discard the hard-to-maintain `postMessage + addeventlistener + action`, if in micro-frontend, you don’t need it anymore `eventCenter + action`, just call `action` directly to modify the state。
 2. `Data Persistence Caching Scheme` based on external state storage, application/component/iframe/micro-frontend,etc. `state can be cached`.
 3. Usually, when we refer to the global `store` in business components, it will lead to the problem that the anthor application cannot be reused, which reduces the reusability of the component. However, based on `zustand-pub`, such problems will no longer exist, reusability and development efficiency exist at the same time.
-4. Based on [devtools](https://github.com/AwesomeDevin/zustand-pub/blob/main/demo/iframe/main-app/vue-app/src/platformStore.ts), you can `debug/trace stores between multiple applications at the same time`, which can greatly reduce the difficulty of debugging when communicating between applications.
-5. If you are using zustand or zustand-vue, it will be very convenient to use zustand-pub.
+4. In the past, the store of `modular management` was reused in different library (applications), the state could not be updated synchronously, but the state of the store based on `zustand-pub` module management could be updated synchronously, which improved the store development process. Feasibility of logic reuse and R&D efficiency.
+5. In some iframe / micro-frontend scenarios, page rendering is slow due to `too many http requests`, based on this solution, `sub-application status pre-request` can be performed to optimize user experience.
+6. Based on [devtools](https://github.com/AwesomeDevin/zustand-pub/blob/main/demo/iframe/main-app/vue-app/src/platformStore.ts), you can `debug/trace stores between multiple applications at the same time`, which can greatly reduce the difficulty of debugging when communicating between applications.
+7. If you are using zustand or zustand-vue, it will be very convenient to use zustand-pub.
 
 ## Install
 ```shell
