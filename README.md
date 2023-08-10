@@ -356,3 +356,11 @@ export default {
 
 ### State-Sharing
 if you want cross-application and cross-framework(react/vue) state management and sharing capabilities, maybe you can try [zustand-pub](https://github.com/AwesomeDevin/zustand-pub).
+
+
+## Stargazers 
+[![Stargazers repo roster for @AwesomeDevin/zustand-vue](https://reporoster.com/stars/AwesomeDevin/zustand-vue)](https://github.com/AwesomeDevin/zustand-vue/stargazers)
+
+
+## Forkers 
+[![Forkers repo roster for @AwesomeDevin/zustand-vue](https://reporoster.com/forks/AwesomeDevin/zustand-vue)](https://github.com/AwesomeDevin/zustand-vue/network/members)
