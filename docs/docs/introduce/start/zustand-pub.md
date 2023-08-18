@@ -43,7 +43,7 @@ tags:
 5.  `提升 store 模块化管理的可行性，减少重复代码`：以往模块化管理的 store，在不同仓库（应用）下复用时，状态无法同步更新，而基于zustand-pub 模块化管理的 store，状态将能够同步更新，提升了研发过程中 store 逻辑复用的可行性及研发效率。
 6.  `预请求`：某些 iframe / 微前端 场景因为`接口请求过多导致页面渲染慢的`，可以基于该方案进行`子应用状态预请求`，优化用户体验
 7.  `调试体验好`：基于 [devtools](https://github.com/AwesomeDevin/zustand-pub/blob/main/demo/iframe/main-app/vue-app/src/platformStore.ts) 可以 `同时调试/追踪多个应用间的 store`，能够极大地降低应用间通信时的调试难度。
-8.  `迁移成本低`：如果你正在使用 zustand 或 zustand-vue，那么使用 zustand-pub 将很简单。
+8.  `迁移成本低`：如果你正在使用 zustand 或 zustand-vue 进行状态存储，那么实现跨组件、跨应用通信成本极低,引入 zustand-pub 即可。
 
 
 ## 安装 
