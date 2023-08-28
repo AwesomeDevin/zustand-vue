@@ -6,8 +6,20 @@ import { defineProxy, defineSet, defineReactive, executeEqualityFn } from "./pro
 export type ExtractState<S> = S extends {
   getState: () => infer T;
 } ? T: never;
+declare type Primitive =
+  | string
+  | number
+  | boolean
+  | bigint
+  | symbol
+  | Date
+  | Error;
 
-type TIsFunction<T> = T extends Function ?  T : Vue.Ref<T>
+type TIsFunction<T> = T extends Function
+  ? T
+  : T extends Primitive
+  ? Vue.Ref<T>
+  : Vue.UnwrapNestedRefs<T>;
 
 
 type WithVue<S extends StoreApi<unknown>> = S & {
