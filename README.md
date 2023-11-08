@@ -359,8 +359,9 @@ if you want cross-application and cross-framework(react/vue) state management an
 
 
 ## Stargazers 
-[![Stargazers repo roster for @AwesomeDevin/zustand-vue](https://reporoster.com/stars/AwesomeDevin/zustand-vue)](https://github.com/AwesomeDevin/zustand-vue/stargazers)
+[![Stargazers repo roster for @AwesomeDevin/zustand-vue](http://bytecrank.com/nastyox/reporoster/php/stargazersSVG.php?user=AwesomeDevin&repo=zustand-vue)](https://github.com/AwesomeDevin/zustand-vue/stargazers)
+
 
 
 ## Forkers 
-[![Forkers repo roster for @AwesomeDevin/zustand-vue](https://reporoster.com/forks/AwesomeDevin/zustand-vue)](https://github.com/AwesomeDevin/zustand-vue/network/members)
+[![Forkers repo roster for @AwesomeDevin/zustand-vue](http://bytecrank.com/nastyox/reporoster/php/forkersSVG.php?user=AwesomeDevin&repo=zustand-vue)](https://github.com/AwesomeDevin/zustand-vue/network/members)
