@@ -89,7 +89,7 @@ opticsInc()
 ## [Ramda](https://ramdajs.com/)
 还有 [Ramda](https://ramdajs.com/)
 ```js
-import * as O from 'optics-ts'
+import * as R from 'ramda'
 
 const useStore = create((set) => ({
   deep: {
