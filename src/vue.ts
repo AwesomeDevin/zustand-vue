@@ -74,7 +74,7 @@ function defineDep<T, S>( api: WithVue<StoreApi<T>>, selection?:(state: T) => S,
   if(typeof store === 'undefined'){
     return Vue.ref(undefined)
   } else if (isObject) {
-    if (typeof Proxy !== 'undefined') {
+    if (typeof Proxy === 'undefined') {
       defineReactive<T, typeof store>(store, subscribeCache, api, selection, equalityFn);
       return Vue.reactive(store as object);
     }
