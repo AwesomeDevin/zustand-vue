@@ -57,7 +57,7 @@ Store binds components are different in `vue3` vs `vue2`。
 <template>
   <div>store.bears: {{ bears }}</div>
 </template>
-<script setip>
+<script setup>
 import useBearStore from "./store";
 const bears = useBearStore((state) => state.bears)
 </script>
