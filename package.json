@@ -33,11 +33,18 @@
   },
   "homepage": "https://github.com/AwesomeDevin/zustand-vue#readme",
   "dependencies": {
+    "vue-demi": "^0.14.7",
     "zustand": "^4.1.4"
   },
   "peerDependencies": {
+    "@vue/composition-api": "^1.0.0-rc.1",
     "vue": ">=2.6.0",
     "zustand": ">=4.1.4"
+  },
+  "peerDependenciesMeta": {
+    "@vue/composition-api": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@rollup/plugin-babel": "^6.0.2",
