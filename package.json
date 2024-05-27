@@ -33,6 +33,7 @@
   },
   "homepage": "https://github.com/AwesomeDevin/zustand-vue#readme",
   "dependencies": {
+    "vue-demi": "^0.14.7",
     "zustand": "^4.1.4"
   },
   "peerDependencies": {
