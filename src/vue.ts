@@ -51,7 +51,7 @@ export type TSubscribeCache = Record<string, () => void>
 function defineDep<T, S>( api: WithVue<StoreApi<T>>, selection?:(state: T) => S, equalityFn?: (a: S, b: S) => boolean ) {
   const externalState = api.getState();
   const store = selection ? selection(externalState) : externalState;
-  const isObject = store?.constructor === Object;
+  // const isObject = store?.constructor === Object;
   // const isFunction = Object.prototype.toString.call(store) === '[object Function]'
   const isFunction = typeof store === 'function'
 
@@ -73,12 +73,6 @@ function defineDep<T, S>( api: WithVue<StoreApi<T>>, selection?:(state: T) => S,
   
   if(typeof store === 'undefined'){
     return Vue.ref(undefined)
-  } else if (isObject) {
-    if (typeof Proxy === 'undefined') {
-      defineReactive<T, typeof store>(store, subscribeCache, api, selection, equalityFn);
-      return Vue.reactive(store as object);
-    }
-    return defineProxy<T, typeof store>(store, subscribeCache, api, selection, equalityFn)
   } else {
     const res = Vue.ref(store);
     api.subscribe((state, prevState) => {
