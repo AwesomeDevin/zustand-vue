@@ -352,3 +352,14 @@ export default {
 ```
 </details>
 :::
+
+### Vite Note
+Due to the necessity of being compatible with both Vue 2 and Vue 3, Vite requires configuration using vue-demi for compatibility. For specific details, refer to [vue-demi](https://github.com/vueuse/vue-demi)
+```vite.config.js
+// vite.config.js
+export default defineConfig({
+  optimizeDeps: {
+    exclude: ['vue-demi']
+  }
+})
+```

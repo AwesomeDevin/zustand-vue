@@ -353,3 +353,14 @@ export default {
 ```
 </details>
 :::
+
+### Vite 注意
+由于需要同时兼容 vue2 和 vue3，使用 vue-demi 兼容，所以 vite 需要配置，具体可查看[vue-demi](https://github.com/vueuse/vue-demi)
+```vite.config.js
+// vite.config.js
+export default defineConfig({
+  optimizeDeps: {
+    exclude: ['vue-demi']
+  }
+})
+```
