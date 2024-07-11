@@ -1,7 +1,7 @@
 import { StoreApi } from "zustand/vanilla";
 // @ts-ignore
 import * as Vue from "vue";
-import { TSubscribeCache, TObject } from "./vue";
+import { TObject, TSubscribeCache } from "./vue";
 
 export const executeEqualityFn = <T, S>(nextState: T, previousState: T, selection?: (state: T) => S, equalityFn?: (a: S, b: S) => boolean) => {
   if(!selection || !equalityFn) return true
@@ -19,19 +19,18 @@ export function defineProxy<T, S>(
   subscribeCache: TSubscribeCache, 
   api: StoreApi<T>, 
   selection?: (state: T) => S, equalityFn?: (a: S, b: S) => boolean) {
-  const keys = Object.keys(store)
+  const vueInternalkeys = ['__v_raw', '__v_isReadonly', '__v_isRef', 'toJSON', 'toString', 'valueOf', Symbol.toStringTag, 'Symbol(Symbol.toStringTag)']
   // @ts-ignore
   const reactiveStore = Vue.reactive(store);
   const val = new Proxy(reactiveStore, {
     get: (obj, prop: string) => {
-      if (keys.includes(prop)) {
-        if (!subscribeCache[prop]) {
+        if (!subscribeCache[prop] && !vueInternalkeys.includes(prop)) {
           subscribeCache[prop] = api.subscribe((state, prevState) => {
             if(!executeEqualityFn(state, prevState, selection, equalityFn)) return
+            console.log(selection ? selection(state)[prop as keyof S] : state[prop as keyof T], prop)
             // @ts-ignore
             reactiveStore[prop as keyof typeof reactiveStore] = selection ? selection(state)[prop as keyof S] : state[prop as keyof T];
           });
-        }
       }
       return obj[prop as keyof typeof reactiveStore];
     }

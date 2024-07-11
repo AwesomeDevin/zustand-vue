@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from 'vue';
 import useStore from "../useStore";
 
 
@@ -30,7 +30,6 @@ const handleChange2 = (e) => {
   value.value = e.target.value
 }
 
-console.log(setTitle)
 setTitle('Demo1')
 </script>
 

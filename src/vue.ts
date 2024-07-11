@@ -1,6 +1,6 @@
-import createStore, { StateCreator, StoreApi, StoreMutatorIdentifier, Mutate } from "zustand/vanilla";
-import * as Vue  from "vue";
-import { defineProxy, defineSet, defineReactive, executeEqualityFn } from "./proxy";
+import * as Vue from "vue";
+import createStore, { Mutate, StateCreator, StoreApi, StoreMutatorIdentifier } from "zustand/vanilla";
+import { defineProxy, defineReactive, defineSet, executeEqualityFn } from "./proxy";
 
 
 export type ExtractState<S> = S extends {
@@ -71,9 +71,7 @@ function defineDep<T, S>( api: WithVue<StoreApi<T>>, selection?:(state: T) => S,
   }
 
   
-  if(typeof store === 'undefined'){
-    return Vue.ref(undefined)
-  } else if (isObject) {
+ if (isObject) {
     if (typeof Proxy === 'undefined') {
       defineReactive<T, typeof store>(store, subscribeCache, api, selection, equalityFn);
       return Vue.reactive(store as object);
@@ -100,10 +98,9 @@ const create = (<T extends TObject>(createState: StateCreator<T, [], [], T>) => 
 }) as Create
 
 export {
-  createStore,
   StateCreator,
   StoreApi,
-  create,
-  defineProxy,
-  defineSet,
-}
+  create, createStore, defineProxy,
+  defineSet
+};
+
