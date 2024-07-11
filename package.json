@@ -8,7 +8,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx rollup -c --bundleConfigAsCjs",
-    "dev": "npx rollup -c -w --development --bundleConfigAsCjs"
+    "dev": "npx rollup -c -w --development --bundleConfigAsCjs",
+    "pub": "npx vergo run -b -m main",
+    "pub-pro": "npx vergo run -m main"
+
   },
   "sideEffects": false,
   "repository": {
@@ -40,6 +43,7 @@
     "zustand": ">=4.1.4"
   },
   "devDependencies": {
+    "vergo": "0.0.1-beta.45",
     "@rollup/plugin-babel": "^6.0.2",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@rollup/plugin-typescript": "^9.0.2",

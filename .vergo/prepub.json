@@ -1,0 +1,13 @@
+{
+  "packages": [
+    {
+      "name": "zustand-vue",
+      "relativeDir": "unknown",
+      "diffFiles": [
+        "/package.json",
+        "/pnpm-lock.yaml"
+      ],
+      "isDependOn": []
+    }
+  ]
+}
