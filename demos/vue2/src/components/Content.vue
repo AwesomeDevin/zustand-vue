@@ -1,12 +1,14 @@
 <template>
   <div class="hello">
     <h3>{{ title }}</h3>
-    <h3>{{ store.subTitle }}</h3>
 
+    <h3>{{ store.subTitle }}</h3>
+    <h3>age: {{ age }}</h3>
     <h3>My Name is {{ name }}</h3>
     <h3>userInfo： {{ store.userInfo }}</h3>
     <h3>bears:{{bears}}</h3>
     <h3>fishes:{{fishes}}</h3>
+
     <div><button @click="addBear">Add Bears</button> &nbsp;&nbsp; <button @click="addBearAndFish">addBearAndFish</button></div>
 
     <h3>
@@ -54,6 +56,9 @@ export default {
     },
     title(){
       return this.store.title
+    },
+    age(){
+      return this.store.age
     }
   },
   methods:{

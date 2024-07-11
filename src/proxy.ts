@@ -1,4 +1,4 @@
-import * as Vue from "vue";
+import { reactive } from "vue";
 import { StoreApi } from "zustand/vanilla";
 import { TObject, TSubscribeCache } from "./vue";
 
@@ -20,7 +20,7 @@ export function defineProxy<T, S>(
   selection?: (state: T) => S, equalityFn?: (a: S, b: S) => boolean) {
   const keys = Object.keys(store)
   // @ts-ignore
-  const reactiveStore = Vue.reactive(store);
+  const reactiveStore = reactive(store);
   const val = new Proxy(reactiveStore, {
     get: (obj, prop: string) => {
       if (keys.includes(prop)) {

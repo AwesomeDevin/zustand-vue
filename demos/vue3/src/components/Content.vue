@@ -1,8 +1,11 @@
 <template>
   <div class="hello">
     <h3>{{ title }}</h3>
+    <h3>{{ store.subTitle }}</h3>
+
     <h3>My Name is {{ name }}</h3>
     <h3>userInfo： {{ store.userInfo }}</h3>
+    <h3>age: {{age}}</h3>
     <h3>
     <ul>
       城市列表：
@@ -14,6 +17,7 @@
 <script lang="ts">
 import useStore from "../useStore";
 
+const setAge = useStore((state) => state.setAge);
 
 export default {
   name: "Header",
@@ -23,11 +27,15 @@ export default {
       userInfo: useStore((state) => state.userInfo),
       collection: useStore((state) => state.collection),
       store: useStore(),
+      age: useStore((state) => state.userInfo.age),
     };
   },
   computed:{
     title(){
       return useStore((state) => state.title)
+    },
+    subTitle(){
+      return useStore((state) => state.subTitle)
     }
   },
   watch: {
@@ -40,9 +48,13 @@ export default {
     collection() {
       console.log("collection changed");
     },
+    subTitle(){
+      console.log('subTitle changed')
+    }
   },
   mounted() {
-    console.log(this.collection, this.name, this.store.userInfo);
+    setAge(18)
+    console.log(this.store.subTitle)
   },
 };
 </script>

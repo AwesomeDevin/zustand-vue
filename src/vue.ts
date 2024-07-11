@@ -1,4 +1,4 @@
-import { Ref, UnwrapNestedRefs, UnwrapRef, ref } from "vue-demi"
+import { Ref, UnwrapNestedRefs, UnwrapRef, isVue2, ref } from "vue-demi"
 import { Mutate, StateCreator, StoreApi, StoreMutatorIdentifier, createStore } from "zustand/vanilla"
 import { defineProxy, defineSet, executeEqualityFn } from "./proxy"
 
@@ -38,17 +38,22 @@ function defineDep<T, S>(api: WithVue<StoreApi<T>>, selection?: (state: T) => S,
   const store = selection ? selection(externalState) : externalState
 
   const isFunction = typeof store === "function"
+  const subscribeCache:TSubscribeCache = {}
 
-  if (typeof store === "undefined") {
-    return ref(undefined)
-  } else {
+  // if (typeof store === "undefined") {
+  //   return ref(undefined)
+  // } else {
+    if (isVue2) {
+      let observableStore
+      return defineSet<T, S>(externalState, observableStore, subscribeCache, api, selection, equalityFn)
+    }
     const res = ref(store)
     api.subscribe((state, prevState) => {
       if (!executeEqualityFn(state, prevState, selection, equalityFn)) return
       res.value = (selection ? selection(state) : state) as UnwrapRef<S>
     })
     return isFunction ? res.value : res
-  }
+  // }
 }
 
 const create = (<T extends TObject>(createState: StateCreator<T, [], [], T>) => {

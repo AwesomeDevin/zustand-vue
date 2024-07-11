@@ -1,5 +1,5 @@
 import { create } from 'zustand-vue';
-import { devtools, persist } from 'zustand/middleware'
+import { devtools } from 'zustand/middleware';
 // import { create } from '../../../build/index.es.js';
 
 
@@ -7,15 +7,18 @@ interface IState {
   userInfo: {
     name: string
     tel: string
+    age?: number
   }
   collection: string[]
   title: string
+  subTitle?: string
 }
 
 interface IAction {
   setName: (val: string) => void
   push: (val: string) => void
   setTitle: (val: string) => void
+  setAge: (val: number) => void
 }
 
 const state: IState = {
@@ -55,6 +58,14 @@ export default create<IState & IAction,[
         }
       }));
     },
+    setAge: (val: number) => {
+      set((origin) => ({
+        userInfo: {
+          ...origin.userInfo,
+          age: val,
+        }
+      }));
+    },
     push: (val: string) => {
       set((state: IState) => {
         return {
@@ -64,7 +75,8 @@ export default create<IState & IAction,[
     },
     setTitle: (title: string) => {
       set(() => ({
-        title
+        title,
+        subTitle: `sub${title}`
       }));
     }
   }),{
