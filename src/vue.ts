@@ -1,5 +1,5 @@
 import * as Vue from "vue";
-import createStore, { Mutate, StateCreator, StoreApi, StoreMutatorIdentifier } from "zustand/vanilla";
+import { createStore, Mutate, StateCreator, StoreApi, StoreMutatorIdentifier } from "zustand/vanilla";
 import { defineProxy, defineReactive, defineSet, executeEqualityFn } from "./proxy";
 
 
@@ -98,9 +98,8 @@ const create = (<T extends TObject>(createState: StateCreator<T, [], [], T>) => 
 }) as Create
 
 export {
-  StateCreator,
-  StoreApi,
   create, createStore, defineProxy,
-  defineSet
+  defineSet, StateCreator,
+  StoreApi
 };
 

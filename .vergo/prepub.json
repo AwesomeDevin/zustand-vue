@@ -4,7 +4,8 @@
       "name": "zustand-vue",
       "relativeDir": "",
       "diffFiles": [
-        "/src/proxy.ts"
+        "/package.json",
+        "/src/vue.ts"
       ],
       "isDependOn": []
     }
