@@ -27,7 +27,6 @@ export function defineProxy<T, S>(
         if (!subscribeCache[prop] && !vueInternalkeys.includes(prop)) {
           subscribeCache[prop] = api.subscribe((state, prevState) => {
             if(!executeEqualityFn(state, prevState, selection, equalityFn)) return
-            console.log(selection ? selection(state)[prop as keyof S] : state[prop as keyof T], prop)
             // @ts-ignore
             reactiveStore[prop as keyof typeof reactiveStore] = selection ? selection(state)[prop as keyof S] : state[prop as keyof T];
           });

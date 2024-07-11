@@ -4,8 +4,7 @@
       "name": "zustand-vue",
       "relativeDir": "",
       "diffFiles": [
-        "/package.json",
-        "/pnpm-lock.yaml"
+        "/src/proxy.ts"
       ],
       "isDependOn": []
     }
