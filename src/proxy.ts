@@ -1,7 +1,6 @@
-import { StoreApi } from "zustand/vanilla";
-// @ts-ignore
 import * as Vue from "vue";
-import { TSubscribeCache, TObject } from "./vue";
+import { StoreApi } from "zustand/vanilla";
+import { TObject, TSubscribeCache } from "./vue";
 
 export const executeEqualityFn = <T, S>(nextState: T, previousState: T, selection?: (state: T) => S, equalityFn?: (a: S, b: S) => boolean) => {
   if(!selection || !equalityFn) return true

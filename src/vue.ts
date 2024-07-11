@@ -1,5 +1,5 @@
-import createStore, { StateCreator, StoreApi, StoreMutatorIdentifier, Mutate } from "zustand/vanilla"
-import { Ref, UnwrapNestedRefs, UnwrapRef, ref, isVue2 } from "vue-demi"
+import { Ref, UnwrapNestedRefs, UnwrapRef, ref } from "vue-demi"
+import { Mutate, StateCreator, StoreApi, StoreMutatorIdentifier, createStore } from "zustand/vanilla"
 import { defineProxy, defineSet, executeEqualityFn } from "./proxy"
 
 export type ExtractState<S> = S extends {
@@ -36,17 +36,9 @@ export type TSubscribeCache = Record<string, () => void>
 function defineDep<T, S>(api: WithVue<StoreApi<T>>, selection?: (state: T) => S, equalityFn?: (a: S, b: S) => boolean) {
   const externalState = api.getState()
   const store = selection ? selection(externalState) : externalState
-  // const isObject = Object.prototype.toString.call(store) === "[object Object]";
-  // const isObject = store?.constructor === Object;
-  // const isFunction = Object.prototype.toString.call(store) === '[object Function]'
+
   const isFunction = typeof store === "function"
 
-  const subscribeCache: TSubscribeCache = {}
-
-  if (isVue2) {
-    let observableStore
-    return defineSet<T, S>(externalState, observableStore, subscribeCache, api, selection, equalityFn)
-  }
   if (typeof store === "undefined") {
     return ref(undefined)
   } else {
@@ -69,4 +61,5 @@ const create = (<T extends TObject>(createState: StateCreator<T, [], [], T>) => 
   return res
 }) as Create
 
-export { createStore, StateCreator, StoreApi, create, defineProxy, defineSet }
+export { StateCreator, StoreApi, create, createStore, defineProxy, defineSet }
+

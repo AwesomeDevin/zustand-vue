@@ -6,9 +6,11 @@ interface IState {
   userInfo: {
     name: string
     tel: string
+    age?: number
   }
   collection: string[]
   title: string
+  subTitle?: string
 }
 
 interface IAction {
@@ -36,6 +38,14 @@ const userStore = (set, get) => ({
       }
     }));
   },
+  setAge: (val: number) => {
+    set((origin: IState) => ({
+      userInfo: {
+        ...origin.userInfo,
+        age: val,
+      }
+    }));
+  },
   push: (val: string) => {
     set((state: IState) => {
       return {
@@ -45,7 +55,8 @@ const userStore = (set, get) => ({
   },
   setTitle: (title: string) => {
     set(() => ({
-      title
+      title,
+      subTitle: `sub${title}`
     }));
   }
 });
