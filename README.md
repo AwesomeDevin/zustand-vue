@@ -295,7 +295,7 @@ export default {
 <details>
 <summary>Vue2</summary>
 
-- Method1 1
+- Method 1
 ```js
 <template>
   <input v-model="bears" />

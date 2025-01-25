@@ -104,7 +104,7 @@ const initialState = {
 const useReduxStore = create(redux(reducer, initialState))
 ```
 
-## Devtools middle
+## Devtools middleware
 Use the developer tool `Debug/Trace` Store
 
 ```js

@@ -106,7 +106,7 @@ const initialState = {
 const useReduxStore = create(redux(reducer, initialState))
 ```
 
-## Devtools middle
+## Devtools middleware
 利用开发者工具 `调试/追踪` Store
 
 ```js
